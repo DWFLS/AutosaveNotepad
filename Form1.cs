@@ -11,7 +11,7 @@ namespace AutosaveNotepad
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            textEditorBox.Clear();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -31,6 +31,18 @@ namespace AutosaveNotepad
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        // FILE functions
+
+        private void saveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
         }
 
 
@@ -79,5 +91,7 @@ namespace AutosaveNotepad
         {
 
         }
+
+
     }
 }
