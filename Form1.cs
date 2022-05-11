@@ -2,8 +2,6 @@ namespace AutosaveNotepad
 {
     public partial class formMain : Form
     {
-        string currentFileName;
-
 
         public formMain()
         {
@@ -19,7 +17,7 @@ namespace AutosaveNotepad
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox.Clear();
+
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -57,8 +55,7 @@ namespace AutosaveNotepad
 
         void Save(string filename)
         {
-            currentFileName = filename;
-            richTextBox.SaveFile(currentFileName);
+
         }
 
 
