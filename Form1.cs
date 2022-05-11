@@ -2,16 +2,24 @@ namespace AutosaveNotepad
 {
     public partial class formMain : Form
     {
+        string currentFileName;
+
+
         public formMain()
         {
             InitializeComponent();
+        }
+
+        private void formMain_Load(object sender, EventArgs e)
+        {
+
         }
 
         // FILE menu
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            richTextBox.Clear();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -33,37 +41,62 @@ namespace AutosaveNotepad
             Application.Exit();
         }
 
+        // FILE functions
+
+        private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void saveFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+
+
+        void Save(string filename)
+        {
+            currentFileName = filename;
+            richTextBox.SaveFile(currentFileName);
+        }
+
 
         // EDIT menu
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            richTextBox.Undo();
         }
 
         private void redoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            richTextBox.Redo();
         }
 
         private void cutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            richTextBox.Cut();
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            richTextBox.Copy();
         }
 
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            richTextBox.Paste();
         }
 
         private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            richTextBox.Clear();
+        }
 
+        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            richTextBox.SelectAll();
         }
 
         // DARK MODE Menu
@@ -79,5 +112,12 @@ namespace AutosaveNotepad
         {
 
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
