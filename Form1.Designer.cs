@@ -30,6 +30,7 @@
         {
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.textEditorBox = new System.Windows.Forms.RichTextBox();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,9 +47,6 @@
             this.darkModeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.textEditorBox = new System.Windows.Forms.TextBox();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,6 +73,15 @@
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip";
             // 
+            // textEditorBox
+            // 
+            this.textEditorBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textEditorBox.Location = new System.Drawing.Point(0, 28);
+            this.textEditorBox.Name = "textEditorBox";
+            this.textEditorBox.Size = new System.Drawing.Size(865, 521);
+            this.textEditorBox.TabIndex = 2;
+            this.textEditorBox.Text = "";
+            // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -100,7 +107,7 @@
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.openToolStripMenuItem.Text = "Open...";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
@@ -211,24 +218,6 @@
             this.selectAllToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
             this.selectAllToolStripMenuItem.Text = "Select All";
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
-            // 
-            // saveFileDialog1
-            // 
-            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
-            // 
-            // textEditorBox
-            // 
-            this.textEditorBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textEditorBox.Location = new System.Drawing.Point(0, 28);
-            this.textEditorBox.Multiline = true;
-            this.textEditorBox.Name = "textEditorBox";
-            this.textEditorBox.Size = new System.Drawing.Size(865, 521);
-            this.textEditorBox.TabIndex = 2;
-            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -256,6 +245,7 @@
         private ToolStripMenuItem openToolStripMenuItem;
         private ToolStripMenuItem saveAsToolStripMenuItem;
         private ToolStripMenuItem saveAsCopyToolStripMenuItem;
+        private RichTextBox textEditorBox;
         private ToolStripMenuItem exitToolStripMenuItem;
         private ToolStripMenuItem editToolStripMenuItem;
         private ToolStripMenuItem undoToolStripMenuItem;
@@ -267,8 +257,5 @@
         private ToolStripMenuItem darkModeToolStripMenuItem;
         private ToolStripMenuItem aboutToolStripMenuItem;
         private ToolStripMenuItem selectAllToolStripMenuItem;
-        private OpenFileDialog openFileDialog1;
-        private SaveFileDialog saveFileDialog1;
-        private TextBox textEditorBox;
     }
 }
