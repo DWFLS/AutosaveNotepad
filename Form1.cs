@@ -2,7 +2,8 @@ namespace AutosaveNotepad
 {
     public partial class formMain : Form
     {
-        string currentFileName;
+        string currentFileName = "";
+        string originalFileName = "";
 
         public formMain()
         {
@@ -29,18 +30,25 @@ namespace AutosaveNotepad
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 richTextBox.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
+                this.Text = "AutosaveNotepad - " + openFileDialog.FileName;
+                currentFileName = openFileDialog.FileName;
             }
-            this.Text = "AutosaveNotepad - " + openFileDialog.FileName;
-            currentFileName = openFileDialog.FileName;
         }
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SaveAs("New...", false);
+            SaveAs("Save as...", false);
         }
 
         private void saveAsCopyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // quick save and promptless load of currentFileName
+            if (currentFileName == "") // quick save and promptless load of currentFileName
+            {
+                SaveAs("Save as...", false);
+            }
+            else
+            {
+                SaveAsCopy("Save a backup copy...", false);
+            }
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -50,21 +58,42 @@ namespace AutosaveNotepad
 
         // FILE functions
 
-        private void SaveAs(string title, bool clear)
+        private void SaveAs(string title, bool clearTextBox)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Title = title;
             saveFileDialog.Filter = "Text Document|*.txt|All Files|*.*";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (clear)
+                if (clearTextBox)
                 {
                     richTextBox.Clear();
                 }
                 richTextBox.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
+                this.Text = "AutosaveNotepad - " + saveFileDialog.FileName;
+                currentFileName = saveFileDialog.FileName;
+                originalFileName = currentFileName;
             }
-            this.Text = "AutosaveNotepad - " + saveFileDialog.FileName;
-            currentFileName = saveFileDialog.FileName;
+        }
+
+        private void SaveAsCopy(string title, bool clearTextBox)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Title = title;
+            saveFileDialog.Filter = "Text Document|*.txt|All Files|*.*";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (clearTextBox)
+                {
+                    richTextBox.Clear();
+                }
+                richTextBox.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
+                richTextBox.SaveFile(originalFileName, RichTextBoxStreamType.PlainText);
+                richTextBox.LoadFile(originalFileName, RichTextBoxStreamType.PlainText);
+
+                this.Text = "AutosaveNotepad - " + originalFileName;
+                currentFileName = originalFileName;
+            }
         }
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
