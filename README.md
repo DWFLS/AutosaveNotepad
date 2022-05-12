@@ -14,3 +14,4 @@ To-do:
 -Undo/Redo smaller steps.
 -Timestamp.
 -Line wrapping.
+-Remove redundant code (button clicks).
