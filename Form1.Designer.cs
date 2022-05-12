@@ -28,9 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.toolStripStatusLabel2 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,10 +54,10 @@
             this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displaySettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkModeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.richTextBox = new System.Windows.Forms.RichTextBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +67,8 @@
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel,
-            this.toolStripStatusLabel1});
+            this.toolStripStatusLabel1,
+            this.toolStripStatusLabel2});
             this.statusStrip.Location = new System.Drawing.Point(0, 545);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(865, 26);
@@ -85,6 +88,18 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(151, 20);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             // 
+            // toolStripStatusLabel2
+            // 
+            this.toolStripStatusLabel2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripStatusLabel2.DoubleClickEnabled = true;
+            this.toolStripStatusLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+            this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
+            this.toolStripStatusLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(263, 20);
+            this.toolStripStatusLabel2.Text = "github.com/DWFLS/AutosaveNotepad";
+            this.toolStripStatusLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toolStripStatusLabel2.Click += new System.EventHandler(this.toolStripStatusLabel2_Click);
+            // 
             // menuStrip
             // 
             this.menuStrip.BackColor = System.Drawing.SystemColors.Control;
@@ -92,8 +107,7 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
-            this.displaySettingToolStripMenuItem,
-            this.aboutToolStripMenuItem});
+            this.displaySettingToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Size = new System.Drawing.Size(865, 28);
@@ -253,24 +267,17 @@
             this.displaySettingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.darkModeToolStripMenuItem1});
             this.displaySettingToolStripMenuItem.Name = "displaySettingToolStripMenuItem";
-            this.displaySettingToolStripMenuItem.Size = new System.Drawing.Size(123, 24);
-            this.displaySettingToolStripMenuItem.Text = "Display Setting";
+            this.displaySettingToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
+            this.displaySettingToolStripMenuItem.Text = "Display";
             this.displaySettingToolStripMenuItem.Click += new System.EventHandler(this.displaySettingToolStripMenuItem_Click);
             // 
             // darkModeToolStripMenuItem1
             // 
             this.darkModeToolStripMenuItem1.CheckOnClick = true;
             this.darkModeToolStripMenuItem1.Name = "darkModeToolStripMenuItem1";
-            this.darkModeToolStripMenuItem1.Size = new System.Drawing.Size(166, 26);
+            this.darkModeToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.darkModeToolStripMenuItem1.Text = "Dark Mode";
             this.darkModeToolStripMenuItem1.Click += new System.EventHandler(this.darkModeToolStripMenuItem1_Click);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(64, 24);
-            this.aboutToolStripMenuItem.Text = "About";
-            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -292,6 +299,12 @@
             this.richTextBox.TabIndex = 2;
             this.richTextBox.Text = "";
             this.richTextBox.TextChanged += new System.EventHandler(this.richTextBox_TextChanged);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
             // formMain
             // 
@@ -333,7 +346,6 @@
         private ToolStripMenuItem copyToolStripMenuItem;
         private ToolStripMenuItem pasteToolStripMenuItem;
         private ToolStripMenuItem clearAllToolStripMenuItem;
-        private ToolStripMenuItem aboutToolStripMenuItem;
         private ToolStripMenuItem selectAllToolStripMenuItem;
         private OpenFileDialog openFileDialog1;
         private SaveFileDialog saveFileDialog1;
@@ -346,5 +358,7 @@
         private ToolStripStatusLabel toolStripStatusLabel1;
         private ToolStripMenuItem displaySettingToolStripMenuItem;
         private ToolStripMenuItem darkModeToolStripMenuItem1;
+        private ToolStripStatusLabel toolStripStatusLabel2;
+        private ContextMenuStrip contextMenuStrip1;
     }
 }

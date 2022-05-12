@@ -26,6 +26,11 @@ namespace AutosaveNotepad
                 richTextBox.Enabled = false;
 
             }
+
+            statusStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            toolStripStatusLabel2.Alignment = ToolStripItemAlignment.Right;
+
+
         }
 
         public void formMain_Load(object sender, EventArgs e)
@@ -122,7 +127,7 @@ namespace AutosaveNotepad
                 richTextBox.SaveFile(currentFileName, RichTextBoxStreamType.PlainText);
                 this.Text = "AutosaveNotepad - " + saveFileDialog.FileName;
                 autosaveActive = true;
-                toolStripStatusLabel1.Text = "Autosave is now active";
+                toolStripStatusLabel1.Text = "Autosave is now active, take care while editing.";
                 EnableFeatures();
             }
         }
@@ -138,7 +143,7 @@ namespace AutosaveNotepad
                 this.Text = "AutosaveNotepad - " + openFileDialog.FileName;
                 currentFileName = openFileDialog.FileName;
                 autosaveActive = true;
-                toolStripStatusLabel1.Text = "Autosave is now active";
+                toolStripStatusLabel1.Text = "Autosave is now active, take care while editing.";
                 EnableFeatures();
             }
         }
@@ -153,7 +158,7 @@ namespace AutosaveNotepad
                 richTextBox.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
                 this.Text = "AutosaveNotepad - " + saveFileDialog.FileName;
                 currentFileName = saveFileDialog.FileName;
-                toolStripStatusLabel1.Text = "Autosave is now active";
+                toolStripStatusLabel1.Text = "Autosave is now active, take care while editing.";
                 EnableFeatures();
             }
         }
@@ -261,6 +266,11 @@ namespace AutosaveNotepad
         }
 
         private void displaySettingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripStatusLabel2_Click(object sender, EventArgs e)
         {
 
         }
