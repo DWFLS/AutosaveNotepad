@@ -18,4 +18,6 @@ To-do:
 - Undo/Redo smaller steps.
 - Timestamp.
 - Line wrapping.
+- Drag and drop.
+- "Open with".
 - Remove redundant code (button clicks).
