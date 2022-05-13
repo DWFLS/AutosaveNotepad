@@ -13,6 +13,7 @@ Features:
 
 
 To-do:
+
 v1.0.1
 - Remove redundant code (button clicks etc).
 - Cleaner code.
@@ -21,6 +22,7 @@ v1.0.1
 v1.0.2
 - Rename "Save and Backup" to "Create a *Backup* Copy"
 - Disable "Save as..." and "*Backup*" on app start.
+- Display file name in window name and path in status strip.
 
 
 v1.0.3
