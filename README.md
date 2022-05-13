@@ -13,11 +13,32 @@ Features:
 
 
 To-do:
-- Find/Replace feature.
-- Toggle editing functions on context (undo only if action made etc).
-- Undo/Redo smaller steps.
+v1.0.1
+- Remove redundant code (button clicks etc).
+- Cleaner code.
+
+
+v1.0.2
+- Rename "Save and Backup" to "Create a *Backup* Copy"
+- Disable "Save as..." and "*Backup*" on app start.
+
+
+v1.0.3
+- Add icons (toolbar/app)
 - Timestamp.
 - Line wrapping.
+
+
+v1.0.4
+- Undo/Redo smaller steps.
+- Toggle editing functions availability on context (undo only if action made etc).
+
+
+v1.0.5
+- URL the github status bar link.
+- Find/Replace feature.
+
+
+v1.1
 - Drag and drop.
 - "Open with".
-- Remove redundant code (button clicks).
