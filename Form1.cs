@@ -2,35 +2,24 @@ namespace AutosaveNotepad
 {
     public partial class formMain : Form
     {
-        string currentFileName = "";
-        bool autosaveActive = false;
-        bool textBoxActive = false;
+        private string currentFileName = string.Empty;
+        private bool autosaveActive = false;
 
-        public formMain()
+        public formMain() //this code block is executed after the main form is instantiated.
         {
             InitializeComponent();
-            toolStripStatusLabel1.Text = "Autosave is not active - Create or open a document.";
-            if (currentFileName == "")
-            {
-                editToolStripMenuItem.Enabled = false;
-                displaySettingToolStripMenuItem.Enabled = false;
-            }
-
-            else
-            {
-                editToolStripMenuItem.Enabled = true;
-            }
-
-            if (textBoxActive == false)
-            {
-                richTextBox.Enabled = false;
-
-            }
 
             statusStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
             toolStripStatusLabel2.Alignment = ToolStripItemAlignment.Right;
 
+            //
+            // AutosaveNotepad initial settings:
+            //
 
+            toolStripStatusLabel1.Text = "Autosave is NOT active - Create or open a document.";
+            editToolStripMenuItem.Enabled = false;
+            displaySettingToolStripMenuItem.Enabled = false;
+            richTextBox.Enabled = false;
         }
 
         public void formMain_Load(object sender, EventArgs e)
@@ -39,7 +28,7 @@ namespace AutosaveNotepad
         }
 
         //
-        // textBox input
+        // RICH TEXT BOX input
         //
 
         private void richTextBox_TextChanged(object sender, EventArgs e)
@@ -47,13 +36,21 @@ namespace AutosaveNotepad
             Autosave();
         }
 
+        //
+        // FEATURE functions
+        //
+
+
         private void Autosave()
         {
             if (autosaveActive)
             {
                 richTextBox.SaveFile(currentFileName, RichTextBoxStreamType.PlainText);
-                toolStripStatusLabel1.Text = "Autosave is now active";
+                toolStripStatusLabel1.Text = "Autosave is active";
             }
+
+            else
+                toolStripStatusLabel1.Text = "Autosave is NOT active";
         }
 
         private void EnableFeatures()
@@ -97,14 +94,12 @@ namespace AutosaveNotepad
 
         private void saveAsCopyToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (currentFileName == "") // quick save and promptless load of currentFileName
-            {
+            if (string.IsNullOrEmpty(currentFileName))
                 SaveAs();
-            }
+
             else
-            {
                 SaveAsCopy();
-            }
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -116,26 +111,27 @@ namespace AutosaveNotepad
 
         private void New(string title)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            var saveFileDialog = new SaveFileDialog();
             saveFileDialog.Title = title;
             saveFileDialog.Filter = "Text Document|*.txt|All Files|*.*";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 richTextBox.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
-                richTextBox.Clear();
                 currentFileName = saveFileDialog.FileName;
+                richTextBox.Clear();
                 richTextBox.SaveFile(currentFileName, RichTextBoxStreamType.PlainText);
                 this.Text = "AutosaveNotepad - " + saveFileDialog.FileName;
                 autosaveActive = true;
                 toolStripStatusLabel1.Text = "Autosave is now active, take care while editing.";
                 EnableFeatures();
+
             }
         }
 
         private void Open()
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Open";
+            var openFileDialog = new OpenFileDialog();
+            openFileDialog.Title = "Open...";
             openFileDialog.Filter = "Text Document|*.txt|All Files|*.*";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -150,7 +146,7 @@ namespace AutosaveNotepad
 
         private void SaveAs()
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            var saveFileDialog = new SaveFileDialog();
             saveFileDialog.Title = "Save as...";
             saveFileDialog.Filter = "Text Document|*.txt|All Files|*.*";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -158,6 +154,7 @@ namespace AutosaveNotepad
                 richTextBox.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
                 this.Text = "AutosaveNotepad - " + saveFileDialog.FileName;
                 currentFileName = saveFileDialog.FileName;
+                autosaveActive = true;
                 toolStripStatusLabel1.Text = "Autosave is now active, take care while editing.";
                 EnableFeatures();
             }
@@ -165,14 +162,15 @@ namespace AutosaveNotepad
 
         private void SaveAsCopy()
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            var saveFileDialog = new SaveFileDialog();
             saveFileDialog.Title = "Save a backup copy...";
             saveFileDialog.Filter = "Text Document|*.txt|All Files|*.*";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 richTextBox.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
                 this.Text = "AutosaveNotepad - " + currentFileName;
-                toolStripStatusLabel1.Text = "Created a backup copy. Autosave is active the original file";
+                autosaveActive = true;
+                toolStripStatusLabel1.Text = "Created a backup copy. Autosave is active on the original file";
                 EnableFeatures();
             }
         }
@@ -231,30 +229,27 @@ namespace AutosaveNotepad
             Autosave();
         }
 
-        // DARK MODE Menu
+        //
+        // DISPLAY Menu
+        //
+        private void displaySettingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void darkModeToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             CheckColors();
         }
 
-        // ABOUT Menu
-
-        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
+        //
+        // TOOL STRIP bar
+        //
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
-
         private void statusStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
@@ -265,16 +260,14 @@ namespace AutosaveNotepad
 
         }
 
-        private void displaySettingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void toolStripStatusLabel2_Click(object sender, EventArgs e)
         {
 
         }
 
+        private void toolStripStatusLabel1_Click_1(object sender, EventArgs e)
+        {
 
+        }
     }
 }

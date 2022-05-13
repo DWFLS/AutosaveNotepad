@@ -1,4 +1,4 @@
-AutosaveNotepad v1.0
+AutosaveNotepad v1.0.1
 
 
 by DWFLS
@@ -11,36 +11,47 @@ Features:
 - Create, open, save, backup documents.
 - Text editing functions (undo, redo, cut, copy, paste, select all)
 
+Version history:
 
-To-do:
 
 v1.0.1
-- Remove redundant code (button clicks etc).
+
+- Fixed a bug causing clearing of the previous file while creating another new document.
+- Removed redundant code.
 - Cleaner code.
 
 
+To-do:
+
+
 v1.0.2
+
 - Rename "Save and Backup" to "Create a *Backup* Copy"
 - Disable "Save as..." and "*Backup*" on app start.
-- Display file name in window name and path in status strip.
+- Display file name in window name and file path in status strip.
 
 
 v1.0.3
+
+- Autosave toggle
 - Add icons (toolbar/app)
 - Timestamp.
 - Line wrapping.
 
 
 v1.0.4
+
 - Undo/Redo smaller steps.
 - Toggle editing functions availability on context (undo only if action made etc).
 
 
 v1.0.5
+
 - URL the github status bar link.
 - Find/Replace feature.
 
 
 v1.1
+
 - Drag and drop.
 - "Open with".
