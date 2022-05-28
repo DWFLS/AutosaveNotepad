@@ -51,7 +51,12 @@ v1.0.5
 - Find/Replace feature.
 
 
-v1.1
+v1.1.0
 
 - Drag and drop.
 - "Open with".
+
+
+v1.1.1
+
+- Add cache saving system based on timestamps.
