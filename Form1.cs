@@ -9,17 +9,14 @@ namespace AutosaveNotepad
         {
             InitializeComponent();
 
-            statusStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            toolStripStatusLabel2.Alignment = ToolStripItemAlignment.Right;
-
             //
             // AutosaveNotepad initial settings:
             //
 
+            EnableFeatures(false);
             toolStripStatusLabel1.Text = "Autosave is NOT active - Create or open a document.";
-            editToolStripMenuItem.Enabled = false;
-            displaySettingToolStripMenuItem.Enabled = false;
-            richTextBox.Enabled = false;
+            statusStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            toolStripStatusLabel2.Alignment = ToolStripItemAlignment.Right;
         }
 
         public void formMain_Load(object sender, EventArgs e)
@@ -40,7 +37,6 @@ namespace AutosaveNotepad
         // FEATURE functions
         //
 
-
         private void Autosave()
         {
             if (autosaveActive)
@@ -53,12 +49,14 @@ namespace AutosaveNotepad
                 toolStripStatusLabel1.Text = "Autosave is NOT active";
         }
 
-        private void EnableFeatures()
+        private void EnableFeatures(bool b)
         {
             CheckColors();
-            richTextBox.Enabled = true;
-            editToolStripMenuItem.Enabled = true;
-            displaySettingToolStripMenuItem.Enabled = true;
+            richTextBox.Enabled = b;
+            editToolStripMenuItem.Enabled = b;
+            displaySettingToolStripMenuItem.Enabled = b;
+            saveAsToolStripMenuItem.Enabled = b;
+            saveAsCopyToolStripMenuItem.Enabled = b;
         }
 
         private void CheckColors()
@@ -75,8 +73,9 @@ namespace AutosaveNotepad
             }
         }
 
-
+        //
         // FILE menu
+        //
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -99,7 +98,6 @@ namespace AutosaveNotepad
 
             else
                 SaveAsCopy();
-
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -107,7 +105,9 @@ namespace AutosaveNotepad
             Application.Exit();
         }
 
+        //
         // FILE functions
+        //
 
         private void New(string title)
         {
@@ -123,8 +123,7 @@ namespace AutosaveNotepad
                 this.Text = "AutosaveNotepad - " + saveFileDialog.FileName;
                 autosaveActive = true;
                 toolStripStatusLabel1.Text = "Autosave is now active, take care while editing.";
-                EnableFeatures();
-
+                EnableFeatures(true);
             }
         }
 
@@ -140,7 +139,7 @@ namespace AutosaveNotepad
                 currentFileName = openFileDialog.FileName;
                 autosaveActive = true;
                 toolStripStatusLabel1.Text = "Autosave is now active, take care while editing.";
-                EnableFeatures();
+                EnableFeatures(true);
             }
         }
 
@@ -156,7 +155,7 @@ namespace AutosaveNotepad
                 currentFileName = saveFileDialog.FileName;
                 autosaveActive = true;
                 toolStripStatusLabel1.Text = "Autosave is now active, take care while editing.";
-                EnableFeatures();
+                EnableFeatures(true);
             }
         }
 
@@ -171,7 +170,7 @@ namespace AutosaveNotepad
                 this.Text = "AutosaveNotepad - " + currentFileName;
                 autosaveActive = true;
                 toolStripStatusLabel1.Text = "Created a backup copy. Autosave is active on the original file";
-                EnableFeatures();
+                EnableFeatures(true);
             }
         }
 
@@ -185,7 +184,9 @@ namespace AutosaveNotepad
 
         }
 
+        //
         // EDIT menu
+        //
 
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -232,6 +233,7 @@ namespace AutosaveNotepad
         //
         // DISPLAY Menu
         //
+
         private void displaySettingToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
