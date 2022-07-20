@@ -73,6 +73,21 @@ namespace AutosaveNotepad
             }
         }
 
+        private object FileNameOnly(string fileName)
+        {
+            int lastSlashIndex = 0;
+            for (int i = fileName.Length - 1; i != 0; i--)
+            {
+                if (fileName[i] == '\\')
+                {
+                    lastSlashIndex = fileName.Length - 1 - i;
+                    break;
+                }
+            }
+
+            return fileName.Remove(0, fileName.Length - lastSlashIndex);
+        }
+
         //
         // FILE menu
         //
@@ -120,7 +135,8 @@ namespace AutosaveNotepad
                 currentFileName = saveFileDialog.FileName;
                 richTextBox.Clear();
                 richTextBox.SaveFile(currentFileName, RichTextBoxStreamType.PlainText);
-                this.Text = "AutosaveNotepad - " + saveFileDialog.FileName;
+                var fileNameOnly = FileNameOnly(saveFileDialog.FileName);
+                this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + saveFileDialog.FileName;
                 autosaveActive = true;
                 toolStripStatusLabel1.Text = "Autosave is now active, take care while editing.";
                 EnableFeatures(true);
@@ -135,7 +151,8 @@ namespace AutosaveNotepad
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 richTextBox.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
-                this.Text = "AutosaveNotepad - " + openFileDialog.FileName;
+                var fileNameOnly = FileNameOnly(openFileDialog.FileName);
+                this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + openFileDialog.FileName;
                 currentFileName = openFileDialog.FileName;
                 autosaveActive = true;
                 toolStripStatusLabel1.Text = "Autosave is now active, take care while editing.";
@@ -151,7 +168,8 @@ namespace AutosaveNotepad
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 richTextBox.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
-                this.Text = "AutosaveNotepad - " + saveFileDialog.FileName;
+                var fileNameOnly = FileNameOnly(saveFileDialog.FileName);
+                this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + saveFileDialog.FileName;
                 currentFileName = saveFileDialog.FileName;
                 autosaveActive = true;
                 toolStripStatusLabel1.Text = "Autosave is now active, take care while editing.";
@@ -167,7 +185,8 @@ namespace AutosaveNotepad
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 richTextBox.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
-                this.Text = "AutosaveNotepad - " + currentFileName;
+                var fileNameOnly = FileNameOnly(saveFileDialog.FileName);
+                this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + currentFileName;
                 autosaveActive = true;
                 toolStripStatusLabel1.Text = "Created a backup copy. Autosave is active on the original file";
                 EnableFeatures(true);

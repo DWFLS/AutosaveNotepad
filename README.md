@@ -29,7 +29,8 @@ To-do:
 
 v1.0.3
 
-- Display file name in window name and file path in status strip.
+- [done] Display file name in window title 
+- ... and file path in status strip.
 - Timestamp.
 - Add Timestamp filename mode? (for quicker use)
 
