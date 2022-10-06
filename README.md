@@ -5,57 +5,62 @@ by DWFLS
 
 
 Features:
-- Text editing.
-- Autosave per input or edit action.
-- Display settings: Normal/Dark mode.
-- Create, open, save, backup documents.
-- Text editing functions (undo, redo, cut, copy, paste, select all)
+- [x] Text editing.
+- [x] Autosave per input or edit action.
+- [x] Display settings: Normal/Dark mode.
+- [x] Create, open, save, backup documents.
+- [x] Text editing functions (undo, redo, cut, copy, paste, select all)
 
 Version history:
 
 v1.0.2
 
-- Rename "Save and Backup" to "Create a *Backup* Copy"
-- Disable "Save as..." and "*Backup*" on app start.
+- [x] Rename "Save and Backup" to "Create a *Backup* Copy"
+- [x] Disable "Save as..." and "*Backup*" on app start.
 
 v1.0.1
 
-- Fixed a bug causing clearing of the previous file while creating another new document.
-- Removed redundant code.
-- Cleaner code.
+- [x] Fixed a bug causing clearing of the previous file while creating another new document.
+- [x] Removed redundant code.
+- [x] Cleaner code.
 
 
 To-do:
 
 v1.0.3
 
-- [done] Display file name in window title 
-- ... and file path in status strip.
-- Timestamp.
-- Add Timestamp filename mode? (for quicker use)
+- [x] Display file name in window title
+- [x] New readme format
+- [] Default save location
+- [] Quick file save bar (avoiding popup dialog and clicking through menus to quickly create a file; type in the name of the file, press enter and file is ready to edit)
+
+v1.0.3.1
+- [] ... and file path in status strip.
+- [] Timestamp.
+- [] Add Timestamp filename mode? (for quicker use)
 
 
 v1.0.4
 
-- Undo/Redo smaller steps.
-- Toggle editing functions availability on context (undo only if action made etc).
-- Autosave toggle
-- Line wrapping toggle.
-- Add icons (toolbar/app)
+- [] Undo/Redo smaller steps.
+- [] Toggle editing functions availability on context (undo only if action made etc).
+- [] Autosave toggle
+- [] Line wrapping toggle.
+- [] Add icons (toolbar/app)
 
 
 v1.0.5
 
-- URL the github status bar link.
-- Find/Replace feature.
+- [] URL the github status bar link.
+- [] Find/Replace feature.
 
 
 v1.1.0
 
-- Drag and drop.
-- "Open with".
+- [] Drag and drop.
+- [] "Open with".
 
 
 v1.1.1
 
-- Add cache saving system based on timestamps.
+- [] Add cache saving system based on timestamps.
