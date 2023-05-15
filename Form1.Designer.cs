@@ -326,11 +326,13 @@
             // quicksaveLabel
             // 
             this.quicksaveLabel.AutoSize = true;
+            this.quicksaveLabel.Enabled = false;
             this.quicksaveLabel.Location = new System.Drawing.Point(12, 6);
             this.quicksaveLabel.Name = "quicksaveLabel";
             this.quicksaveLabel.Size = new System.Drawing.Size(321, 20);
             this.quicksaveLabel.TabIndex = 3;
             this.quicksaveLabel.Text = "Enter a file name to quicksave in default folder:";
+            this.quicksaveLabel.Click += new System.EventHandler(this.quicksaveLabel_Click);
             // 
             // quicksaveTextBox
             // 

@@ -31,36 +31,40 @@ v1.0.3
 
 - [x] Display file name in window title
 - [x] New readme format
-- [] Default save location
-- [] Quick file save bar (avoiding popup dialog and clicking through menus to quickly create a file; type in the name of the file, press enter and file is ready to edit)
+- [x] Default save location
+- [x] Stip Status constructor
+- [x] Path in status strip.
+- [x] Quicksave bar ui (avoiding popup dialog and clicking through menus to quickly create a file; type in the name of the file, press enter and file is ready to edit)
+- [ ] Working quicksave
 
 v1.0.3.1
-- [] ... and file path in status strip.
-- [] Timestamp.
-- [] Add Timestamp filename mode? (for quicker use)
+- [ ] Path in status strip.
+- [ ] Can write without autosave mode on again
+- [ ] Timestamp.
+- [ ] Add Timestamp filename mode? (for quicker use)
 
 
 v1.0.4
 
-- [] Undo/Redo smaller steps.
-- [] Toggle editing functions availability on context (undo only if action made etc).
-- [] Autosave toggle
-- [] Line wrapping toggle.
-- [] Add icons (toolbar/app)
+- [ ] Undo/Redo smaller steps.
+- [ ] Toggle editing functions availability on context (undo only if action made etc).
+- [ ] Autosave toggle
+- [ ] Line wrapping toggle.
+- [ ] Add icons (toolbar/app)
 
 
 v1.0.5
 
-- [] URL the github status bar link.
-- [] Find/Replace feature.
+- [ ] URL the github status bar link.
+- [ ] Find/Replace feature.
 
 
 v1.1.0
 
-- [] Drag and drop.
-- [] "Open with".
+- [ ] Drag and drop.
+- [ ] "Open with".
 
 
 v1.1.1
 
-- [] Add cache saving system based on timestamps.
+- [ ] Add cache saving system based on timestamps.

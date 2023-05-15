@@ -11,6 +11,9 @@ namespace AutosaveNotepad
         string defaultFolderLogFilePath = string.Empty;
         string rootFolder = AppDomain.CurrentDomain.BaseDirectory;
         private bool validDefaultFolderChosen = false;
+        string autosaveStatus = "";
+        string miscInfo = "";
+        string defaultFolderStatus = "";
 
 
         public formMain() //this code block is executed after the main form is instantiated.
@@ -23,7 +26,8 @@ namespace AutosaveNotepad
 
             EnableFeatures(false);
             CheckForDefaultFolder();
-            toolStripStatusLabel1.Text = "Autosave is NOT active - Create or open a document.";
+            StripStatusConstructor("Autosave is NOT active - Create or open a document.", "", "");
+
             statusStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
             toolStripStatusLabel2.Alignment = ToolStripItemAlignment.Right;
         }
@@ -46,9 +50,21 @@ namespace AutosaveNotepad
         // FEATURE functions
         //
 
-        private void StripStatusConstructor(string a, string b, string c) // a - left, b - middle
+        private void QuickSaveBarControl(bool validDefPath)
         {
+            quicksaveLabel.Enabled = validDefPath;
+            quicksaveTextBox.Enabled = validDefPath;
+            quicksaveButton.Enabled = validDefPath;
 
+        }
+
+        private void StripStatusConstructor(string a, string b, string c)
+        {
+            if (a != "") autosaveStatus = a + " ";
+            if (b != "") miscInfo = b + " ";
+            if (c != "") defaultFolderStatus = c;
+
+            toolStripStatusLabel1.Text = autosaveStatus + miscInfo + defaultFolderStatus;
         }
 
 
@@ -58,11 +74,25 @@ namespace AutosaveNotepad
             {
                 defaultFolderLogFilePath = rootFolder + @"\defaultFolderPath.log";
                 {
-                    if (Directory.Exists(File.ReadLines(defaultFolderLogFilePath).ElementAtOrDefault(0))) ;
+                    if (Directory.Exists(File.ReadLines(defaultFolderLogFilePath).ElementAtOrDefault(0)))
                     {
-                        validDefaultFolderChosen = true;
+                        defaultFolderPath = File.ReadLines(defaultFolderLogFilePath).ElementAtOrDefault(0);
+                        QuickSaveBarControl(true);
+                        StripStatusConstructor("", "", "Saving files in: " + defaultFolderPath);
+
+                    }
+
+                    else
+                    {
+                        StripStatusConstructor("", "", "Default save folder not found.");
+                        QuickSaveBarControl(false);
                     }
                 }
+            }
+            else
+            {
+                StripStatusConstructor("", "", "Default folder not selected.");
+                QuickSaveBarControl(false);
             }
         }
 
@@ -71,11 +101,11 @@ namespace AutosaveNotepad
             if (autosaveActive)
             {
                 richTextBox.SaveFile(currentFileName, RichTextBoxStreamType.PlainText);
-                toolStripStatusLabel1.Text = "Autosave is active";
+                StripStatusConstructor("Autosave is active.", "", "");
             }
 
             else
-                toolStripStatusLabel1.Text = "Autosave is NOT active";
+                StripStatusConstructor("Autosave is NOT active.", "", "");
         }
 
         private void EnableFeatures(bool b)
@@ -174,13 +204,13 @@ namespace AutosaveNotepad
                 {
                     // The user has selected a folder
                     defaultFolderPath = folderBrowserDialog.SelectedPath;
-                    toolStripStatusLabel1.Text += " - Selected default folder: " + defaultFolderPath;
                     // Do something with the folder path
                     TextWriter tw = new StreamWriter(rootFolder + "defaultFolderPath.log");
                     tw.WriteLine(defaultFolderPath);
                     tw.Close();
                 }
             }
+            CheckForDefaultFolder();
 
 
         }
@@ -199,7 +229,7 @@ namespace AutosaveNotepad
                 var fileNameOnly = FileNameOnly(saveFileDialog.FileName);
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + saveFileDialog.FileName;
                 autosaveActive = true;
-                toolStripStatusLabel1.Text = "Autosave is now active, take care while editing.";
+                StripStatusConstructor("Autosave is now active, take care while editing.", "", "");
                 EnableFeatures(true);
             }
         }
@@ -216,7 +246,7 @@ namespace AutosaveNotepad
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + openFileDialog.FileName;
                 currentFileName = openFileDialog.FileName;
                 autosaveActive = true;
-                toolStripStatusLabel1.Text = "Autosave is now active, take care while editing.";
+                StripStatusConstructor("Autosave is now active, take care while editing.", "", "");
                 EnableFeatures(true);
             }
         }
@@ -233,7 +263,7 @@ namespace AutosaveNotepad
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + saveFileDialog.FileName;
                 currentFileName = saveFileDialog.FileName;
                 autosaveActive = true;
-                toolStripStatusLabel1.Text = "Autosave is now active, take care while editing.";
+                StripStatusConstructor("Autosave is now active, take care while editing.", "", "");
                 EnableFeatures(true);
             }
         }
@@ -249,7 +279,7 @@ namespace AutosaveNotepad
                 var fileNameOnly = FileNameOnly(saveFileDialog.FileName);
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + currentFileName;
                 autosaveActive = true;
-                toolStripStatusLabel1.Text = "Created a backup copy. Autosave is active on the original file";
+                StripStatusConstructor("Created a backup copy. Autosave is active on the original file", "", "");
                 EnableFeatures(true);
             }
         }
@@ -352,6 +382,9 @@ namespace AutosaveNotepad
 
         }
 
+        private void quicksaveLabel_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
