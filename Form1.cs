@@ -1,9 +1,17 @@
 namespace AutosaveNotepad
 {
+    using System.IO;
     public partial class formMain : Form
     {
+
+
         private string currentFileName = string.Empty;
         private bool autosaveActive = false;
+        string defaultFolderPath = string.Empty;
+        string defaultFolderLogFilePath = string.Empty;
+        string rootFolder = AppDomain.CurrentDomain.BaseDirectory;
+        private bool validDefaultFolderChosen = false;
+
 
         public formMain() //this code block is executed after the main form is instantiated.
         {
@@ -14,6 +22,7 @@ namespace AutosaveNotepad
             //
 
             EnableFeatures(false);
+            CheckForDefaultFolder();
             toolStripStatusLabel1.Text = "Autosave is NOT active - Create or open a document.";
             statusStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
             toolStripStatusLabel2.Alignment = ToolStripItemAlignment.Right;
@@ -36,6 +45,26 @@ namespace AutosaveNotepad
         //
         // FEATURE functions
         //
+
+        private void StripStatusConstructor(string a, string b, string c) // a - left, b - middle
+        {
+
+        }
+
+
+        private void CheckForDefaultFolder()
+        {
+            if (File.Exists(rootFolder + @"\defaultFolderPath.log"))
+            {
+                defaultFolderLogFilePath = rootFolder + @"\defaultFolderPath.log";
+                {
+                    if (Directory.Exists(File.ReadLines(defaultFolderLogFilePath).ElementAtOrDefault(0))) ;
+                    {
+                        validDefaultFolderChosen = true;
+                    }
+                }
+            }
+        }
 
         private void Autosave()
         {
@@ -101,6 +130,7 @@ namespace AutosaveNotepad
         {
             Open();
         }
+
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SaveAs();
@@ -120,9 +150,40 @@ namespace AutosaveNotepad
             Application.Exit();
         }
 
+        private void selectDefaultSaveDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SelectDefaultFolder();
+        }
+
         //
         // FILE functions
         //
+
+        private void SelectDefaultFolder()
+        {
+            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+            {
+                // Set the initial directory of the folder browser dialog
+                folderBrowserDialog.SelectedPath = "C:\\";
+
+                // Show the folder browser dialog
+                DialogResult result = folderBrowserDialog.ShowDialog();
+
+                // Process the result of the dialog box
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
+                {
+                    // The user has selected a folder
+                    defaultFolderPath = folderBrowserDialog.SelectedPath;
+                    toolStripStatusLabel1.Text += " - Selected default folder: " + defaultFolderPath;
+                    // Do something with the folder path
+                    TextWriter tw = new StreamWriter(rootFolder + "defaultFolderPath.log");
+                    tw.WriteLine(defaultFolderPath);
+                    tw.Close();
+                }
+            }
+
+
+        }
 
         private void New(string title)
         {
@@ -290,5 +351,7 @@ namespace AutosaveNotepad
         {
 
         }
+
+
     }
 }
