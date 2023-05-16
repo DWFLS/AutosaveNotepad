@@ -1,6 +1,9 @@
 namespace AutosaveNotepad
 {
+    using System;
     using System.IO;
+    using System.Media;
+    using System.Text.RegularExpressions;
     public partial class formMain : Form
     {
 
@@ -10,10 +13,10 @@ namespace AutosaveNotepad
         string defaultFolderPath = string.Empty;
         string defaultFolderLogFilePath = string.Empty;
         string rootFolder = AppDomain.CurrentDomain.BaseDirectory;
-        private bool validDefaultFolderChosen = false;
         string autosaveStatus = "";
         string miscInfo = "";
         string defaultFolderStatus = "";
+        string quickSaveInput = "";
 
 
         public formMain() //this code block is executed after the main form is instantiated.
@@ -24,12 +27,13 @@ namespace AutosaveNotepad
             // AutosaveNotepad initial settings:
             //
 
-            EnableFeatures(false);
+            EnableFeatures(true);
             CheckForDefaultFolder();
             StripStatusConstructor("Autosave is NOT active - Create or open a document.", "", "");
 
             statusStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
             toolStripStatusLabel2.Alignment = ToolStripItemAlignment.Right;
+            quicksaveButton.Enabled = false;
         }
 
         public void formMain_Load(object sender, EventArgs e)
@@ -44,6 +48,103 @@ namespace AutosaveNotepad
         private void richTextBox_TextChanged(object sender, EventArgs e)
         {
             Autosave();
+            StripStatusConstructor("", " ", "");
+        }
+
+        private void quicksaveTextBox_TextChanged(object sender, EventArgs e)
+        {
+            int error1Count = 0;
+            int error2Count = 0;
+            int error3Count = 0;
+            bool warning = false;
+            quickSaveInput = quicksaveTextBox.Text;
+
+            if (quickSaveInput.Length == 0 || quickSaveInput == "")
+            {
+                error1Count++;
+                StripStatusConstructor("", "File name cannot be empty", "");
+
+            }
+            else
+            {
+                error1Count = 0;
+            }
+
+
+            if (Regex.IsMatch(quickSaveInput, "[<>:\"/|?*]") || Regex.IsMatch(quickSaveInput, @"[\\]"))
+            {
+                error2Count++;
+                StripStatusConstructor("", "Remove the following characters:" + @"<>:""/\|?*", "");
+            }
+            else
+            {
+                error2Count = 0;
+
+            }
+
+            if (CheckForDefaultFolder() == false)
+            {
+                error3Count++;
+            }
+
+            else
+            {
+                error3Count = 0;
+                if (File.Exists(defaultFolderPath + "\\" + quickSaveInput + ".txt") == true)
+                {
+                    warning = true;
+
+                }
+            }
+
+            if (error1Count + error2Count + error3Count > 0)
+            {
+                quicksaveButton.Enabled = false;
+            }
+
+            else
+            {
+                quicksaveButton.Enabled = true;
+                if (!warning)
+                {
+                    StripStatusConstructor("", "Quicksave filename valid.", "");
+                }
+
+                else
+                {
+                    StripStatusConstructor("", "File already exists. Quicksave at own discretion.", "");
+                    SystemSounds.Exclamation.Play();
+                }
+
+            }
+        }
+
+        //
+        // QUICK SAVE BUTTON
+        //
+
+        private void quicksaveButton_Click_1(object sender, EventArgs e)
+        {
+            bool validFolderCheck = CheckForDefaultFolder();
+            if (validFolderCheck)
+            {
+                currentFileName = defaultFolderPath + "\\" + quicksaveTextBox.Text + ".txt";
+                richTextBox.SaveFile(currentFileName, RichTextBoxStreamType.PlainText);
+                StripStatusConstructor("", "Quicksave successful.", "");
+
+                var fileNameOnly = FileNameOnly(currentFileName);
+                this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + currentFileName;
+
+                autosaveActive = true;
+
+            }
+
+            else
+            {
+                QuickSaveBarControl(false);
+                StripStatusConstructor("", "Quicksave failed", "Please check if default save folder exists.");
+                autosaveActive = false;
+            }
         }
 
         //
@@ -68,7 +169,7 @@ namespace AutosaveNotepad
         }
 
 
-        private void CheckForDefaultFolder()
+        private bool CheckForDefaultFolder()
         {
             if (File.Exists(rootFolder + @"\defaultFolderPath.log"))
             {
@@ -79,13 +180,14 @@ namespace AutosaveNotepad
                         defaultFolderPath = File.ReadLines(defaultFolderLogFilePath).ElementAtOrDefault(0);
                         QuickSaveBarControl(true);
                         StripStatusConstructor("", "", "Saving files in: " + defaultFolderPath);
-
+                        return true;
                     }
 
                     else
                     {
                         StripStatusConstructor("", "", "Default save folder not found.");
                         QuickSaveBarControl(false);
+                        return false;
                     }
                 }
             }
@@ -93,6 +195,7 @@ namespace AutosaveNotepad
             {
                 StripStatusConstructor("", "", "Default folder not selected.");
                 QuickSaveBarControl(false);
+                return false;
             }
         }
 
@@ -383,6 +486,16 @@ namespace AutosaveNotepad
         }
 
         private void quicksaveLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void quicksaveButton_Click(object sender, EventArgs e)
+        {
+            //dont use
+        }
+
+        private void menuStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }

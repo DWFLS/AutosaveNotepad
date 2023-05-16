@@ -70,14 +70,15 @@
             // 
             // statusStrip
             // 
+            this.statusStrip.Font = new System.Drawing.Font("Segoe UI", 7.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel,
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2});
-            this.statusStrip.Location = new System.Drawing.Point(0, 482);
+            this.statusStrip.Location = new System.Drawing.Point(0, 490);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(753, 26);
+            this.statusStrip.Size = new System.Drawing.Size(889, 22);
             this.statusStrip.TabIndex = 0;
             this.statusStrip.Text = "sadad";
             this.statusStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip_ItemClicked);
@@ -85,13 +86,13 @@
             // toolStripStatusLabel
             // 
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(0, 20);
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(0, 16);
             this.toolStripStatusLabel.Click += new System.EventHandler(this.toolStripStatusLabel1_Click);
             // 
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(151, 20);
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(118, 16);
             this.toolStripStatusLabel1.Text = "toolStripStatusLabel1";
             this.toolStripStatusLabel1.Click += new System.EventHandler(this.toolStripStatusLabel1_Click_1);
             // 
@@ -102,7 +103,7 @@
             this.toolStripStatusLabel2.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
             this.toolStripStatusLabel2.Name = "toolStripStatusLabel2";
             this.toolStripStatusLabel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.toolStripStatusLabel2.Size = new System.Drawing.Size(263, 20);
+            this.toolStripStatusLabel2.Size = new System.Drawing.Size(211, 16);
             this.toolStripStatusLabel2.Text = "github.com/DWFLS/AutosaveNotepad";
             this.toolStripStatusLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.toolStripStatusLabel2.Click += new System.EventHandler(this.toolStripStatusLabel2_Click);
@@ -118,9 +119,10 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
-            this.menuStrip.Size = new System.Drawing.Size(753, 30);
+            this.menuStrip.Size = new System.Drawing.Size(889, 30);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip";
+            this.menuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip_ItemClicked);
             // 
             // fileToolStripMenuItem
             // 
@@ -309,10 +311,10 @@
             this.richTextBox.DetectUrls = false;
             this.richTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox.EnableAutoDragDrop = true;
-            this.richTextBox.Location = new System.Drawing.Point(0, 63);
+            this.richTextBox.Location = new System.Drawing.Point(0, 67);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.richTextBox.Size = new System.Drawing.Size(753, 419);
+            this.richTextBox.Size = new System.Drawing.Size(889, 423);
             this.richTextBox.TabIndex = 2;
             this.richTextBox.Text = "";
             this.richTextBox.TextChanged += new System.EventHandler(this.richTextBox_TextChanged);
@@ -327,28 +329,30 @@
             // 
             this.quicksaveLabel.AutoSize = true;
             this.quicksaveLabel.Enabled = false;
-            this.quicksaveLabel.Location = new System.Drawing.Point(12, 6);
+            this.quicksaveLabel.Location = new System.Drawing.Point(12, 7);
             this.quicksaveLabel.Name = "quicksaveLabel";
-            this.quicksaveLabel.Size = new System.Drawing.Size(321, 20);
+            this.quicksaveLabel.Size = new System.Drawing.Size(317, 20);
             this.quicksaveLabel.TabIndex = 3;
-            this.quicksaveLabel.Text = "Enter a file name to quicksave in default folder:";
+            this.quicksaveLabel.Text = "Enter a filename to quicksave in default folder:";
             this.quicksaveLabel.Click += new System.EventHandler(this.quicksaveLabel_Click);
             // 
             // quicksaveTextBox
             // 
-            this.quicksaveTextBox.Location = new System.Drawing.Point(339, 3);
+            this.quicksaveTextBox.Location = new System.Drawing.Point(335, 4);
             this.quicksaveTextBox.Name = "quicksaveTextBox";
-            this.quicksaveTextBox.Size = new System.Drawing.Size(298, 27);
+            this.quicksaveTextBox.Size = new System.Drawing.Size(447, 27);
             this.quicksaveTextBox.TabIndex = 4;
+            this.quicksaveTextBox.TextChanged += new System.EventHandler(this.quicksaveTextBox_TextChanged);
             // 
             // quicksaveButton
             // 
-            this.quicksaveButton.Location = new System.Drawing.Point(643, 4);
+            this.quicksaveButton.Location = new System.Drawing.Point(788, 3);
             this.quicksaveButton.Name = "quicksaveButton";
             this.quicksaveButton.Size = new System.Drawing.Size(94, 29);
             this.quicksaveButton.TabIndex = 5;
             this.quicksaveButton.Text = "Quicksave";
             this.quicksaveButton.UseVisualStyleBackColor = true;
+            this.quicksaveButton.Click += new System.EventHandler(this.quicksaveButton_Click_1);
             // 
             // panel1
             // 
@@ -358,7 +362,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(753, 33);
+            this.panel1.Size = new System.Drawing.Size(889, 37);
             this.panel1.TabIndex = 6;
             // 
             // formMain
@@ -366,13 +370,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(753, 508);
+            this.ClientSize = new System.Drawing.Size(889, 512);
             this.Controls.Add(this.richTextBox);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
-            this.MinimumSize = new System.Drawing.Size(771, 200);
+            this.MinimumSize = new System.Drawing.Size(907, 200);
             this.Name = "formMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AutosaveNotepad - Create or Open a Document";

@@ -35,14 +35,9 @@ v1.0.3
 - [x] Stip Status constructor
 - [x] Path in status strip.
 - [x] Quicksave bar ui (avoiding popup dialog and clicking through menus to quickly create a file; type in the name of the file, press enter and file is ready to edit)
-- [ ] Working quicksave
-
-v1.0.3.1
-- [ ] Path in status strip.
-- [ ] Can write without autosave mode on again
-- [ ] Timestamp.
-- [ ] Add Timestamp filename mode? (for quicker use)
-
+- [x] Working quicksave
+- [x] Path in status strip.
+- [x] Can write without autosave mode on again
 
 v1.0.4
 
