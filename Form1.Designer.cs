@@ -53,18 +53,31 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wordWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displaySettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkModeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.undoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.redoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.cutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.pasteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.selectAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearAllToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.quicksaveLabel = new System.Windows.Forms.Label();
             this.quicksaveTextBox = new System.Windows.Forms.TextBox();
             this.quicksaveButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.autosaveCheckBox = new System.Windows.Forms.CheckBox();
+            this.debug = new System.Windows.Forms.TextBox();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -208,7 +221,8 @@
             this.pasteToolStripMenuItem,
             this.toolStripSeparator4,
             this.selectAllToolStripMenuItem,
-            this.clearAllToolStripMenuItem});
+            this.clearAllToolStripMenuItem,
+            this.wordWrapToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
             this.editToolStripMenuItem.Text = "Edit";
@@ -280,6 +294,17 @@
             this.clearAllToolStripMenuItem.Text = "Clear All";
             this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
             // 
+            // wordWrapToolStripMenuItem
+            // 
+            this.wordWrapToolStripMenuItem.Checked = true;
+            this.wordWrapToolStripMenuItem.CheckOnClick = true;
+            this.wordWrapToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.wordWrapToolStripMenuItem.Name = "wordWrapToolStripMenuItem";
+            this.wordWrapToolStripMenuItem.Size = new System.Drawing.Size(213, 26);
+            this.wordWrapToolStripMenuItem.Text = "Word Wrap";
+            this.wordWrapToolStripMenuItem.CheckedChanged += new System.EventHandler(this.wordWrapToolStripMenuItem_CheckedChanged);
+            this.wordWrapToolStripMenuItem.Click += new System.EventHandler(this.wordWrapToolStripMenuItem_Click);
+            // 
             // displaySettingToolStripMenuItem
             // 
             this.displaySettingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -308,12 +333,15 @@
             // 
             // richTextBox
             // 
+            this.richTextBox.AcceptsTab = true;
+            this.richTextBox.AutoWordSelection = true;
+            this.richTextBox.ContextMenuStrip = this.contextMenuStrip1;
             this.richTextBox.DetectUrls = false;
             this.richTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox.EnableAutoDragDrop = true;
             this.richTextBox.Location = new System.Drawing.Point(0, 67);
             this.richTextBox.Name = "richTextBox";
-            this.richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
+            this.richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
             this.richTextBox.Size = new System.Drawing.Size(889, 423);
             this.richTextBox.TabIndex = 2;
             this.richTextBox.Text = "";
@@ -322,8 +350,77 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.undoToolStripMenuItem1,
+            this.redoToolStripMenuItem1,
+            this.toolStripSeparator6,
+            this.cutToolStripMenuItem1,
+            this.copyToolStripMenuItem1,
+            this.pasteToolStripMenuItem1,
+            this.toolStripSeparator5,
+            this.selectAllToolStripMenuItem1,
+            this.clearAllToolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(141, 184);
+            // 
+            // undoToolStripMenuItem1
+            // 
+            this.undoToolStripMenuItem1.Name = "undoToolStripMenuItem1";
+            this.undoToolStripMenuItem1.Size = new System.Drawing.Size(140, 24);
+            this.undoToolStripMenuItem1.Text = "Undo";
+            this.undoToolStripMenuItem1.Click += new System.EventHandler(this.undoToolStripMenuItem1_Click);
+            // 
+            // redoToolStripMenuItem1
+            // 
+            this.redoToolStripMenuItem1.Name = "redoToolStripMenuItem1";
+            this.redoToolStripMenuItem1.Size = new System.Drawing.Size(140, 24);
+            this.redoToolStripMenuItem1.Text = "Redo";
+            this.redoToolStripMenuItem1.Click += new System.EventHandler(this.redoToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(137, 6);
+            // 
+            // cutToolStripMenuItem1
+            // 
+            this.cutToolStripMenuItem1.Name = "cutToolStripMenuItem1";
+            this.cutToolStripMenuItem1.Size = new System.Drawing.Size(140, 24);
+            this.cutToolStripMenuItem1.Text = "Cut";
+            this.cutToolStripMenuItem1.Click += new System.EventHandler(this.cutToolStripMenuItem1_Click);
+            // 
+            // copyToolStripMenuItem1
+            // 
+            this.copyToolStripMenuItem1.Name = "copyToolStripMenuItem1";
+            this.copyToolStripMenuItem1.Size = new System.Drawing.Size(140, 24);
+            this.copyToolStripMenuItem1.Text = "Copy";
+            this.copyToolStripMenuItem1.Click += new System.EventHandler(this.copyToolStripMenuItem1_Click);
+            // 
+            // pasteToolStripMenuItem1
+            // 
+            this.pasteToolStripMenuItem1.Name = "pasteToolStripMenuItem1";
+            this.pasteToolStripMenuItem1.Size = new System.Drawing.Size(140, 24);
+            this.pasteToolStripMenuItem1.Text = "Paste";
+            this.pasteToolStripMenuItem1.Click += new System.EventHandler(this.pasteToolStripMenuItem1_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(137, 6);
+            // 
+            // selectAllToolStripMenuItem1
+            // 
+            this.selectAllToolStripMenuItem1.Name = "selectAllToolStripMenuItem1";
+            this.selectAllToolStripMenuItem1.Size = new System.Drawing.Size(140, 24);
+            this.selectAllToolStripMenuItem1.Text = "Select All";
+            this.selectAllToolStripMenuItem1.Click += new System.EventHandler(this.selectAllToolStripMenuItem1_Click);
+            // 
+            // clearAllToolStripMenuItem1
+            // 
+            this.clearAllToolStripMenuItem1.Name = "clearAllToolStripMenuItem1";
+            this.clearAllToolStripMenuItem1.Size = new System.Drawing.Size(140, 24);
+            this.clearAllToolStripMenuItem1.Text = "Clear All";
+            this.clearAllToolStripMenuItem1.Click += new System.EventHandler(this.clearAllToolStripMenuItem1_Click);
             // 
             // quicksaveLabel
             // 
@@ -340,13 +437,13 @@
             // 
             this.quicksaveTextBox.Location = new System.Drawing.Point(335, 4);
             this.quicksaveTextBox.Name = "quicksaveTextBox";
-            this.quicksaveTextBox.Size = new System.Drawing.Size(447, 27);
+            this.quicksaveTextBox.Size = new System.Drawing.Size(247, 27);
             this.quicksaveTextBox.TabIndex = 4;
             this.quicksaveTextBox.TextChanged += new System.EventHandler(this.quicksaveTextBox_TextChanged);
             // 
             // quicksaveButton
             // 
-            this.quicksaveButton.Location = new System.Drawing.Point(788, 3);
+            this.quicksaveButton.Location = new System.Drawing.Point(588, 3);
             this.quicksaveButton.Name = "quicksaveButton";
             this.quicksaveButton.Size = new System.Drawing.Size(94, 29);
             this.quicksaveButton.TabIndex = 5;
@@ -356,6 +453,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.autosaveCheckBox);
             this.panel1.Controls.Add(this.quicksaveLabel);
             this.panel1.Controls.Add(this.quicksaveButton);
             this.panel1.Controls.Add(this.quicksaveTextBox);
@@ -365,12 +463,34 @@
             this.panel1.Size = new System.Drawing.Size(889, 37);
             this.panel1.TabIndex = 6;
             // 
+            // autosaveCheckBox
+            // 
+            this.autosaveCheckBox.AutoSize = true;
+            this.autosaveCheckBox.Location = new System.Drawing.Point(688, 7);
+            this.autosaveCheckBox.Name = "autosaveCheckBox";
+            this.autosaveCheckBox.Size = new System.Drawing.Size(92, 24);
+            this.autosaveCheckBox.TabIndex = 7;
+            this.autosaveCheckBox.Text = "Autosave";
+            this.autosaveCheckBox.UseVisualStyleBackColor = true;
+            this.autosaveCheckBox.CheckedChanged += new System.EventHandler(this.autosaveCheckBox_CheckedChanged);
+            // 
+            // debug
+            // 
+            this.debug.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.debug.Location = new System.Drawing.Point(40, 210);
+            this.debug.Multiline = true;
+            this.debug.Name = "debug";
+            this.debug.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.debug.Size = new System.Drawing.Size(801, 280);
+            this.debug.TabIndex = 7;
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(889, 512);
+            this.Controls.Add(this.debug);
             this.Controls.Add(this.richTextBox);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.panel1);
@@ -385,6 +505,7 @@
             this.statusStrip.PerformLayout();
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
@@ -428,5 +549,17 @@
         private TextBox quicksaveTextBox;
         private Button quicksaveButton;
         private Panel panel1;
+        private CheckBox autosaveCheckBox;
+        private ToolStripMenuItem wordWrapToolStripMenuItem;
+        private ToolStripMenuItem undoToolStripMenuItem1;
+        private ToolStripMenuItem redoToolStripMenuItem1;
+        private ToolStripSeparator toolStripSeparator6;
+        private ToolStripMenuItem cutToolStripMenuItem1;
+        private ToolStripMenuItem copyToolStripMenuItem1;
+        private ToolStripMenuItem pasteToolStripMenuItem1;
+        private ToolStripSeparator toolStripSeparator5;
+        private ToolStripMenuItem selectAllToolStripMenuItem1;
+        private ToolStripMenuItem clearAllToolStripMenuItem1;
+        private TextBox debug;
     }
 }

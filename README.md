@@ -38,28 +38,28 @@ v1.0.3
 - [x] Working quicksave
 - [x] Path in status strip.
 - [x] Can write without autosave mode on again
+- [x] Drag and drop.
 
 v1.0.4
 
-- [ ] Undo/Redo smaller steps.
-- [ ] Toggle editing functions availability on context (undo only if action made etc).
-- [ ] Autosave toggle
-- [ ] Line wrapping toggle.
-- [ ] Add icons (toolbar/app)
+- [x] Right mouse button context menu
+- [x] Added regions
+- [x] Toggle editing functions availability on context (undo only if action made etc).
+- [x] Autosave toggle
+- [x] Line wrapping toggle.
+
 
 
 v1.0.5
 
-- [ ] URL the github status bar link.
+- [ ] URL the github status bar link?.
 - [ ] Find/Replace feature.
+- [ ] Add icons (toolbar/app)
+- [ ] Print function
+- [ ] Check if can cut/copy/paste
 
 
 v1.1.0
-
-- [ ] Drag and drop.
 - [ ] "Open with".
-
-
-v1.1.1
-
-- [ ] Add cache saving system based on timestamps.
+- [ ] Test
+- [ ] Release v1.1.0

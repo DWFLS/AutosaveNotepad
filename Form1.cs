@@ -18,7 +18,6 @@ namespace AutosaveNotepad
         string defaultFolderStatus = "";
         string quickSaveInput = "";
 
-
         public formMain() //this code block is executed after the main form is instantiated.
         {
             InitializeComponent();
@@ -30,10 +29,20 @@ namespace AutosaveNotepad
             EnableFeatures(true);
             CheckForDefaultFolder();
             StripStatusConstructor("Autosave is NOT active - Create or open a document.", "", "");
+            WordWrapActive(true);
 
             statusStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
             toolStripStatusLabel2.Alignment = ToolStripItemAlignment.Right;
             quicksaveButton.Enabled = false;
+            autosaveCheckBox.Enabled = false;
+
+            undoToolStripMenuItem.Enabled = false;
+            undoToolStripMenuItem1.Enabled = false;
+            redoToolStripMenuItem.Enabled = false;
+            redoToolStripMenuItem1.Enabled = false;
+
+            debug.Enabled = false;
+            debug.Visible = false;
         }
 
         public void formMain_Load(object sender, EventArgs e)
@@ -41,14 +50,39 @@ namespace AutosaveNotepad
 
         }
 
+        #region TEXT BOXES input
         //
-        // RICH TEXT BOX input
+        // TEXT BOXES input
         //
 
         private void richTextBox_TextChanged(object sender, EventArgs e)
         {
             Autosave();
             StripStatusConstructor("", " ", "");
+            if (richTextBox.CanUndo)
+            {
+                undoToolStripMenuItem.Enabled = true;
+                undoToolStripMenuItem1.Enabled = true;
+            }
+
+            else
+            {
+                undoToolStripMenuItem.Enabled = false;
+                undoToolStripMenuItem1.Enabled = false;
+            }
+
+            if (richTextBox.CanRedo)
+            {
+                redoToolStripMenuItem.Enabled = true;
+                redoToolStripMenuItem1.Enabled = true;
+            }
+
+            else
+            {
+                redoToolStripMenuItem.Enabled = false;
+                redoToolStripMenuItem1.Enabled = false;
+            }
+
         }
 
         private void quicksaveTextBox_TextChanged(object sender, EventArgs e)
@@ -119,6 +153,9 @@ namespace AutosaveNotepad
             }
         }
 
+        #endregion
+
+        #region QUICK SAVE BUTTON
         //
         // QUICK SAVE BUTTON
         //
@@ -130,12 +167,12 @@ namespace AutosaveNotepad
             {
                 currentFileName = defaultFolderPath + "\\" + quicksaveTextBox.Text + ".txt";
                 richTextBox.SaveFile(currentFileName, RichTextBoxStreamType.PlainText);
-                StripStatusConstructor("", "Quicksave successful.", "");
+                StripStatusConstructor("Autosave is now active.", "Quicksave successful.", "");
 
-                var fileNameOnly = FileNameOnly(currentFileName);
+                var fileNameOnly = FilenameTrimmer(currentFileName);
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + currentFileName;
 
-                autosaveActive = true;
+                AutosaveActive(true);
 
             }
 
@@ -143,13 +180,73 @@ namespace AutosaveNotepad
             {
                 QuickSaveBarControl(false);
                 StripStatusConstructor("", "Quicksave failed", "Please check if default save folder exists.");
-                autosaveActive = false;
+                AutosaveActive(false);
             }
         }
+
+        #endregion
+
+        #region FEATURE functions
 
         //
         // FEATURE functions
         //
+
+
+
+        private bool AutosaveActive(bool status)
+        {
+            autosaveCheckBox.Enabled = true;
+            if (status == false)
+            {
+                autosaveActive = false;
+                autosaveCheckBox.Checked = false;
+                StripStatusConstructor("Autosave is deactivated.", "", "");
+                return false;
+            }
+
+            else
+            {
+                autosaveActive = true;
+                autosaveCheckBox.Checked = true;
+                return true;
+            }
+
+        }
+
+        private void autosaveCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (autosaveCheckBox.Checked == true)
+            {
+                StripStatusConstructor("Autosave is active.", " ", "");
+                AutosaveActive(true);
+            }
+
+            else
+            {
+                StripStatusConstructor("Autosave is deactivated.", " ", "");
+                AutosaveActive(false);
+            }
+        }
+
+        private void WordWrapActive(bool status)
+        {
+            if (status == false)
+            {
+                wordWrapToolStripMenuItem.Checked = false;
+                richTextBox.WordWrap = false;
+                StripStatusConstructor("", "Word Wrap disabled.", "");
+
+            }
+
+            else
+            {
+                wordWrapToolStripMenuItem.Checked = true;
+                richTextBox.WordWrap = true;
+                StripStatusConstructor("", "Word Wrap enabled.", "");
+
+            }
+        }
 
         private void QuickSaveBarControl(bool validDefPath)
         {
@@ -167,7 +264,6 @@ namespace AutosaveNotepad
 
             toolStripStatusLabel1.Text = autosaveStatus + miscInfo + defaultFolderStatus;
         }
-
 
         private bool CheckForDefaultFolder()
         {
@@ -235,7 +331,7 @@ namespace AutosaveNotepad
             }
         }
 
-        private object FileNameOnly(string fileName)
+        private object FilenameTrimmer(string fileName)
         {
             int lastSlashIndex = 0;
             for (int i = fileName.Length - 1; i != 0; i--)
@@ -250,6 +346,10 @@ namespace AutosaveNotepad
             return fileName.Remove(0, fileName.Length - lastSlashIndex);
         }
 
+
+        #endregion 
+
+        #region FILE menu
         //
         // FILE menu
         //
@@ -287,6 +387,10 @@ namespace AutosaveNotepad
         {
             SelectDefaultFolder();
         }
+
+        #endregion
+
+        #region FILE functions
 
         //
         // FILE functions
@@ -329,9 +433,9 @@ namespace AutosaveNotepad
                 currentFileName = saveFileDialog.FileName;
                 richTextBox.Clear();
                 richTextBox.SaveFile(currentFileName, RichTextBoxStreamType.PlainText);
-                var fileNameOnly = FileNameOnly(saveFileDialog.FileName);
+                var fileNameOnly = FilenameTrimmer(saveFileDialog.FileName);
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + saveFileDialog.FileName;
-                autosaveActive = true;
+                AutosaveActive(true);
                 StripStatusConstructor("Autosave is now active, take care while editing.", "", "");
                 EnableFeatures(true);
             }
@@ -345,10 +449,10 @@ namespace AutosaveNotepad
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 richTextBox.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
-                var fileNameOnly = FileNameOnly(openFileDialog.FileName);
+                var fileNameOnly = FilenameTrimmer(openFileDialog.FileName);
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + openFileDialog.FileName;
                 currentFileName = openFileDialog.FileName;
-                autosaveActive = true;
+                AutosaveActive(true);
                 StripStatusConstructor("Autosave is now active, take care while editing.", "", "");
                 EnableFeatures(true);
             }
@@ -362,10 +466,10 @@ namespace AutosaveNotepad
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 richTextBox.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
-                var fileNameOnly = FileNameOnly(saveFileDialog.FileName);
+                var fileNameOnly = FilenameTrimmer(saveFileDialog.FileName);
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + saveFileDialog.FileName;
                 currentFileName = saveFileDialog.FileName;
-                autosaveActive = true;
+                AutosaveActive(true);
                 StripStatusConstructor("Autosave is now active, take care while editing.", "", "");
                 EnableFeatures(true);
             }
@@ -379,9 +483,9 @@ namespace AutosaveNotepad
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
                 richTextBox.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
-                var fileNameOnly = FileNameOnly(saveFileDialog.FileName);
+                var fileNameOnly = FilenameTrimmer(saveFileDialog.FileName);
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + currentFileName;
-                autosaveActive = true;
+                AutosaveActive(true);
                 StripStatusConstructor("Created a backup copy. Autosave is active on the original file", "", "");
                 EnableFeatures(true);
             }
@@ -397,21 +501,89 @@ namespace AutosaveNotepad
 
         }
 
+        #endregion
+
+        #region EDIT menu
+
         //
         // EDIT menu
         //
 
+        // Undo
+
         private void undoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            richTextBox.Undo();
+            if (richTextBox.CanUndo)
+            {
+                richTextBox.Undo();
+                undoToolStripMenuItem.Enabled = true;
+
+            }
+
+            else
+            {
+                undoToolStripMenuItem.Enabled = false;
+            }
+
             Autosave();
         }
 
-        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
+        private void undoToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            richTextBox.Redo();
+
+            if (richTextBox.CanUndo)
+            {
+                richTextBox.Undo();
+                undoToolStripMenuItem1.Enabled = true;
+
+            }
+
+            else
+            {
+                undoToolStripMenuItem1.Enabled = false;
+            }
+
             Autosave();
         }
+
+        // Redo
+
+        private void redoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (richTextBox.CanRedo)
+            {
+                richTextBox.Redo();
+                redoToolStripMenuItem.Enabled = true;
+
+            }
+
+            else
+            {
+                richTextBox.Redo();
+                redoToolStripMenuItem.Enabled = false;
+            }
+
+            Autosave();
+        }
+
+        private void redoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (richTextBox.CanRedo)
+            {
+                richTextBox.Redo();
+                redoToolStripMenuItem1.Enabled = true;
+
+            }
+
+            else
+            {
+                richTextBox.Redo();
+                redoToolStripMenuItem1.Enabled = false;
+            }
+            Autosave();
+        }
+
+        // Cut
 
         private void cutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -419,11 +591,27 @@ namespace AutosaveNotepad
             Autosave();
         }
 
+        private void cutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            richTextBox.Cut();
+            Autosave();
+        }
+
+        // Copy
+
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBox.Copy();
             Autosave();
         }
+
+        private void copyToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            richTextBox.Copy();
+            Autosave();
+        }
+
+        // Paste
 
         private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -431,10 +619,30 @@ namespace AutosaveNotepad
             Autosave();
         }
 
+        private void pasteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            richTextBox.Paste();
+            Autosave();
+        }
+
+        // Clear
+
         private void clearAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
             richTextBox.Clear();
             Autosave();
+        }
+
+        private void clearAllToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            richTextBox.SelectAll();
+            Autosave();
+        }
+
+        // Select All
+        private void selectAllToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
@@ -442,6 +650,38 @@ namespace AutosaveNotepad
             richTextBox.SelectAll();
             Autosave();
         }
+
+        // Word Wrap
+
+        private void wordWrapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (wordWrapToolStripMenuItem.Checked)
+            {
+                WordWrapActive(true);
+            }
+
+            else
+            {
+                WordWrapActive(false);
+            }
+        }
+
+        private void wordWrapToolStripMenuItem_CheckedChanged(object sender, EventArgs e)
+        {
+            if (wordWrapToolStripMenuItem.Checked)
+            {
+                WordWrapActive(true);
+            }
+
+            else
+            {
+                WordWrapActive(false);
+            }
+        }
+
+        #endregion
+
+        #region DISPLAY Menu
 
         //
         // DISPLAY Menu
@@ -457,6 +697,10 @@ namespace AutosaveNotepad
             CheckColors();
         }
 
+        #endregion
+
+        #region TOOL STRIP bar
+
         //
         // TOOL STRIP bar
         //
@@ -465,6 +709,7 @@ namespace AutosaveNotepad
         {
 
         }
+
         private void statusStrip_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
@@ -484,6 +729,14 @@ namespace AutosaveNotepad
         {
 
         }
+
+        #endregion
+
+
+
+        //
+        // NEW ACTIONS
+        //
 
         private void quicksaveLabel_Click(object sender, EventArgs e)
         {
