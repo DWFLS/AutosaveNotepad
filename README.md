@@ -33,33 +33,35 @@ v1.0.3
 - [x] New readme format
 - [x] Default save location
 - [x] Stip Status constructor
-- [x] Path in status strip.
+- [x] Path in status strip
 - [x] Quicksave bar ui (avoiding popup dialog and clicking through menus to quickly create a file; type in the name of the file, press enter and file is ready to edit)
 - [x] Working quicksave
-- [x] Path in status strip.
+- [x] Path in status strip
 - [x] Can write without autosave mode on again
-- [x] Drag and drop.
+- [x] Drag and drop
 
 v1.0.4
 
 - [x] Right mouse button context menu
 - [x] Added regions
-- [x] Toggle editing functions availability on context (undo only if action made etc).
+- [x] Toggle editing functions availability on context (undo only if action made etc)
 - [x] Autosave toggle
-- [x] Line wrapping toggle.
+- [x] Line wrapping toggle
 
 
 
 v1.0.5
-
-- [ ] URL the github status bar link?.
-- [ ] Find/Replace feature.
-- [ ] Add icons (toolbar/app)
-- [ ] Print function
-- [ ] Check if can cut/copy/paste
+- [ ] Enhance dark mode
+- [ ] Find/Replace feature
+- [x] URL the github status bar link
+- [x] Add icons (toolbar/app)
+- [x] Print function
+- [x] Check if can cut/copy/paste
+- [x] Handling pasting
 
 
 v1.1.0
-- [ ] "Open with".
-- [ ] Test
+- [ ] "Open with"
+- [ ] Make default txt app
+- [ ] Word count
 - [ ] Release v1.1.0

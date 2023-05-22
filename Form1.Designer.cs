@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(formMain));
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -40,8 +41,8 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsCopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.selectDefaultSaveDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.selectDefaultSaveDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,6 +76,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.autosaveCheckBox = new System.Windows.Forms.CheckBox();
             this.debug = new System.Windows.Forms.TextBox();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -145,8 +148,10 @@
             this.toolStripSeparator1,
             this.saveAsToolStripMenuItem,
             this.saveAsCopyToolStripMenuItem,
-            this.selectDefaultSaveDirectoryToolStripMenuItem,
             this.toolStripSeparator2,
+            this.selectDefaultSaveDirectoryToolStripMenuItem,
+            this.printToolStripMenuItem,
+            this.toolStripSeparator7,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
@@ -190,17 +195,17 @@
             this.saveAsCopyToolStripMenuItem.Text = "Create a Backup a Copy...";
             this.saveAsCopyToolStripMenuItem.Click += new System.EventHandler(this.saveAsCopyToolStripMenuItem_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(308, 6);
+            // 
             // selectDefaultSaveDirectoryToolStripMenuItem
             // 
             this.selectDefaultSaveDirectoryToolStripMenuItem.Name = "selectDefaultSaveDirectoryToolStripMenuItem";
             this.selectDefaultSaveDirectoryToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
             this.selectDefaultSaveDirectoryToolStripMenuItem.Text = "Select Default Save Directory...";
             this.selectDefaultSaveDirectoryToolStripMenuItem.Click += new System.EventHandler(this.selectDefaultSaveDirectoryToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(308, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -345,6 +350,7 @@
             this.richTextBox.Size = new System.Drawing.Size(889, 423);
             this.richTextBox.TabIndex = 2;
             this.richTextBox.Text = "";
+            this.richTextBox.SelectionChanged += new System.EventHandler(this.richTextBox_SelectionChanged);
             this.richTextBox.TextChanged += new System.EventHandler(this.richTextBox_TextChanged);
             // 
             // contextMenuStrip1
@@ -484,6 +490,18 @@
             this.debug.Size = new System.Drawing.Size(801, 280);
             this.debug.TabIndex = 7;
             // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
+            this.printToolStripMenuItem.Text = "Print...";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(308, 6);
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -495,6 +513,7 @@
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.MinimumSize = new System.Drawing.Size(907, 200);
             this.Name = "formMain";
@@ -561,5 +580,7 @@
         private ToolStripMenuItem selectAllToolStripMenuItem1;
         private ToolStripMenuItem clearAllToolStripMenuItem1;
         private TextBox debug;
+        private ToolStripMenuItem printToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator7;
     }
 }
