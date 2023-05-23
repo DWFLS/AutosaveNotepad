@@ -43,6 +43,8 @@
             this.saveAsCopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.selectDefaultSaveDirectoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.undoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -76,12 +78,22 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.autosaveCheckBox = new System.Windows.Forms.CheckBox();
             this.debug = new System.Windows.Forms.TextBox();
-            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.searchPanel = new System.Windows.Forms.Panel();
+            this.findNextButtonReal = new System.Windows.Forms.Button();
+            this.replaceAllButton = new System.Windows.Forms.Button();
+            this.replaceButton = new System.Windows.Forms.Button();
+            this.findPrevButton = new System.Windows.Forms.Button();
+            this.findButton = new System.Windows.Forms.Button();
+            this.replaceTextBox = new System.Windows.Forms.TextBox();
+            this.replaceLabel = new System.Windows.Forms.Label();
+            this.findTextBox = new System.Windows.Forms.TextBox();
+            this.searchLabel = new System.Windows.Forms.Label();
+            this.foundCounter = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.searchPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // statusStrip
@@ -94,7 +106,7 @@
             this.toolStripStatusLabel2});
             this.statusStrip.Location = new System.Drawing.Point(0, 490);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(889, 22);
+            this.statusStrip.Size = new System.Drawing.Size(937, 22);
             this.statusStrip.TabIndex = 0;
             this.statusStrip.Text = "sadad";
             this.statusStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip_ItemClicked);
@@ -135,7 +147,7 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
-            this.menuStrip.Size = new System.Drawing.Size(889, 30);
+            this.menuStrip.Size = new System.Drawing.Size(937, 30);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip";
             this.menuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip_ItemClicked);
@@ -206,6 +218,18 @@
             this.selectDefaultSaveDirectoryToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
             this.selectDefaultSaveDirectoryToolStripMenuItem.Text = "Select Default Save Directory...";
             this.selectDefaultSaveDirectoryToolStripMenuItem.Click += new System.EventHandler(this.selectDefaultSaveDirectoryToolStripMenuItem_Click);
+            // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
+            this.printToolStripMenuItem.Text = "Print...";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(308, 6);
             // 
             // exitToolStripMenuItem
             // 
@@ -347,7 +371,7 @@
             this.richTextBox.Location = new System.Drawing.Point(0, 67);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
-            this.richTextBox.Size = new System.Drawing.Size(889, 423);
+            this.richTextBox.Size = new System.Drawing.Size(937, 386);
             this.richTextBox.TabIndex = 2;
             this.richTextBox.Text = "";
             this.richTextBox.SelectionChanged += new System.EventHandler(this.richTextBox_SelectionChanged);
@@ -466,7 +490,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(889, 37);
+            this.panel1.Size = new System.Drawing.Size(937, 37);
             this.panel1.TabIndex = 6;
             // 
             // autosaveCheckBox
@@ -483,39 +507,137 @@
             // debug
             // 
             this.debug.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.debug.Location = new System.Drawing.Point(40, 210);
+            this.debug.Location = new System.Drawing.Point(39, 173);
             this.debug.Multiline = true;
             this.debug.Name = "debug";
             this.debug.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.debug.Size = new System.Drawing.Size(801, 280);
             this.debug.TabIndex = 7;
             // 
-            // printToolStripMenuItem
+            // searchPanel
             // 
-            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
-            this.printToolStripMenuItem.Text = "Print...";
-            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
+            this.searchPanel.Controls.Add(this.foundCounter);
+            this.searchPanel.Controls.Add(this.findNextButtonReal);
+            this.searchPanel.Controls.Add(this.replaceAllButton);
+            this.searchPanel.Controls.Add(this.replaceButton);
+            this.searchPanel.Controls.Add(this.findPrevButton);
+            this.searchPanel.Controls.Add(this.findButton);
+            this.searchPanel.Controls.Add(this.replaceTextBox);
+            this.searchPanel.Controls.Add(this.replaceLabel);
+            this.searchPanel.Controls.Add(this.findTextBox);
+            this.searchPanel.Controls.Add(this.searchLabel);
+            this.searchPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.searchPanel.Location = new System.Drawing.Point(0, 453);
+            this.searchPanel.Name = "searchPanel";
+            this.searchPanel.Size = new System.Drawing.Size(937, 37);
+            this.searchPanel.TabIndex = 8;
             // 
-            // toolStripSeparator7
+            // findNextButtonReal
             // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(308, 6);
+            this.findNextButtonReal.Location = new System.Drawing.Point(329, 3);
+            this.findNextButtonReal.Name = "findNextButtonReal";
+            this.findNextButtonReal.Size = new System.Drawing.Size(28, 29);
+            this.findNextButtonReal.TabIndex = 10;
+            this.findNextButtonReal.Text = ">";
+            this.findNextButtonReal.UseVisualStyleBackColor = true;
+            this.findNextButtonReal.Click += new System.EventHandler(this.findNextButtonReal_Click);
+            // 
+            // replaceAllButton
+            // 
+            this.replaceAllButton.Location = new System.Drawing.Point(836, 3);
+            this.replaceAllButton.Name = "replaceAllButton";
+            this.replaceAllButton.Size = new System.Drawing.Size(93, 29);
+            this.replaceAllButton.TabIndex = 9;
+            this.replaceAllButton.Text = "Replace All";
+            this.replaceAllButton.UseVisualStyleBackColor = true;
+            this.replaceAllButton.Click += new System.EventHandler(this.replaceAllButton_Click);
+            // 
+            // replaceButton
+            // 
+            this.replaceButton.Location = new System.Drawing.Point(756, 3);
+            this.replaceButton.Name = "replaceButton";
+            this.replaceButton.Size = new System.Drawing.Size(74, 29);
+            this.replaceButton.TabIndex = 6;
+            this.replaceButton.Text = "Replace";
+            this.replaceButton.UseVisualStyleBackColor = true;
+            this.replaceButton.Click += new System.EventHandler(this.replaceButton_Click);
+            // 
+            // findPrevButton
+            // 
+            this.findPrevButton.Location = new System.Drawing.Point(295, 3);
+            this.findPrevButton.Name = "findPrevButton";
+            this.findPrevButton.Size = new System.Drawing.Size(28, 29);
+            this.findPrevButton.TabIndex = 5;
+            this.findPrevButton.Text = "<";
+            this.findPrevButton.UseVisualStyleBackColor = true;
+            this.findPrevButton.Click += new System.EventHandler(this.findPrevButton_Click);
+            // 
+            // findButton
+            // 
+            this.findButton.Location = new System.Drawing.Point(237, 3);
+            this.findButton.Name = "findButton";
+            this.findButton.Size = new System.Drawing.Size(52, 29);
+            this.findButton.TabIndex = 4;
+            this.findButton.Text = "Go";
+            this.findButton.UseVisualStyleBackColor = true;
+            this.findButton.Click += new System.EventHandler(this.findNextButton_Click);
+            // 
+            // replaceTextBox
+            // 
+            this.replaceTextBox.Location = new System.Drawing.Point(588, 6);
+            this.replaceTextBox.Name = "replaceTextBox";
+            this.replaceTextBox.Size = new System.Drawing.Size(162, 27);
+            this.replaceTextBox.TabIndex = 3;
+            // 
+            // replaceLabel
+            // 
+            this.replaceLabel.AutoSize = true;
+            this.replaceLabel.Location = new System.Drawing.Point(485, 9);
+            this.replaceLabel.Name = "replaceLabel";
+            this.replaceLabel.Size = new System.Drawing.Size(97, 20);
+            this.replaceLabel.TabIndex = 2;
+            this.replaceLabel.Text = "Replace with:";
+            // 
+            // findTextBox
+            // 
+            this.findTextBox.Location = new System.Drawing.Point(55, 3);
+            this.findTextBox.Name = "findTextBox";
+            this.findTextBox.Size = new System.Drawing.Size(176, 27);
+            this.findTextBox.TabIndex = 1;
+            // 
+            // searchLabel
+            // 
+            this.searchLabel.AutoSize = true;
+            this.searchLabel.Location = new System.Drawing.Point(12, 6);
+            this.searchLabel.Name = "searchLabel";
+            this.searchLabel.Size = new System.Drawing.Size(40, 20);
+            this.searchLabel.TabIndex = 0;
+            this.searchLabel.Text = "Find:";
+            // 
+            // foundCounter
+            // 
+            this.foundCounter.AutoSize = true;
+            this.foundCounter.Location = new System.Drawing.Point(363, 9);
+            this.foundCounter.Name = "foundCounter";
+            this.foundCounter.Size = new System.Drawing.Size(111, 20);
+            this.foundCounter.TabIndex = 9;
+            this.foundCounter.Text = "100000/100000";
             // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(889, 512);
-            this.Controls.Add(this.debug);
+            this.ClientSize = new System.Drawing.Size(937, 512);
             this.Controls.Add(this.richTextBox);
+            this.Controls.Add(this.searchPanel);
+            this.Controls.Add(this.debug);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.MinimumSize = new System.Drawing.Size(907, 200);
+            this.MinimumSize = new System.Drawing.Size(955, 200);
             this.Name = "formMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AutosaveNotepad - Create or Open a Document";
@@ -527,6 +649,8 @@
             this.contextMenuStrip1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.searchPanel.ResumeLayout(false);
+            this.searchPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -582,5 +706,16 @@
         private TextBox debug;
         private ToolStripMenuItem printToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator7;
+        private Panel searchPanel;
+        private Button findPrevButton;
+        private Button findButton;
+        private TextBox replaceTextBox;
+        private Label replaceLabel;
+        private TextBox findTextBox;
+        private Label searchLabel;
+        private Button replaceAllButton;
+        private Button replaceButton;
+        private Button findNextButtonReal;
+        private Label foundCounter;
     }
 }

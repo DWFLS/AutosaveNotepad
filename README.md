@@ -52,7 +52,13 @@ v1.0.4
 
 v1.0.5
 - [ ] Enhance dark mode
-- [ ] Find/Replace feature
+- [x] Find feature
+- [ ] Unmark when typing again and not highlighting the last found entry.
+- [ ] Case sensitivity for find feature
+- [ ] Find prevous or next
+- [ ] Replace feature
+- [ ] Add an option to hide quicksavePanel along with search panel
+- [ ] Word count
 - [x] URL the github status bar link
 - [x] Add icons (toolbar/app)
 - [x] Print function
@@ -63,5 +69,5 @@ v1.0.5
 v1.1.0
 - [ ] "Open with"
 - [ ] Make default txt app
-- [ ] Word count
+
 - [ ] Release v1.1.0
