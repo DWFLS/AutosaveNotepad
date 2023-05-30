@@ -51,12 +51,17 @@ v1.0.4
 
 
 v1.0.5
-- [ ] Enhance dark mode
-- [x] Find feature
-- [ ] Unmark when typing again and not highlighting the last found entry.
-- [ ] Case sensitivity for find feature
-- [ ] Find prevous or next
+- [ ] Full Find feature
+	- [x] Rewriting from scratch
+	- [x] Fixed highlighting the last found entry
+	- [ ] Unmark when typing again
+		- [ ] resolve by enabling or reenabling upon pressing highlighting
+	- [x] Fix issue when searched for string is inside of another, example: f in fff, issue with repeating chars (maybe skip past i's in the for loop? of split in two loops...)')
+	- [ ] Find single previous or next
+	- [ ] Case sensitivity button for find feature
+
 - [ ] Replace feature
+- [ ] Enhance dark mode
 - [ ] Add an option to hide quicksavePanel along with search panel
 - [ ] Word count
 - [x] URL the github status bar link

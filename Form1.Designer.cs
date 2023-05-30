@@ -79,6 +79,7 @@
             this.autosaveCheckBox = new System.Windows.Forms.CheckBox();
             this.debug = new System.Windows.Forms.TextBox();
             this.searchPanel = new System.Windows.Forms.Panel();
+            this.foundCounter = new System.Windows.Forms.Label();
             this.findNextButtonReal = new System.Windows.Forms.Button();
             this.replaceAllButton = new System.Windows.Forms.Button();
             this.replaceButton = new System.Windows.Forms.Button();
@@ -88,7 +89,6 @@
             this.replaceLabel = new System.Windows.Forms.Label();
             this.findTextBox = new System.Windows.Forms.TextBox();
             this.searchLabel = new System.Windows.Forms.Label();
-            this.foundCounter = new System.Windows.Forms.Label();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -532,9 +532,18 @@
             this.searchPanel.Size = new System.Drawing.Size(937, 37);
             this.searchPanel.TabIndex = 8;
             // 
+            // foundCounter
+            // 
+            this.foundCounter.AutoSize = true;
+            this.foundCounter.Location = new System.Drawing.Point(363, 9);
+            this.foundCounter.Name = "foundCounter";
+            this.foundCounter.Size = new System.Drawing.Size(111, 20);
+            this.foundCounter.TabIndex = 9;
+            this.foundCounter.Text = "100000/100000";
+            // 
             // findNextButtonReal
             // 
-            this.findNextButtonReal.Location = new System.Drawing.Point(329, 3);
+            this.findNextButtonReal.Location = new System.Drawing.Point(335, 2);
             this.findNextButtonReal.Name = "findNextButtonReal";
             this.findNextButtonReal.Size = new System.Drawing.Size(28, 29);
             this.findNextButtonReal.TabIndex = 10;
@@ -564,7 +573,7 @@
             // 
             // findPrevButton
             // 
-            this.findPrevButton.Location = new System.Drawing.Point(295, 3);
+            this.findPrevButton.Location = new System.Drawing.Point(301, 3);
             this.findPrevButton.Name = "findPrevButton";
             this.findPrevButton.Size = new System.Drawing.Size(28, 29);
             this.findPrevButton.TabIndex = 5;
@@ -574,11 +583,11 @@
             // 
             // findButton
             // 
-            this.findButton.Location = new System.Drawing.Point(237, 3);
+            this.findButton.Location = new System.Drawing.Point(204, 3);
             this.findButton.Name = "findButton";
-            this.findButton.Size = new System.Drawing.Size(52, 29);
+            this.findButton.Size = new System.Drawing.Size(91, 29);
             this.findButton.TabIndex = 4;
-            this.findButton.Text = "Go";
+            this.findButton.Text = "Highlight!";
             this.findButton.UseVisualStyleBackColor = true;
             this.findButton.Click += new System.EventHandler(this.findNextButton_Click);
             // 
@@ -602,7 +611,7 @@
             // 
             this.findTextBox.Location = new System.Drawing.Point(55, 3);
             this.findTextBox.Name = "findTextBox";
-            this.findTextBox.Size = new System.Drawing.Size(176, 27);
+            this.findTextBox.Size = new System.Drawing.Size(143, 27);
             this.findTextBox.TabIndex = 1;
             // 
             // searchLabel
@@ -613,15 +622,6 @@
             this.searchLabel.Size = new System.Drawing.Size(40, 20);
             this.searchLabel.TabIndex = 0;
             this.searchLabel.Text = "Find:";
-            // 
-            // foundCounter
-            // 
-            this.foundCounter.AutoSize = true;
-            this.foundCounter.Location = new System.Drawing.Point(363, 9);
-            this.foundCounter.Name = "foundCounter";
-            this.foundCounter.Size = new System.Drawing.Size(111, 20);
-            this.foundCounter.TabIndex = 9;
-            this.foundCounter.Text = "100000/100000";
             // 
             // formMain
             // 

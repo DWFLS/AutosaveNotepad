@@ -21,12 +21,11 @@ namespace AutosaveNotepad
         string miscInfo = "";
         string defaultFolderStatus = "";
         string quickSaveInput = "";
-        string findQueryResult = "";
 
+        string textBackup = "";
+        bool textBackupLocked = false;
 
-        bool findQuerySuccess = false;
         bool cutCopyAvailable = false;
-        bool resumeTypingFindButton = false;
 
         public formMain() //this code block is executed after the main form is instantiated.
         {
@@ -77,14 +76,17 @@ namespace AutosaveNotepad
             StripStatusConstructor("", " ", "");
             CheckForUndoRedo();
             Autosave();
-
-            if (findQueryResult != richTextBox.Text && resumeTypingFindButton)
+            /*
+            if (textBackupLocked == false)
             {
-                UnHighlightAll();
-                //richTextBox.SelectionStart = richTextBox.Text.Length;
-                //richTextBox.SelectionLength = 0;
-                resumeTypingFindButton = false;
+                textBackup = richTextBox.Text;
             }
+
+            if (richTextBox.TextLength != textBackup.Length)
+            {
+                textBackupLocked = false;
+                richTextBox.Text = textBackup;
+            }*/
         }
 
         private void richTextBox_SelectionChanged(object sender, EventArgs e)
@@ -178,8 +180,6 @@ namespace AutosaveNotepad
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + currentFileName;
                 AutosaveActive(true);
                 StripStatusConstructor("Autosave is now active.", "Quicksave successful.", "");
-
-
             }
 
             else
@@ -188,25 +188,6 @@ namespace AutosaveNotepad
                 StripStatusConstructor("", "Quicksave failed", "Please check if default save folder exists.");
                 AutosaveActive(false);
             }
-
-            /*
-              var saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Title = "Save as...";
-            saveFileDialog.Filter = "Text Document|*.txt|All Files|*.*";
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                richTextBox.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
-                var fileNameOnly = FilenameTrimmer(saveFileDialog.FileName);
-                this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + saveFileDialog.FileName;
-                currentFileName = saveFileDialog.FileName;
-                AutosaveActive(true);
-                StripStatusConstructor("Autosave is now active, take care while editing.", "", "");
-                EnableFeatures(true);
-            }
-             
-             */
-
-
         }
 
         #endregion
@@ -358,17 +339,6 @@ namespace AutosaveNotepad
 
         private string FilenameTrimmer(string fileName)
         {
-            /*int lastSlashIndex = 0;
-            for (int i = fileName.Length - 1; i != 0; i--)
-            {
-                if (fileName[i] == '\\')
-                {
-                    lastSlashIndex = fileName.Length - 1 - i;
-                    break;
-                }
-            }
-
-            return fileName.Remove(0, fileName.Length - lastSlashIndex);*/
             return Path.GetFileName(fileName);
         }
 
@@ -933,71 +903,71 @@ namespace AutosaveNotepad
 
         #endregion
 
-        private void UnHighlightAll()
-        {
-            richTextBox.SelectionStart = 0;
-            richTextBox.SelectionLength = richTextBox.TextLength;
-            richTextBox.SelectionBackColor = richTextBox.BackColor;
-        }
 
         /*
          "Go" Button.
          */
 
-        private void findNextButton_Click(object sender, EventArgs e) //"GO" button
+        private void findNextButton_Click(object sender, EventArgs e) //Highlight button
         {
-            UnHighlightAll();
-            resumeTypingFindButton = true;
-
             string findQuery = findTextBox.Text;
-            FindAndHighlight(findQuery);
-            /*
-            List<int> startIndexesToHighlight = new List<int>();   
-            int highlightingStreak = 0;
+            string richText = richTextBox.Text;
+            richTextBox.Text = richText;
+            bool caseSensitive = false;
+            Find(richText, findQuery, caseSensitive);
+        }
 
+        private void Find(string textBox, string query, bool casing)
+        {
+            textBackupLocked = true;
+            string text = textBox;
+            if (!casing) text = text.ToLower();
+            List<int> foundIndexes = new List<int>();
+            bool found = false;
 
-            
-            for (int i = 0; i < richTextBox.Text.Length; i++)
+            for (int i = 0; i < text.Length; i++)
             {
-                if (richTextBox.Text[i] == findQuery[0]
-                    && richTextBox.Text.Length > findQuery.Length + i)
+                int occurrenceStreak = 0;
+                if (text[i] == query[0]
+                    && text.Length >= query.Length + i)
                 {
-                    int occurenceStreak = 0;
-                    for (int j = 0; j < findQuery.Length; j++)
+                    for (int j = 0; j < query.Length; j++)
                     {
-                        if (richTextBox.Text[i + j] == findQuery[j])
+                        if (text[i + j] == query[j])
                         {
-                            occurenceStreak++;
+                            occurrenceStreak++;
                         }
                     }
-                    if (occurenceStreak == findQuery.Length)
+
+                    if (occurrenceStreak == query.Length)
                     {
-                        startIndexesToHighlight.Add(i);
-                        highlightingStreak = findQuery.Length;
+                        foundIndexes.Add(i);
+                        //i += query.Length;
+                        found = true;
                     }
                 }
-                if (highlightingStreak > 0)
-                {
-                    richTextBox.Select(i, 1);
-                    richTextBox.SelectionBackColor = Color.Yellow;
-                    highlightingStreak--;
-                }
+            }
 
-                if (i == richTextBox.Text.Length - 1)
-                {
-                    findQueryResult = richTextBox.Text;
-                }
-
-            }*/
-
-            // Display number of hits //
+            if (found)
+            {
+                Highlight(foundIndexes, query.Length);
+                FoundCounterController(0, foundIndexes.Count);
+            }
+        }
 
 
+        private void Highlight(List<int> indexes, int queryLength)
+        {
+            for (int i = 0; i < indexes.Count; i++)
+            {
+                //richTextBox.SelectionStart = indexes[i];
+                //richTextBox.SelectionLength = queryLength;
 
-            // Highlight number one if found
-
-
-
+                richTextBox.Select(indexes[i], queryLength);
+                richTextBox.SelectionBackColor = Color.Yellow;
+            }
+            richTextBox.Focus();
+            //richTextBox.Refresh();
         }
 
         private void FoundCounterController(int current, int total)
@@ -1006,55 +976,14 @@ namespace AutosaveNotepad
             if (total > 0)
             {
                 foundCounter.Visible = true;
-                findQuerySuccess = true;
-
+                //findQuerySuccess = true;
                 foundCounter.Text = index.ToString() + "/" + total.ToString();
             }
             else
             {
-                findQuerySuccess = false;
+                //findQuerySuccess = false;
                 foundCounter.Visible = false;
             }
-
-        }
-
-        private void FindAndHighlight(string searchText)
-        {
-            /*
-            a single loop to find and query occurences and to highlight them :)
-            */
-
-            List<int> startIndexesToHighlight = new List<int>();
-            int highlightingStreak = 0;
-
-            for (int i = 0; i < richTextBox.Text.Length; i++)
-            {
-                if (richTextBox.Text[i] == searchText[0] && richTextBox.Text.Length > searchText.Length + i)
-                {
-                    int occurrenceStreak = 0;
-                    for (int j = 0; j < searchText.Length; j++)
-                    {
-                        if (richTextBox.Text[i + j] == searchText[j])
-                        {
-                            occurrenceStreak++;
-                        }
-                    }
-                    if (occurrenceStreak == searchText.Length)
-                    {
-                        startIndexesToHighlight.Add(i);
-                        highlightingStreak = searchText.Length;
-                    }
-                }
-                if (highlightingStreak > 0)
-                {
-                    richTextBox.Select(i, 1);
-                    richTextBox.SelectionBackColor = Color.Yellow;
-                    highlightingStreak--;
-                }
-            }
-
-            findQueryResult = richTextBox.Text;
-            FoundCounterController(0, startIndexesToHighlight.Count);
         }
 
         private void findNextButtonReal_Click(object sender, EventArgs e)
