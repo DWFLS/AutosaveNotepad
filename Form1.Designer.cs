@@ -535,11 +535,11 @@
             // foundCounter
             // 
             this.foundCounter.AutoSize = true;
-            this.foundCounter.Location = new System.Drawing.Point(363, 9);
+            this.foundCounter.Location = new System.Drawing.Point(368, 6);
             this.foundCounter.Name = "foundCounter";
-            this.foundCounter.Size = new System.Drawing.Size(111, 20);
+            this.foundCounter.Size = new System.Drawing.Size(113, 20);
             this.foundCounter.TabIndex = 9;
-            this.foundCounter.Text = "100000/100000";
+            this.foundCounter.Text = "1234567890123";
             // 
             // findNextButtonReal
             // 
@@ -593,7 +593,7 @@
             // 
             // replaceTextBox
             // 
-            this.replaceTextBox.Location = new System.Drawing.Point(588, 6);
+            this.replaceTextBox.Location = new System.Drawing.Point(588, 3);
             this.replaceTextBox.Name = "replaceTextBox";
             this.replaceTextBox.Size = new System.Drawing.Size(162, 27);
             this.replaceTextBox.TabIndex = 3;
@@ -601,7 +601,7 @@
             // replaceLabel
             // 
             this.replaceLabel.AutoSize = true;
-            this.replaceLabel.Location = new System.Drawing.Point(485, 9);
+            this.replaceLabel.Location = new System.Drawing.Point(485, 6);
             this.replaceLabel.Name = "replaceLabel";
             this.replaceLabel.Size = new System.Drawing.Size(97, 20);
             this.replaceLabel.TabIndex = 2;
@@ -613,6 +613,9 @@
             this.findTextBox.Name = "findTextBox";
             this.findTextBox.Size = new System.Drawing.Size(143, 27);
             this.findTextBox.TabIndex = 1;
+            this.findTextBox.TextChanged += new System.EventHandler(this.findTextBox_TextChanged);
+            this.findTextBox.Enter += new System.EventHandler(this.findTextBox_Enter);
+            this.findTextBox.Leave += new System.EventHandler(this.findTextBox_Leave);
             // 
             // searchLabel
             // 

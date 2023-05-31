@@ -54,10 +54,12 @@ v1.0.5
 - [ ] Full Find feature
 	- [x] Rewriting from scratch
 	- [x] Fixed highlighting the last found entry
-	- [ ] Unmark when typing again
-		- [ ] resolve by enabling or reenabling upon pressing highlighting
+	- [x] Unmark when typing again
+		- [x] resolve by enabling or reenabling upon pressing highlighting
+		- [x] disable all edit keys when highlighting
 	- [x] Fix issue when searched for string is inside of another, example: f in fff, issue with repeating chars (maybe skip past i's in the for loop? of split in two loops...)')
 	- [ ] Find single previous or next
+		- [ ] Merge FoundCounterController and Highlight to handle both selection, traversion and highlighting
 	- [ ] Case sensitivity button for find feature
 
 - [ ] Replace feature

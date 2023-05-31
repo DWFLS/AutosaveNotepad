@@ -23,9 +23,17 @@ namespace AutosaveNotepad
         string quickSaveInput = "";
 
         string textBackup = "";
-        bool textBackupLocked = false;
-
+        bool textEditingLocked = false;
         bool cutCopyAvailable = false;
+
+        int currentFindIndex = 0;
+        int totalFinds = 0;
+        List<int> allFinds = new List<int>();
+        int findLength = 0;
+
+
+
+
 
         public formMain() //this code block is executed after the main form is instantiated.
         {
@@ -40,6 +48,8 @@ namespace AutosaveNotepad
             CheckForDefaultFolder();
             StripStatusConstructor("Autosave is NOT active - Create or open a document.", "", "");
             WordWrapActive(true);
+
+            ResetFind();
 
             statusStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
             toolStripStatusLabel2.Alignment = ToolStripItemAlignment.Right;
@@ -56,6 +66,7 @@ namespace AutosaveNotepad
             copyToolStripMenuItem1.Enabled = false;
             searchPanel.Visible = true;
             foundCounter.Visible = false;
+            findButton.Enabled = false;
 
             debug.Enabled = false;
             debug.Visible = false;
@@ -76,23 +87,14 @@ namespace AutosaveNotepad
             StripStatusConstructor("", " ", "");
             CheckForUndoRedo();
             Autosave();
-            /*
-            if (textBackupLocked == false)
-            {
-                textBackup = richTextBox.Text;
-            }
-
-            if (richTextBox.TextLength != textBackup.Length)
-            {
-                textBackupLocked = false;
-                richTextBox.Text = textBackup;
-            }*/
         }
 
         private void richTextBox_SelectionChanged(object sender, EventArgs e)
         {
             CheckForCutCopyPaste();
         }
+
+
 
         private void quicksaveTextBox_TextChanged(object sender, EventArgs e)
         {
@@ -905,10 +907,10 @@ namespace AutosaveNotepad
 
 
         /*
-         "Go" Button.
+         "Highlight" Button.
          */
 
-        private void findNextButton_Click(object sender, EventArgs e) //Highlight button
+        private void findNextButton_Click(object sender, EventArgs e) // "Highlight" button
         {
             string findQuery = findTextBox.Text;
             string richText = richTextBox.Text;
@@ -919,60 +921,115 @@ namespace AutosaveNotepad
 
         private void Find(string textBox, string query, bool casing)
         {
-            textBackupLocked = true;
-            string text = textBox;
-            if (!casing) text = text.ToLower();
-            List<int> foundIndexes = new List<int>();
-            bool found = false;
-
-            for (int i = 0; i < text.Length; i++)
+            if (textEditingLocked)
             {
-                int occurrenceStreak = 0;
-                if (text[i] == query[0]
-                    && text.Length >= query.Length + i)
+                EditingRichTextBoxFeaturesEnabled(true);
+                textEditingLocked = false;
+                findButton.Text = "Highlight!";
+                richTextBox.Text = textBackup;
+            }
+
+            else
+            {
+                ResetFind();
+                string text = textBox;
+                if (!casing) text = text.ToLower();
+                List<int> foundIndexes = new List<int>();
+                bool found = false;
+
+                for (int i = 0; i < text.Length; i++)
                 {
-                    for (int j = 0; j < query.Length; j++)
+                    int occurrenceStreak = 0;
+                    if (text[i] == query[0]
+                        && text.Length >= query.Length + i)
                     {
-                        if (text[i + j] == query[j])
+                        for (int j = 0; j < query.Length; j++)
                         {
-                            occurrenceStreak++;
+                            if (text[i + j] == query[j])
+                            {
+                                occurrenceStreak++;
+                            }
+                        }
+
+                        if (occurrenceStreak == query.Length)
+                        {
+                            foundIndexes.Add(i);
+                            //i += query.Length;
+                            found = true;
                         }
                     }
-
-                    if (occurrenceStreak == query.Length)
-                    {
-                        foundIndexes.Add(i);
-                        //i += query.Length;
-                        found = true;
-                    }
                 }
+
+                if (found)
+                {
+                    allFinds = foundIndexes;
+                    currentFindIndex = 1;
+                    findLength = query.Length;
+                    totalFinds = foundIndexes.Count;
+
+                    Highlight(foundIndexes, query.Length);
+                }
+                FoundCounterController(currentFindIndex, foundIndexes.Count);
+            }
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (textEditingLocked && findTextBox.Focused != true)
+            {
+                // Disable all key input and editing actions
+                return true;
             }
 
-            if (found)
+            else if (textEditingLocked && richTextBox.Focused)
             {
-                Highlight(foundIndexes, query.Length);
-                FoundCounterController(0, foundIndexes.Count);
+                return true;
             }
+
+            else return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void EditingRichTextBoxFeaturesEnabled(bool state)
+        {
+            richTextBox.Enabled = state;
+            richTextBox.ShortcutsEnabled = state;
+        }
+
+        private void ResetFind()
+        {
+            currentFindIndex = 0;
+            totalFinds = 0;
+            allFinds.Clear();
+            findLength = 0;
         }
 
 
         private void Highlight(List<int> indexes, int queryLength)
         {
+            textBackup = richTextBox.Text;
+            findButton.Text = "Done";
+            EditingRichTextBoxFeaturesEnabled(false);
+            textEditingLocked = true;
+
+
             for (int i = 0; i < indexes.Count; i++)
             {
-                //richTextBox.SelectionStart = indexes[i];
-                //richTextBox.SelectionLength = queryLength;
-
                 richTextBox.Select(indexes[i], queryLength);
                 richTextBox.SelectionBackColor = Color.Yellow;
             }
-            richTextBox.Focus();
+            //richTextBox.Focus();
             //richTextBox.Refresh();
+        }
+
+        private void Select()
+        {
+            //richTextBox.SelectionStart = indexes[i];
+            //richTextBox.SelectionLength = queryLength;
         }
 
         private void FoundCounterController(int current, int total)
         {
-            int index = current + 1;
+            int index = current;
             if (total > 0)
             {
                 foundCounter.Visible = true;
@@ -984,6 +1041,32 @@ namespace AutosaveNotepad
                 //findQuerySuccess = false;
                 foundCounter.Visible = false;
             }
+        }
+
+        private void findTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (findTextBox.Text != "")
+            {
+                findButton.Enabled = true;
+            }
+
+            else
+            {
+                findButton.Enabled = false;
+            }
+        }
+
+
+
+
+        private void findTextBox_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void findTextBox_Leave(object sender, EventArgs e)
+        {
+
         }
 
         private void findNextButtonReal_Click(object sender, EventArgs e)
