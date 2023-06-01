@@ -61,7 +61,7 @@ v1.0.5
 	- [x] Separate Find from highlight button function
 	- [ ] Find single previous or next		
 		- [ ] Program the prev and next buttons
-		- [ ] Limit character in the label that displays number of finds
+		- [x] Limit character in the label that displays number of finds
 	- [ ] Case sensitivity button for find feature
 
 - [ ] Replace feature

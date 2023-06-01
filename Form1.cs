@@ -1122,8 +1122,16 @@ namespace AutosaveNotepad
             {
                 foundCounter.Visible = true;
                 //findQuerySuccess = true;
-                if (total < 11) foundCounter.Text = index.ToString() + "/" + total.ToString();
-                else foundCounter.Text = total.ToString() + " found.";
+                foundCounter.Text = index.ToString() + "/" + total.ToString();
+                if (foundCounter.Text.Count() > 11)
+                {
+                    foundCounter.Text = total.ToString() + " found.";
+                    if (foundCounter.Text.Count() > 11)
+                    {
+                        foundCounter.Text = "9999999999+";
+                    }
+                }
+
 
                 if (mode != "highlight")
                 {
@@ -1152,8 +1160,6 @@ namespace AutosaveNotepad
                         findNextButtonReal.Enabled = true;
                     }
                 }
-
-
             }
             else
             {
