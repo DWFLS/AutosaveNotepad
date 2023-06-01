@@ -31,6 +31,8 @@ namespace AutosaveNotepad
         List<int> allFinds = new List<int>();
         int findLength = 0;
 
+        bool searchResultOK = false;
+
 
 
 
@@ -916,11 +918,9 @@ namespace AutosaveNotepad
             string richText = richTextBox.Text;
             richTextBox.Text = richText;
             bool caseSensitive = false;
-            Find(richText, findQuery, caseSensitive);
-        }
 
-        private void Find(string textBox, string query, bool casing)
-        {
+            searchResultOK = false;
+
             if (textEditingLocked)
             {
                 EditingRichTextBoxFeaturesEnabled(true);
@@ -928,48 +928,63 @@ namespace AutosaveNotepad
                 findButton.Text = "Highlight!";
                 richTextBox.Text = textBackup;
             }
-
             else
             {
                 ResetFind();
-                string text = textBox;
-                if (!casing) text = text.ToLower();
-                List<int> foundIndexes = new List<int>();
-                bool found = false;
+                Search(richText, findQuery, caseSensitive, out searchResultOK);
 
-                for (int i = 0; i < text.Length; i++)
+                if (searchResultOK)
                 {
-                    int occurrenceStreak = 0;
-                    if (text[i] == query[0]
-                        && text.Length >= query.Length + i)
-                    {
-                        for (int j = 0; j < query.Length; j++)
-                        {
-                            if (text[i + j] == query[j])
-                            {
-                                occurrenceStreak++;
-                            }
-                        }
+                    Highlight(allFinds, findQuery.Length);
+                    NextPrevFindController();
+                }
 
-                        if (occurrenceStreak == query.Length)
+                FoundCounterController(currentFindIndex, allFinds.Count);
+            }
+        }
+
+        private void Search(string aTextbox, string aQuery, bool aCasing, out bool result)
+        {
+            string text = aTextbox;
+            if (!aCasing) text = text.ToLower();
+            List<int> foundIndexes = new List<int>();
+            bool found = false;
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                int occurrenceStreak = 0;
+                if (text[i] == aQuery[0]
+                    && text.Length >= aQuery.Length + i)
+                {
+                    for (int j = 0; j < aQuery.Length; j++)
+                    {
+                        if (text[i + j] == aQuery[j])
                         {
-                            foundIndexes.Add(i);
-                            //i += query.Length;
-                            found = true;
+                            occurrenceStreak++;
                         }
                     }
-                }
 
-                if (found)
-                {
-                    allFinds = foundIndexes;
-                    currentFindIndex = 1;
-                    findLength = query.Length;
-                    totalFinds = foundIndexes.Count;
-
-                    Highlight(foundIndexes, query.Length);
+                    if (occurrenceStreak == aQuery.Length)
+                    {
+                        foundIndexes.Add(i);
+                        //i += query.Length;
+                        found = true;
+                    }
                 }
-                FoundCounterController(currentFindIndex, foundIndexes.Count);
+            }
+            if (found)
+            {
+                result = found;
+                allFinds = foundIndexes;
+                currentFindIndex = 0;
+                findLength = aQuery.Length;
+                totalFinds = foundIndexes.Count;
+                richTextBox.Enabled = true;
+            }
+
+            else
+            {
+                result = false;
             }
         }
 
@@ -987,6 +1002,11 @@ namespace AutosaveNotepad
             }
 
             else return base.ProcessCmdKey(ref msg, keyData);
+        }
+
+        private void NextPrevFindController()
+        {
+
         }
 
         private void EditingRichTextBoxFeaturesEnabled(bool state)
@@ -1021,15 +1041,15 @@ namespace AutosaveNotepad
             //richTextBox.Refresh();
         }
 
-        private void Select()
+        private void Select(int selectedIndex, int selectionLength)
         {
-            //richTextBox.SelectionStart = indexes[i];
-            //richTextBox.SelectionLength = queryLength;
+            richTextBox.SelectionStart = selectedIndex;
+            richTextBox.SelectionLength = selectionLength;
         }
 
         private void FoundCounterController(int current, int total)
         {
-            int index = current;
+            int index = current + 1;
             if (total > 0)
             {
                 foundCounter.Visible = true;

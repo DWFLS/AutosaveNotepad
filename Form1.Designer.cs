@@ -543,7 +543,7 @@
             // 
             // findNextButtonReal
             // 
-            this.findNextButtonReal.Location = new System.Drawing.Point(335, 2);
+            this.findNextButtonReal.Location = new System.Drawing.Point(238, 3);
             this.findNextButtonReal.Name = "findNextButtonReal";
             this.findNextButtonReal.Size = new System.Drawing.Size(28, 29);
             this.findNextButtonReal.TabIndex = 10;
@@ -573,7 +573,7 @@
             // 
             // findPrevButton
             // 
-            this.findPrevButton.Location = new System.Drawing.Point(301, 3);
+            this.findPrevButton.Location = new System.Drawing.Point(204, 2);
             this.findPrevButton.Name = "findPrevButton";
             this.findPrevButton.Size = new System.Drawing.Size(28, 29);
             this.findPrevButton.TabIndex = 5;
@@ -583,7 +583,7 @@
             // 
             // findButton
             // 
-            this.findButton.Location = new System.Drawing.Point(204, 3);
+            this.findButton.Location = new System.Drawing.Point(272, 2);
             this.findButton.Name = "findButton";
             this.findButton.Size = new System.Drawing.Size(91, 29);
             this.findButton.TabIndex = 4;
