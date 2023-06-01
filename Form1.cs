@@ -27,7 +27,6 @@ namespace AutosaveNotepad
         bool cutCopyAvailable = false;
 
         int currentFindIndex = 0;
-        int totalFinds = 0;
         List<int> allFinds = new List<int>();
         int findLength = 0;
 
@@ -70,8 +69,11 @@ namespace AutosaveNotepad
             foundCounter.Visible = false;
             findButton.Enabled = false;
 
+            findNextButtonReal.Enabled = false;
+            findPrevButton.Enabled = false;
+
             debug.Enabled = false;
-            debug.Visible = false;
+            debug.Visible = true;
         }
 
         public void formMain_Load(object sender, EventArgs e)
@@ -89,6 +91,13 @@ namespace AutosaveNotepad
             StripStatusConstructor("", " ", "");
             CheckForUndoRedo();
             Autosave();
+        }
+
+        private void findTextBox_TextChanged(object sender, EventArgs e)
+        {
+            foundCounter.Text = "";
+            findNextButtonReal.Enabled = false;
+            findPrevButton.Enabled = false;
         }
 
         private void richTextBox_SelectionChanged(object sender, EventArgs e)
@@ -165,6 +174,8 @@ namespace AutosaveNotepad
 
             }
         }
+
+
 
         #endregion
 
@@ -907,6 +918,49 @@ namespace AutosaveNotepad
 
         #endregion
 
+        // SEARCH BUTTON
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            SearchInRichTextBox();
+        }
+
+        private void SearchInRichTextBox()
+        {
+            ResetFind();
+
+            if (findTextBox.Text != "")
+            {
+                Search(richTextBox.Text, findTextBox.Text, false, out searchResultOK);
+
+                if (searchResultOK)
+                {
+                    findButton.Enabled = true;
+
+                    SelectText(allFinds[0], findLength);
+                }
+
+                else
+                {
+                    findButton.Enabled = false;
+                    findNextButtonReal.Enabled = false;
+                    findPrevButton.Enabled = false;
+                    debug.Text = ":(";
+                }
+
+            }
+
+            else
+            {
+                findButton.Enabled = false;
+                richTextBox.Enabled = true;
+                findNextButtonReal.Enabled = false;
+                findPrevButton.Enabled = false;
+                richTextBox.Text = textBackup;
+                textEditingLocked = false;
+            }
+            FoundCounterController(currentFindIndex, allFinds.Count, "find");
+        }
 
         /*
          "Highlight" Button.
@@ -920,13 +974,15 @@ namespace AutosaveNotepad
             bool caseSensitive = false;
 
             searchResultOK = false;
-
+            FindBoxAndControlsGlobalController(searchResultOK);
             if (textEditingLocked)
             {
                 EditingRichTextBoxFeaturesEnabled(true);
                 textEditingLocked = false;
                 findButton.Text = "Highlight!";
                 richTextBox.Text = textBackup;
+                FoundCounterController(currentFindIndex, allFinds.Count, "find");
+                SearchInRichTextBox();
             }
             else
             {
@@ -937,9 +993,10 @@ namespace AutosaveNotepad
                 {
                     Highlight(allFinds, findQuery.Length);
                     NextPrevFindController();
+                    FoundCounterController(currentFindIndex, allFinds.Count, "highlight");
                 }
 
-                FoundCounterController(currentFindIndex, allFinds.Count);
+
             }
         }
 
@@ -978,7 +1035,6 @@ namespace AutosaveNotepad
                 allFinds = foundIndexes;
                 currentFindIndex = 0;
                 findLength = aQuery.Length;
-                totalFinds = foundIndexes.Count;
                 richTextBox.Enabled = true;
             }
 
@@ -1018,9 +1074,9 @@ namespace AutosaveNotepad
         private void ResetFind()
         {
             currentFindIndex = 0;
-            totalFinds = 0;
             allFinds.Clear();
             findLength = 0;
+            searchResultOK = false;
         }
 
 
@@ -1037,24 +1093,67 @@ namespace AutosaveNotepad
                 richTextBox.Select(indexes[i], queryLength);
                 richTextBox.SelectionBackColor = Color.Yellow;
             }
+
+            FindBoxAndControlsGlobalController(searchResultOK);
             //richTextBox.Focus();
             //richTextBox.Refresh();
         }
 
-        private void Select(int selectedIndex, int selectionLength)
+        private void FindBoxAndControlsGlobalController(bool status)
+        {
+            findTextBox.Enabled = !status;
+            searchButton.Enabled = !status;
+            findNextButtonReal.Enabled = !status;
+            findPrevButton.Enabled = !status;
+        }
+
+        private void SelectText(int selectedIndex, int selectionLength)
         {
             richTextBox.SelectionStart = selectedIndex;
             richTextBox.SelectionLength = selectionLength;
+            richTextBox.Focus();
+            richTextBox.Refresh();
         }
 
-        private void FoundCounterController(int current, int total)
+        private void FoundCounterController(int current, int total, string mode)
         {
             int index = current + 1;
             if (total > 0)
             {
                 foundCounter.Visible = true;
                 //findQuerySuccess = true;
-                foundCounter.Text = index.ToString() + "/" + total.ToString();
+                if (total < 11) foundCounter.Text = index.ToString() + "/" + total.ToString();
+                else foundCounter.Text = total.ToString() + " found.";
+
+                if (mode != "highlight")
+                {
+                    if (index == total)
+                    {
+                        findPrevButton.Enabled = false;
+                        findNextButtonReal.Enabled = false;
+
+                    }
+
+                    else if (index == allFinds[0] + 1)
+                    {
+                        findPrevButton.Enabled = false;
+                        findNextButtonReal.Enabled = true;
+                    }
+
+                    else if (index == allFinds.Count + 1)
+                    {
+                        findPrevButton.Enabled = true;
+                        findNextButtonReal.Enabled = false;
+                    }
+
+                    else
+                    {
+                        findPrevButton.Enabled = true;
+                        findNextButtonReal.Enabled = true;
+                    }
+                }
+
+
             }
             else
             {
@@ -1063,25 +1162,9 @@ namespace AutosaveNotepad
             }
         }
 
-        private void findTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (findTextBox.Text != "")
-            {
-                findButton.Enabled = true;
-            }
-
-            else
-            {
-                findButton.Enabled = false;
-            }
-        }
-
-
-
-
         private void findTextBox_Enter(object sender, EventArgs e)
         {
-
+            //OnTheFlySearch();
         }
 
         private void findTextBox_Leave(object sender, EventArgs e)

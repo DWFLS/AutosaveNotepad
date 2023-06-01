@@ -79,6 +79,7 @@
             this.autosaveCheckBox = new System.Windows.Forms.CheckBox();
             this.debug = new System.Windows.Forms.TextBox();
             this.searchPanel = new System.Windows.Forms.Panel();
+            this.searchButton = new System.Windows.Forms.Button();
             this.foundCounter = new System.Windows.Forms.Label();
             this.findNextButtonReal = new System.Windows.Forms.Button();
             this.replaceAllButton = new System.Windows.Forms.Button();
@@ -104,9 +105,9 @@
             this.toolStripStatusLabel,
             this.toolStripStatusLabel1,
             this.toolStripStatusLabel2});
-            this.statusStrip.Location = new System.Drawing.Point(0, 490);
+            this.statusStrip.Location = new System.Drawing.Point(0, 431);
             this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(937, 22);
+            this.statusStrip.Size = new System.Drawing.Size(982, 22);
             this.statusStrip.TabIndex = 0;
             this.statusStrip.Text = "sadad";
             this.statusStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip_ItemClicked);
@@ -147,7 +148,7 @@
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
-            this.menuStrip.Size = new System.Drawing.Size(937, 30);
+            this.menuStrip.Size = new System.Drawing.Size(982, 30);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip";
             this.menuStrip.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip_ItemClicked);
@@ -371,7 +372,7 @@
             this.richTextBox.Location = new System.Drawing.Point(0, 67);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
-            this.richTextBox.Size = new System.Drawing.Size(937, 386);
+            this.richTextBox.Size = new System.Drawing.Size(982, 327);
             this.richTextBox.TabIndex = 2;
             this.richTextBox.Text = "";
             this.richTextBox.SelectionChanged += new System.EventHandler(this.richTextBox_SelectionChanged);
@@ -490,7 +491,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 30);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(937, 37);
+            this.panel1.Size = new System.Drawing.Size(982, 37);
             this.panel1.TabIndex = 6;
             // 
             // autosaveCheckBox
@@ -507,15 +508,16 @@
             // debug
             // 
             this.debug.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.debug.Location = new System.Drawing.Point(39, 173);
+            this.debug.Location = new System.Drawing.Point(697, 269);
             this.debug.Multiline = true;
             this.debug.Name = "debug";
             this.debug.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.debug.Size = new System.Drawing.Size(801, 280);
+            this.debug.Size = new System.Drawing.Size(261, 119);
             this.debug.TabIndex = 7;
             // 
             // searchPanel
             // 
+            this.searchPanel.Controls.Add(this.searchButton);
             this.searchPanel.Controls.Add(this.foundCounter);
             this.searchPanel.Controls.Add(this.findNextButtonReal);
             this.searchPanel.Controls.Add(this.replaceAllButton);
@@ -527,23 +529,33 @@
             this.searchPanel.Controls.Add(this.findTextBox);
             this.searchPanel.Controls.Add(this.searchLabel);
             this.searchPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.searchPanel.Location = new System.Drawing.Point(0, 453);
+            this.searchPanel.Location = new System.Drawing.Point(0, 394);
             this.searchPanel.Name = "searchPanel";
-            this.searchPanel.Size = new System.Drawing.Size(937, 37);
+            this.searchPanel.Size = new System.Drawing.Size(982, 37);
             this.searchPanel.TabIndex = 8;
+            // 
+            // searchButton
+            // 
+            this.searchButton.Location = new System.Drawing.Point(204, 2);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(67, 29);
+            this.searchButton.TabIndex = 9;
+            this.searchButton.Text = "Search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // foundCounter
             // 
             this.foundCounter.AutoSize = true;
-            this.foundCounter.Location = new System.Drawing.Point(368, 6);
+            this.foundCounter.Location = new System.Drawing.Point(442, 6);
             this.foundCounter.Name = "foundCounter";
-            this.foundCounter.Size = new System.Drawing.Size(113, 20);
+            this.foundCounter.Size = new System.Drawing.Size(97, 20);
             this.foundCounter.TabIndex = 9;
-            this.foundCounter.Text = "1234567890123";
+            this.foundCounter.Text = "12345678901";
             // 
             // findNextButtonReal
             // 
-            this.findNextButtonReal.Location = new System.Drawing.Point(238, 3);
+            this.findNextButtonReal.Location = new System.Drawing.Point(311, 2);
             this.findNextButtonReal.Name = "findNextButtonReal";
             this.findNextButtonReal.Size = new System.Drawing.Size(28, 29);
             this.findNextButtonReal.TabIndex = 10;
@@ -553,7 +565,7 @@
             // 
             // replaceAllButton
             // 
-            this.replaceAllButton.Location = new System.Drawing.Point(836, 3);
+            this.replaceAllButton.Location = new System.Drawing.Point(877, 3);
             this.replaceAllButton.Name = "replaceAllButton";
             this.replaceAllButton.Size = new System.Drawing.Size(93, 29);
             this.replaceAllButton.TabIndex = 9;
@@ -563,7 +575,7 @@
             // 
             // replaceButton
             // 
-            this.replaceButton.Location = new System.Drawing.Point(756, 3);
+            this.replaceButton.Location = new System.Drawing.Point(797, 3);
             this.replaceButton.Name = "replaceButton";
             this.replaceButton.Size = new System.Drawing.Size(74, 29);
             this.replaceButton.TabIndex = 6;
@@ -573,7 +585,7 @@
             // 
             // findPrevButton
             // 
-            this.findPrevButton.Location = new System.Drawing.Point(204, 2);
+            this.findPrevButton.Location = new System.Drawing.Point(277, 2);
             this.findPrevButton.Name = "findPrevButton";
             this.findPrevButton.Size = new System.Drawing.Size(28, 29);
             this.findPrevButton.TabIndex = 5;
@@ -583,7 +595,7 @@
             // 
             // findButton
             // 
-            this.findButton.Location = new System.Drawing.Point(272, 2);
+            this.findButton.Location = new System.Drawing.Point(345, 2);
             this.findButton.Name = "findButton";
             this.findButton.Size = new System.Drawing.Size(91, 29);
             this.findButton.TabIndex = 4;
@@ -593,15 +605,15 @@
             // 
             // replaceTextBox
             // 
-            this.replaceTextBox.Location = new System.Drawing.Point(588, 3);
+            this.replaceTextBox.Location = new System.Drawing.Point(648, 3);
             this.replaceTextBox.Name = "replaceTextBox";
-            this.replaceTextBox.Size = new System.Drawing.Size(162, 27);
+            this.replaceTextBox.Size = new System.Drawing.Size(143, 27);
             this.replaceTextBox.TabIndex = 3;
             // 
             // replaceLabel
             // 
             this.replaceLabel.AutoSize = true;
-            this.replaceLabel.Location = new System.Drawing.Point(485, 6);
+            this.replaceLabel.Location = new System.Drawing.Point(545, 6);
             this.replaceLabel.Name = "replaceLabel";
             this.replaceLabel.Size = new System.Drawing.Size(97, 20);
             this.replaceLabel.TabIndex = 2;
@@ -631,16 +643,16 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(937, 512);
+            this.ClientSize = new System.Drawing.Size(982, 453);
+            this.Controls.Add(this.debug);
             this.Controls.Add(this.richTextBox);
             this.Controls.Add(this.searchPanel);
-            this.Controls.Add(this.debug);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
-            this.MinimumSize = new System.Drawing.Size(955, 200);
+            this.MinimumSize = new System.Drawing.Size(1000, 200);
             this.Name = "formMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AutosaveNotepad - Create or Open a Document";
@@ -720,5 +732,6 @@
         private Button replaceButton;
         private Button findNextButtonReal;
         private Label foundCounter;
+        private Button searchButton;
     }
 }

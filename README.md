@@ -59,8 +59,9 @@ v1.0.5
 		- [x] disable all edit keys when highlighting
 	- [x] Fix issue when searched for string is inside of another, example: f in fff, issue with repeating chars (maybe skip past i's in the for loop? of split in two loops...)')
 	- [x] Separate Find from highlight button function
-	- [ ] Find single previous or next
-		
+	- [ ] Find single previous or next		
+		- [ ] Program the prev and next buttons
+		- [ ] Limit character in the label that displays number of finds
 	- [ ] Case sensitivity button for find feature
 
 - [ ] Replace feature
