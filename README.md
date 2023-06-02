@@ -70,7 +70,7 @@ v1.0.5
 - [x] Improved roadmap
 
 v1.0.6.
-[ ] 0 - Split Form1.cs into file modules
+[ ] 0.X - Split Form1.cs into file modules
 [ ] 1 - Case sensitivity button for find feature
 [ ] 2 - Fix filename not showing when using quicksave
 [ ] 3 - Enhance dark mode
