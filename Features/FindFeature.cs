@@ -19,7 +19,7 @@
 
             if (findTextBox.Text != "")
             {
-                Search(richTextBox.Text, findTextBox.Text, false, out searchResultOK);
+                Search(richTextBox.Text, findTextBox.Text, out searchResultOK);
 
                 if (searchResultOK)
                 {
@@ -60,7 +60,7 @@
             string richText = richTextBox.Text;
             richTextBox.Text = richText;
             //currentFindIndex = savedFindIndex;
-            bool caseSensitive = false;
+
             searchResultOK = false;
 
             FindBoxAndControlsGlobalController(searchResultOK);
@@ -78,7 +78,7 @@
             else
             {
                 ResetFind();
-                Search(richText, findQuery, caseSensitive, out searchResultOK);
+                Search(richText, findQuery, out searchResultOK);
 
                 if (searchResultOK)
                 {
@@ -92,16 +92,21 @@
             }
         }
 
-        private void Search(string aTextbox, string aQuery, bool aCasing, out bool result)
+        private void Search(string aTextbox, string aQuery, out bool result)
         {
             string text = aTextbox;
-            if (!aCasing) text = text.ToLower();
+            if (caseSensitiveSearchToolStripMenuItem.Checked != true)
+            {
+                text = text.ToLower();
+                aQuery.ToLower();
+            }
             List<int> foundIndexes = new List<int>();
             bool found = false;
 
             for (int i = 0; i < text.Length; i++)
             {
                 int occurrenceStreak = 0;
+
                 if (text[i] == aQuery[0]
                     && text.Length >= aQuery.Length + i)
                 {
