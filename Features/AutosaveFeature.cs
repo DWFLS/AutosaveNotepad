@@ -2,7 +2,7 @@
 {
     using System;
     using System.Windows.Forms;
-    public partial class formMain : Form
+    public partial class formMain
     {
         private void Autosave()
         {
