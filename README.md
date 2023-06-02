@@ -72,8 +72,8 @@ v1.0.5
 v1.0.6.
 [x] 0.X - Split Form1.cs into file modules
 [x] 1 - Case sensitivity control for find feature
-[ ] 2 - Fix filename not showing when using quicksave
-[ ] 3 - Move more controllers and handlers
+[x] 2 - Move more controllers and handlers
+[ ] 3 - Fix filename not showing when using quicksave
 [ ] 4 - Enhance dark mode
 	[ ] Dark mode interacting with highlighting option (change disabled textbox color?)
 [ ] 5 - Add an option to hide quicksavePanel along with search panel

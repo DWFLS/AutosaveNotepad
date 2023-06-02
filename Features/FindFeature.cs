@@ -5,7 +5,7 @@
     using System.Windows.Forms;
     public partial class formMain : Form
     {
-        // SEARCH BUTTON
+        // FIND FEATURE
 
         private void searchButton_Click(object sender, EventArgs e)
         {
@@ -59,7 +59,6 @@
             string findQuery = findTextBox.Text;
             string richText = richTextBox.Text;
             richTextBox.Text = richText;
-            //currentFindIndex = savedFindIndex;
 
             searchResultOK = false;
 
@@ -121,7 +120,6 @@
                     if (occurrenceStreak == aQuery.Length)
                     {
                         foundIndexes.Add(i);
-                        //i += query.Length;
                         found = true;
                     }
                 }
@@ -143,44 +141,6 @@
             }
         }
 
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            if (textEditingLocked && findTextBox.Focused != true)
-            {
-                // Disable all key input and editing actions
-                return true;
-            }
-
-            else if (textEditingLocked && richTextBox.Focused)
-            {
-                return true;
-            }
-
-            else return base.ProcessCmdKey(ref msg, keyData);
-        }
-
-        private void NextPrevGlobalController(bool state)
-        {
-            findNextButtonReal.Enabled = state;
-            findPrevButton.Enabled = state;
-        }
-
-        private void EditingRichTextBoxFeaturesEnabled(bool state)
-        {
-            richTextBox.Enabled = state;
-            richTextBox.ShortcutsEnabled = state;
-        }
-
-        private void ResetFind()
-        {
-            //currentFindIndex = 0;
-            allFinds.Clear();
-            findLength = 0;
-            searchResultOK = false;
-            //savedFindIndex = 0;
-        }
-
-
         private void Highlight(List<int> indexes, int queryLength)
         {
             textBackup = richTextBox.Text;
@@ -196,15 +156,6 @@
             }
 
             FindBoxAndControlsGlobalController(searchResultOK);
-
-        }
-
-        private void FindBoxAndControlsGlobalController(bool status)
-        {
-            findTextBox.Enabled = !status;
-            searchButton.Enabled = !status;
-            findNextButtonReal.Enabled = !status;
-            findPrevButton.Enabled = !status;
         }
 
         private void SelectText(int selectedIndex, int selectionLength)
@@ -220,7 +171,6 @@
             currentFindIndex++;
             SelectText(allFinds[currentFindIndex], foundQuery.Length);
             FoundCounterController(currentFindIndex, allFinds.Count, "find");
-            //savedFindIndex = currentFindIndex;
         }
 
         private void findPrevButton_Click(object sender, EventArgs e)
@@ -228,56 +178,6 @@
             currentFindIndex--;
             SelectText(allFinds[currentFindIndex], foundQuery.Length);
             FoundCounterController(currentFindIndex, allFinds.Count, "find");
-            //savedFindIndex = currentFindIndex;
-        }
-
-        private void FoundCounterController(int current, int total, string mode)
-        {
-            int index = current;
-            if (total > 0)
-            {
-                foundCounter.Visible = true;
-                //findQuerySuccess = true;
-                foundCounter.Text = (index + 1).ToString() + "/" + total.ToString();
-                if (foundCounter.Text.Count() > 11)
-                {
-                    foundCounter.Text = total.ToString() + " found.";
-                    if (foundCounter.Text.Count() > 11)
-                    {
-                        foundCounter.Text = "9999999999+";
-                    }
-                }
-
-
-                if (mode != "highlight")
-                {
-                    findPrevButton.Enabled = true;
-                    findNextButtonReal.Enabled = true;
-
-                    if (index == allFinds[0] && allFinds.Count == 1)
-                    {
-                        findPrevButton.Enabled = false;
-                        findNextButtonReal.Enabled = false;
-                    }
-
-                    else if (index == allFinds[0]) // when index it at a start
-                    {
-                        findPrevButton.Enabled = false;
-                    }
-
-
-                    else if (index + 1 == total)
-                    {
-
-                        findNextButtonReal.Enabled = false;
-                    }
-                }
-            }
-            else
-            {
-                //findQuerySuccess = false;
-                foundCounter.Visible = false;
-            }
         }
 
         private void findTextBox_Enter(object sender, EventArgs e)

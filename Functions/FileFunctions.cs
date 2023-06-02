@@ -30,8 +30,6 @@
                 }
             }
             CheckForDefaultFolder();
-
-
         }
 
         private void New(string title)
