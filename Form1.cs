@@ -2,7 +2,6 @@ namespace AutosaveNotepad
 {
     using System;
     using System.Drawing;
-    using System.IO;
     using System.Windows.Forms;
     public partial class formMain : Form
     {
@@ -71,34 +70,6 @@ namespace AutosaveNotepad
 
         }
 
-
-        #region FEATURE functions
-
-        //
-        // FEATURE functions
-        //
-
-
-
-        private void StripStatusConstructor(string a, string b, string c)
-        {
-            if (a != "") autosaveStatus = a + " ";
-            if (b != "") miscInfo = b + " ";
-            if (c != "") defaultFolderStatus = c;
-
-            toolStripStatusLabel1.Text = autosaveStatus + miscInfo + defaultFolderStatus;
-        }
-
-        private void EnableFeatures(bool b)
-        {
-            CheckColors();
-            richTextBox.Enabled = b;
-            editToolStripMenuItem.Enabled = b;
-            displaySettingToolStripMenuItem.Enabled = b;
-            saveAsToolStripMenuItem.Enabled = b;
-            saveAsCopyToolStripMenuItem.Enabled = b;
-        }
-
         private void CheckColors()
         {
             if (darkModeToolStripMenuItem1.Checked)
@@ -112,111 +83,6 @@ namespace AutosaveNotepad
                 richTextBox.ForeColor = Color.Black;
             }
         }
-
-        private string FilenameTrimmer(string fileName)
-        {
-            return Path.GetFileName(fileName);
-        }
-
-        private void CheckForUndoRedo()
-        {
-            if (richTextBox.CanUndo)
-            {
-                undoToolStripMenuItem.Enabled = true;
-                undoToolStripMenuItem1.Enabled = true;
-            }
-
-            else
-            {
-                undoToolStripMenuItem.Enabled = false;
-                undoToolStripMenuItem1.Enabled = false;
-            }
-
-            if (richTextBox.CanRedo)
-            {
-                redoToolStripMenuItem.Enabled = true;
-                redoToolStripMenuItem1.Enabled = true;
-            }
-
-            else
-            {
-                redoToolStripMenuItem.Enabled = false;
-                redoToolStripMenuItem1.Enabled = false;
-            }
-        }
-
-        private void ProcessPaste()
-        {
-            if (Clipboard.ContainsText())
-            {
-                string clipboardText = Clipboard.GetText();
-                // Process the clipboard text as plain text
-                string plainText = HandlePlainText(clipboardText);
-
-                Clipboard.SetText(plainText);
-                // Use the plain text as needed
-                richTextBox.Paste();
-            }
-
-        }
-
-        private string HandlePlainText(string clipboardText)
-        {
-            string plainText = clipboardText.Replace("\r\n", " ").Replace("\r", " ").Replace("\n", " ");
-            return plainText;
-        }
-
-        private void CheckForCutCopyPaste()
-        {
-            if (!string.IsNullOrEmpty(richTextBox.SelectedText))
-            {
-                cutCopyAvailable = true;
-            }
-            else
-            {
-                cutCopyAvailable = false;
-            }
-
-            if (cutCopyAvailable)
-            {
-                cutToolStripMenuItem.Enabled = true;
-                cutToolStripMenuItem1.Enabled = true;
-                copyToolStripMenuItem.Enabled = true;
-                copyToolStripMenuItem1.Enabled = true;
-            }
-
-            else
-            {
-                cutToolStripMenuItem.Enabled = false;
-                cutToolStripMenuItem1.Enabled = false;
-                copyToolStripMenuItem.Enabled = false;
-                copyToolStripMenuItem1.Enabled = false;
-            }
-
-            if (Clipboard.ContainsText())
-            {
-                if (Clipboard.GetText() != "")
-                {
-                    pasteToolStripMenuItem.Enabled = true;
-                    pasteToolStripMenuItem1.Enabled = true;
-                }
-
-                else
-                {
-                    pasteToolStripMenuItem.Enabled = false;
-                    pasteToolStripMenuItem1.Enabled = false;
-                }
-            }
-
-            else
-            {
-                pasteToolStripMenuItem.Enabled = false;
-                pasteToolStripMenuItem1.Enabled = false;
-            }
-
-        }
-
-        #endregion
 
         private void replaceButton_Click(object sender, EventArgs e)
         {
