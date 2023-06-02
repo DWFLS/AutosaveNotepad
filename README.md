@@ -70,21 +70,21 @@ v1.0.5
 - [x] Improved roadmap
 
 v1.0.6.
-0 - [ ] Split Form1.cs into file modules
-1 - [ ] Case sensitivity button for find feature
-2 - [ ] Fix filename not showing when using quicksave
-3 - [ ] Enhance dark mode
-4 - [ ] Add an option to hide quicksavePanel along with search panel
+[ ] 0 - Split Form1.cs into file modules
+[ ] 1 - Case sensitivity button for find feature
+[ ] 2 - Fix filename not showing when using quicksave
+[ ] 3 - Enhance dark mode
+[ ] 4 - Add an option to hide quicksavePanel along with search panel
 
 
 v1.0.7
-0 - [ ] Replace feature
+[ ] 0 - Replace feature
 
 v1.0.8
-0 - [ ] Word count
+[ ] 0 -  Word count
 
 v1.1.0.
-0 - [ ] "Open with"
-1 - [ ] Make default txt app
-2- [ ] Add comments for readiblity
-3 - [ ] Release v1.1.0
+[ ] 0 - "Open with"
+[ ] 1 - Make default txt app
+[ ] 2 - Add comments for readiblity
+[ ] 3 - Release v1.1.0
