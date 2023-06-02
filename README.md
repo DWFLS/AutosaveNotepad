@@ -59,25 +59,32 @@ v1.0.5
 		- [x] disable all edit keys when highlighting
 	- [x] Fix issue when searched for string is inside of another, example: f in fff, issue with repeating chars (maybe skip past i's in the for loop? of split in two loops...)')
 	- [x] Separate Find from highlight button function
-	- [ ] Find single previous or next		
+	- [x] Find single previous or next		
 		- [x] Program the prev and next buttons
 		- [x] Limit character in the label that displays number of finds
-- [ ] Split Form1.cs into file modules
-- [ ] Case sensitivity button for find feature
-- [ ] Fix filename not showing when using quicksave
-- [ ] Replace feature
-- [ ] Enhance dark mode
-- [ ] Add an option to hide quicksavePanel along with search panel
-- [ ] Word count
-- [x] URL the github status bar link
+		- [x] URL the github status bar link
 - [x] Add icons (toolbar/app)
 - [x] Print function
 - [x] Check if can cut/copy/paste
 - [x] Handling pasting
+- [x] Improved roadmap
 
-v1.1.0
-- [ ] "Open with"
-- [ ] Make default txt app
-- [ ] Add comments for readiblity
+v1.0.6.
+0 - [ ] Split Form1.cs into file modules
+1 - [ ] Case sensitivity button for find feature
+2 - [ ] Fix filename not showing when using quicksave
+3 - [ ] Enhance dark mode
+4 - [ ] Add an option to hide quicksavePanel along with search panel
 
-- [ ] Release v1.1.0
+
+v1.0.7
+0 - [ ] Replace feature
+
+v1.0.8
+0 - [ ] Word count
+
+v1.1.0.
+0 - [ ] "Open with"
+1 - [ ] Make default txt app
+2- [ ] Add comments for readiblity
+3 - [ ] Release v1.1.0
