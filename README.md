@@ -51,7 +51,7 @@ v1.0.4
 
 
 v1.0.5
-- [ ] Full Find feature
+- [x] Full find feature
 	- [x] Rewriting from scratch
 	- [x] Fixed highlighting the last found entry
 	- [x] Unmark when typing again
@@ -60,10 +60,11 @@ v1.0.5
 	- [x] Fix issue when searched for string is inside of another, example: f in fff, issue with repeating chars (maybe skip past i's in the for loop? of split in two loops...)')
 	- [x] Separate Find from highlight button function
 	- [ ] Find single previous or next		
-		- [ ] Program the prev and next buttons
+		- [x] Program the prev and next buttons
 		- [x] Limit character in the label that displays number of finds
-	- [ ] Case sensitivity button for find feature
-
+- [ ] Split Form1.cs into file modules
+- [ ] Case sensitivity button for find feature
+- [ ] Fix filename not showing when using quicksave
 - [ ] Replace feature
 - [ ] Enhance dark mode
 - [ ] Add an option to hide quicksavePanel along with search panel
@@ -74,9 +75,9 @@ v1.0.5
 - [x] Check if can cut/copy/paste
 - [x] Handling pasting
 
-
 v1.1.0
 - [ ] "Open with"
 - [ ] Make default txt app
+- [ ] Add comments for readiblity
 
 - [ ] Release v1.1.0
