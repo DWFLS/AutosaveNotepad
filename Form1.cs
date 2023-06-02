@@ -10,6 +10,8 @@ namespace AutosaveNotepad
     using System.Windows.Forms;
     public partial class formMain : Form
     {
+
+
         private string currentFileName = string.Empty;
         private bool autosaveActive = false;
         string defaultFolderPath = string.Empty;
@@ -25,11 +27,16 @@ namespace AutosaveNotepad
         bool cutCopyAvailable = false;
 
         int currentFindIndex = 0;
+        int savedFindIndex = 0;
         List<int> allFinds = new List<int>();
         int findLength = 0;
         string foundQuery = "";
 
         bool searchResultOK = false;
+
+
+
+
 
         public formMain() //this code block is executed after the main form is instantiated.
         {
@@ -345,7 +352,7 @@ namespace AutosaveNotepad
             saveAsCopyToolStripMenuItem.Enabled = b;
         }
 
-        public void CheckColors()
+        private void CheckColors()
         {
             if (darkModeToolStripMenuItem1.Checked)
             {
@@ -462,10 +469,9 @@ namespace AutosaveNotepad
 
         }
 
-        #endregion
+        #endregion 
 
         #region FILE menu
-
         //
         // FILE menu
         //
@@ -531,6 +537,7 @@ namespace AutosaveNotepad
                 document.Print();
             }
         }
+
         #endregion
 
         #region FILE functions
@@ -870,7 +877,19 @@ namespace AutosaveNotepad
 
         #region DISPLAY Menu
 
+        //
+        // DISPLAY Menu
+        //
 
+        private void displaySettingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void darkModeToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            CheckColors();
+        }
 
         #endregion
 
