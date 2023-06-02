@@ -874,30 +874,6 @@ namespace AutosaveNotepad
 
         #endregion
 
-        #region DISPLAY Menu
-
-        //
-        // DISPLAY Menu
-        //
-
-        private void displaySettingToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void darkModeToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            CheckColors();
-        }
-
-        #endregion
-
-        #region TOOL STRIP bar
-
-
-
-        #endregion
-
         // SEARCH BUTTON
 
         private void searchButton_Click(object sender, EventArgs e)
