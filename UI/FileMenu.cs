@@ -1,7 +1,6 @@
 ﻿namespace AutosaveNotepad
 {
     using System;
-    using System.Drawing.Printing;
     using System.Windows.Forms;
     public partial class formMain : Form
     {
@@ -45,30 +44,7 @@
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // Create an instance of the PrintDialog
-            PrintDialog printDialog = new PrintDialog();
-
-            // Set optional print dialog properties
-            printDialog.AllowSomePages = true;
-            printDialog.ShowHelp = true;
-
-            // Display the print dialog
-            DialogResult result = printDialog.ShowDialog();
-
-            // Check if the user clicked the Print button in the dialog
-            if (result == DialogResult.OK)
-            {
-                // Retrieve the selected printer and print settings
-                PrinterSettings printerSettings = printDialog.PrinterSettings;
-                PageSettings pageSettings = printDialog.PrinterSettings.DefaultPageSettings;
-
-                // Perform the printing using the selected printer and settings
-                PrintDocument document = new PrintDocument();
-                document.PrinterSettings = printerSettings;
-                document.DefaultPageSettings = pageSettings;
-                document.PrintPage += Document_PrintPage; // Hook up the PrintPage event handler
-                document.Print();
-            }
+            Print();
         }
     }
 }

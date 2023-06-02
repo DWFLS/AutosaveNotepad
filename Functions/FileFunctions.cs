@@ -1,7 +1,5 @@
 ﻿namespace AutosaveNotepad
 {
-    using System.Drawing;
-    using System.Drawing.Printing;
     using System.IO;
     using System.Windows.Forms;
     public partial class formMain : Form
@@ -117,45 +115,6 @@
 
 
 
-        private void Document_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            // Retrieve the content from the RichTextBox control
-            string content = richTextBox.Text;
 
-            // Set up the font and other formatting for the printed content
-            Font font = new Font("Arial", 12);
-            Brush brush = Brushes.Black;
-
-            // Set up the printing area
-            RectangleF rect = e.MarginBounds;
-
-            // Calculate the number of lines per page
-            int linesPerPage = (int)(rect.Height / font.GetHeight(e.Graphics));
-
-            // Calculate the number of lines to print
-            int lineCount = content.Length / linesPerPage;
-
-            // Print the content line by line
-            for (int line = 0; line <= lineCount; line++)
-            {
-                int start = line * linesPerPage;
-                int end = start + linesPerPage;
-
-                // Check if we have reached the end of the content
-                if (end > content.Length)
-                {
-                    end = content.Length;
-                }
-
-                // Retrieve the line of text to print
-                string lineText = content.Substring(start, end - start);
-
-                // Print the line of text
-                e.Graphics.DrawString(lineText, font, brush, rect);
-
-                // Move the printing area down to the next line
-                rect.Y += font.GetHeight(e.Graphics);
-            }
-        }
     }
 }
