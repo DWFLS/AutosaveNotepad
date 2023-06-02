@@ -10,9 +10,9 @@
             bool validFolderCheck = CheckForDefaultFolder();
             if (validFolderCheck)
             {
-                richTextBox.SaveFile(defaultFolderPath + "\\" + quicksaveTextBox.Text + ".txt", RichTextBoxStreamType.PlainText);
-                var fileNameOnly = FilenameTrimmer(currentFileName);
                 currentFileName = defaultFolderPath + "\\" + quicksaveTextBox.Text + ".txt";
+                richTextBox.SaveFile(currentFileName, RichTextBoxStreamType.PlainText);
+                var fileNameOnly = FilenameTrimmer(currentFileName);
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + currentFileName;
                 AutosaveActive(true);
                 StripStatusConstructor("Autosave is now active.", "Quicksave successful.", "");
