@@ -1,7 +1,6 @@
 namespace AutosaveNotepad
 {
     using System;
-    using System.Drawing;
     using System.Windows.Forms;
     public partial class formMain : Form
     {
@@ -70,19 +69,6 @@ namespace AutosaveNotepad
 
         }
 
-        private void CheckColors()
-        {
-            if (darkModeToolStripMenuItem1.Checked)
-            {
-                richTextBox.BackColor = Color.FromArgb(8, 17, 19);
-                richTextBox.ForeColor = Color.White;
-            }
-            else
-            {
-                richTextBox.BackColor = Color.White;
-                richTextBox.ForeColor = Color.Black;
-            }
-        }
 
         private void replaceButton_Click(object sender, EventArgs e)
         {
