@@ -16,6 +16,7 @@
             StripStatusConstructor("", " ", "");
             CheckForUndoRedo();
             Autosave();
+            WordCount();
         }
 
         private void findTextBox_TextChanged(object sender, EventArgs e)

@@ -76,7 +76,9 @@ v1.0.6.
 [x] 5 - Add an option to hide quicksavePanel along with search panel, rename display to view ""
 
 v1.0.7
-[ ] 0 -  Word count
+[x] 0 - Word count
+[ ] 1 - Debug window toggle
+[ ] 2 - Change richtextbox font to monospace-like.
 
 v1.0.8
 [ ] 0 - Replace feature
@@ -86,7 +88,8 @@ v1.1.0.
 [ ] 1 - Make default txt app
 [ ] 2 - Handle Settings
 [ ] 3 - Add comments for readiblity
-[ ] 4 - Release v1.1.0
+[ ] 4 - Update readme to list all noticeable features
+[ ] 5 - Release v1.1.0
 
 v1.1.1.
 [ ] 0 - "1000 steps mode"

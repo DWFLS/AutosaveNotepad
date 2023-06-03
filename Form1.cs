@@ -62,8 +62,10 @@ namespace AutosaveNotepad
             findNextButtonReal.Enabled = false;
             findPrevButton.Enabled = false;
 
+            wordCountLabel.Visible = false;
+
             debug.Enabled = false;
-            debug.Visible = false;
+            debug.Visible = true;
         }
 
         public void formMain_Load(object sender, EventArgs e)

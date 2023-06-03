@@ -56,12 +56,14 @@
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.wordWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.caseSensitiveSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.wordWrapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wordCountToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displaySettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.darkModeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.quicksavePanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.darkModeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.richTextBox = new System.Windows.Forms.RichTextBox();
@@ -79,6 +81,7 @@
             this.quicksaveTextBox = new System.Windows.Forms.TextBox();
             this.quicksaveButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.wordCountLabel = new System.Windows.Forms.Label();
             this.autosaveCheckBox = new System.Windows.Forms.CheckBox();
             this.debug = new System.Windows.Forms.TextBox();
             this.searchPanel = new System.Windows.Forms.Panel();
@@ -255,8 +258,10 @@
             this.toolStripSeparator4,
             this.selectAllToolStripMenuItem,
             this.clearAllToolStripMenuItem,
+            this.caseSensitiveSearchToolStripMenuItem,
+            this.toolStripSeparator8,
             this.wordWrapToolStripMenuItem,
-            this.caseSensitiveSearchToolStripMenuItem});
+            this.wordCountToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
             this.editToolStripMenuItem.Text = "Edit";
@@ -328,6 +333,20 @@
             this.clearAllToolStripMenuItem.Text = "Clear All";
             this.clearAllToolStripMenuItem.Click += new System.EventHandler(this.clearAllToolStripMenuItem_Click);
             // 
+            // caseSensitiveSearchToolStripMenuItem
+            // 
+            this.caseSensitiveSearchToolStripMenuItem.CheckOnClick = true;
+            this.caseSensitiveSearchToolStripMenuItem.Name = "caseSensitiveSearchToolStripMenuItem";
+            this.caseSensitiveSearchToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.caseSensitiveSearchToolStripMenuItem.Text = "Case Sensitive Search";
+            this.caseSensitiveSearchToolStripMenuItem.CheckedChanged += new System.EventHandler(this.caseSensitiveSearchToolStripMenuItem_CheckedChanged);
+            this.caseSensitiveSearchToolStripMenuItem.Click += new System.EventHandler(this.caseSensitiveSearchToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator8
+            // 
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(230, 6);
+            // 
             // wordWrapToolStripMenuItem
             // 
             this.wordWrapToolStripMenuItem.Checked = true;
@@ -339,14 +358,13 @@
             this.wordWrapToolStripMenuItem.CheckedChanged += new System.EventHandler(this.wordWrapToolStripMenuItem_CheckedChanged);
             this.wordWrapToolStripMenuItem.Click += new System.EventHandler(this.wordWrapToolStripMenuItem_Click);
             // 
-            // caseSensitiveSearchToolStripMenuItem
+            // wordCountToolStripMenuItem
             // 
-            this.caseSensitiveSearchToolStripMenuItem.CheckOnClick = true;
-            this.caseSensitiveSearchToolStripMenuItem.Name = "caseSensitiveSearchToolStripMenuItem";
-            this.caseSensitiveSearchToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
-            this.caseSensitiveSearchToolStripMenuItem.Text = "Case Sensitive Search";
-            this.caseSensitiveSearchToolStripMenuItem.CheckedChanged += new System.EventHandler(this.caseSensitiveSearchToolStripMenuItem_CheckedChanged);
-            this.caseSensitiveSearchToolStripMenuItem.Click += new System.EventHandler(this.caseSensitiveSearchToolStripMenuItem_Click);
+            this.wordCountToolStripMenuItem.Name = "wordCountToolStripMenuItem";
+            this.wordCountToolStripMenuItem.Size = new System.Drawing.Size(233, 26);
+            this.wordCountToolStripMenuItem.Text = "Word Count";
+            this.wordCountToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.wordCountToolStripMenuItem_CheckStateChanged);
+            this.wordCountToolStripMenuItem.Click += new System.EventHandler(this.wordCountToolStripMenuItem_Click);
             // 
             // displaySettingToolStripMenuItem
             // 
@@ -359,18 +377,10 @@
             this.displaySettingToolStripMenuItem.Text = "View";
             this.displaySettingToolStripMenuItem.Click += new System.EventHandler(this.displaySettingToolStripMenuItem_Click);
             // 
-            // darkModeToolStripMenuItem1
-            // 
-            this.darkModeToolStripMenuItem1.CheckOnClick = true;
-            this.darkModeToolStripMenuItem1.Name = "darkModeToolStripMenuItem1";
-            this.darkModeToolStripMenuItem1.Size = new System.Drawing.Size(197, 26);
-            this.darkModeToolStripMenuItem1.Text = "Dark Mode";
-            this.darkModeToolStripMenuItem1.Click += new System.EventHandler(this.darkModeToolStripMenuItem1_Click);
-            // 
             // quicksavePanelToolStripMenuItem
             // 
             this.quicksavePanelToolStripMenuItem.Name = "quicksavePanelToolStripMenuItem";
-            this.quicksavePanelToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.quicksavePanelToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.quicksavePanelToolStripMenuItem.Text = "Quicksave Panel";
             this.quicksavePanelToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.quicksavePanelToolStripMenuItem_CheckStateChanged);
             this.quicksavePanelToolStripMenuItem.Click += new System.EventHandler(this.quicksavePanelToolStripMenuItem_Click);
@@ -378,10 +388,18 @@
             // searchPanelToolStripMenuItem
             // 
             this.searchPanelToolStripMenuItem.Name = "searchPanelToolStripMenuItem";
-            this.searchPanelToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.searchPanelToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.searchPanelToolStripMenuItem.Text = "Search Panel";
             this.searchPanelToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.searchPanelToolStripMenuItem_CheckStateChanged);
             this.searchPanelToolStripMenuItem.Click += new System.EventHandler(this.searchPanelToolStripMenuItem_Click);
+            // 
+            // darkModeToolStripMenuItem1
+            // 
+            this.darkModeToolStripMenuItem1.CheckOnClick = true;
+            this.darkModeToolStripMenuItem1.Name = "darkModeToolStripMenuItem1";
+            this.darkModeToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.darkModeToolStripMenuItem1.Text = "Dark Mode";
+            this.darkModeToolStripMenuItem1.Click += new System.EventHandler(this.darkModeToolStripMenuItem1_Click);
             // 
             // openFileDialog1
             // 
@@ -403,7 +421,7 @@
             this.richTextBox.Location = new System.Drawing.Point(0, 67);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
-            this.richTextBox.Size = new System.Drawing.Size(982, 327);
+            this.richTextBox.Size = new System.Drawing.Size(982, 215);
             this.richTextBox.TabIndex = 2;
             this.richTextBox.Text = "";
             this.richTextBox.SelectionChanged += new System.EventHandler(this.richTextBox_SelectionChanged);
@@ -515,6 +533,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.wordCountLabel);
             this.panel1.Controls.Add(this.autosaveCheckBox);
             this.panel1.Controls.Add(this.quicksaveLabel);
             this.panel1.Controls.Add(this.quicksaveButton);
@@ -524,6 +543,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(982, 37);
             this.panel1.TabIndex = 6;
+            // 
+            // wordCountLabel
+            // 
+            this.wordCountLabel.AutoSize = true;
+            this.wordCountLabel.Location = new System.Drawing.Point(786, 8);
+            this.wordCountLabel.Name = "wordCountLabel";
+            this.wordCountLabel.Size = new System.Drawing.Size(127, 20);
+            this.wordCountLabel.TabIndex = 9;
+            this.wordCountLabel.Text = "Word Count: 1000";
             // 
             // autosaveCheckBox
             // 
@@ -539,11 +567,12 @@
             // debug
             // 
             this.debug.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.debug.Location = new System.Drawing.Point(688, 214);
+            this.debug.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.debug.Location = new System.Drawing.Point(0, 282);
             this.debug.Multiline = true;
             this.debug.Name = "debug";
             this.debug.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.debug.Size = new System.Drawing.Size(261, 119);
+            this.debug.Size = new System.Drawing.Size(982, 112);
             this.debug.TabIndex = 7;
             // 
             // searchPanel
@@ -675,8 +704,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(982, 453);
-            this.Controls.Add(this.debug);
             this.Controls.Add(this.richTextBox);
+            this.Controls.Add(this.debug);
             this.Controls.Add(this.searchPanel);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.panel1);
@@ -767,5 +796,8 @@
         private ToolStripMenuItem caseSensitiveSearchToolStripMenuItem;
         private ToolStripMenuItem quicksavePanelToolStripMenuItem;
         private ToolStripMenuItem searchPanelToolStripMenuItem;
+        private Label wordCountLabel;
+        private ToolStripMenuItem wordCountToolStripMenuItem;
+        private ToolStripSeparator toolStripSeparator8;
     }
 }
