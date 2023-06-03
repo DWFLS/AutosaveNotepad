@@ -56,8 +56,6 @@ namespace AutosaveNotepad
             findButton.Enabled = false;
             searchButton.Enabled = false;
 
-            quicksavePanel.Enabled = true;
-
             findNextButtonReal.Enabled = false;
             findPrevButton.Enabled = false;
 
@@ -102,9 +100,5 @@ namespace AutosaveNotepad
         }
 
 
-        private void searchPanelToolStripMenuItem_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }
