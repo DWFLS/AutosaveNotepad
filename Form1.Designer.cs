@@ -76,7 +76,7 @@
             this.quicksaveLabel = new System.Windows.Forms.Label();
             this.quicksaveTextBox = new System.Windows.Forms.TextBox();
             this.quicksaveButton = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.quicksavePanel = new System.Windows.Forms.Panel();
             this.autosaveCheckBox = new System.Windows.Forms.CheckBox();
             this.debug = new System.Windows.Forms.TextBox();
             this.searchPanel = new System.Windows.Forms.Panel();
@@ -91,10 +91,11 @@
             this.replaceLabel = new System.Windows.Forms.Label();
             this.findTextBox = new System.Windows.Forms.TextBox();
             this.searchLabel = new System.Windows.Forms.Label();
+            this.searchPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.quicksavePanel.SuspendLayout();
             this.searchPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -349,17 +350,18 @@
             // displaySettingToolStripMenuItem
             // 
             this.displaySettingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.darkModeToolStripMenuItem1});
+            this.darkModeToolStripMenuItem1,
+            this.searchPanelToolStripMenuItem});
             this.displaySettingToolStripMenuItem.Name = "displaySettingToolStripMenuItem";
-            this.displaySettingToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
-            this.displaySettingToolStripMenuItem.Text = "Display";
+            this.displaySettingToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.displaySettingToolStripMenuItem.Text = "View";
             this.displaySettingToolStripMenuItem.Click += new System.EventHandler(this.displaySettingToolStripMenuItem_Click);
             // 
             // darkModeToolStripMenuItem1
             // 
             this.darkModeToolStripMenuItem1.CheckOnClick = true;
             this.darkModeToolStripMenuItem1.Name = "darkModeToolStripMenuItem1";
-            this.darkModeToolStripMenuItem1.Size = new System.Drawing.Size(166, 26);
+            this.darkModeToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
             this.darkModeToolStripMenuItem1.Text = "Dark Mode";
             this.darkModeToolStripMenuItem1.Click += new System.EventHandler(this.darkModeToolStripMenuItem1_Click);
             // 
@@ -493,17 +495,17 @@
             this.quicksaveButton.UseVisualStyleBackColor = true;
             this.quicksaveButton.Click += new System.EventHandler(this.quicksaveButton_Click_1);
             // 
-            // panel1
+            // quicksavePanel
             // 
-            this.panel1.Controls.Add(this.autosaveCheckBox);
-            this.panel1.Controls.Add(this.quicksaveLabel);
-            this.panel1.Controls.Add(this.quicksaveButton);
-            this.panel1.Controls.Add(this.quicksaveTextBox);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 30);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(982, 37);
-            this.panel1.TabIndex = 6;
+            this.quicksavePanel.Controls.Add(this.autosaveCheckBox);
+            this.quicksavePanel.Controls.Add(this.quicksaveLabel);
+            this.quicksavePanel.Controls.Add(this.quicksaveButton);
+            this.quicksavePanel.Controls.Add(this.quicksaveTextBox);
+            this.quicksavePanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.quicksavePanel.Location = new System.Drawing.Point(0, 30);
+            this.quicksavePanel.Name = "quicksavePanel";
+            this.quicksavePanel.Size = new System.Drawing.Size(982, 37);
+            this.quicksavePanel.TabIndex = 6;
             // 
             // autosaveCheckBox
             // 
@@ -649,6 +651,13 @@
             this.searchLabel.TabIndex = 0;
             this.searchLabel.Text = "Find:";
             // 
+            // searchPanelToolStripMenuItem
+            // 
+            this.searchPanelToolStripMenuItem.Name = "searchPanelToolStripMenuItem";
+            this.searchPanelToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.searchPanelToolStripMenuItem.Text = "Search Panel";
+            this.searchPanelToolStripMenuItem.Click += new System.EventHandler(this.searchPanelToolStripMenuItem_Click_1);
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -659,7 +668,7 @@
             this.Controls.Add(this.richTextBox);
             this.Controls.Add(this.searchPanel);
             this.Controls.Add(this.statusStrip);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.quicksavePanel);
             this.Controls.Add(this.menuStrip);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
@@ -673,8 +682,8 @@
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.contextMenuStrip1.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.quicksavePanel.ResumeLayout(false);
+            this.quicksavePanel.PerformLayout();
             this.searchPanel.ResumeLayout(false);
             this.searchPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -717,7 +726,7 @@
         private Label quicksaveLabel;
         private TextBox quicksaveTextBox;
         private Button quicksaveButton;
-        private Panel panel1;
+        private Panel quicksavePanel;
         private CheckBox autosaveCheckBox;
         private ToolStripMenuItem wordWrapToolStripMenuItem;
         private ToolStripMenuItem undoToolStripMenuItem1;
@@ -745,5 +754,6 @@
         private Label foundCounter;
         private Button searchButton;
         private ToolStripMenuItem caseSensitiveSearchToolStripMenuItem;
+        private ToolStripMenuItem searchPanelToolStripMenuItem;
     }
 }
