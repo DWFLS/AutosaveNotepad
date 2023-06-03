@@ -23,7 +23,6 @@
             allFinds.Clear();
             findLength = 0;
             searchResultOK = false;
-            //savedFindIndex = 0;
         }
 
         private void FoundCounterController(int current, int total, string mode)

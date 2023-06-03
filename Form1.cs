@@ -2,6 +2,7 @@ namespace AutosaveNotepad
 {
     using System;
     using System.Windows.Forms;
+
     public partial class formMain : Form
     {
         private string currentFileName = string.Empty;
@@ -17,8 +18,6 @@ namespace AutosaveNotepad
         bool textEditingLocked = false;
         bool cutCopyAvailable = false;
         int currentFindIndex = 0;
-        int savedFindIndex = 0;
-        bool caseSensitive = false;
         List<int> allFinds = new List<int>();
         int findLength = 0;
         string foundQuery = "";
@@ -37,6 +36,7 @@ namespace AutosaveNotepad
             StripStatusConstructor("Autosave is NOT active - Create or open a document.", "", "");
             WordWrapActive(true);
             ResetFind();
+            CheckColors();
 
             statusStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
             toolStripStatusLabel2.Alignment = ToolStripItemAlignment.Right;

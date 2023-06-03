@@ -59,7 +59,6 @@
             string findQuery = findTextBox.Text;
             string richText = richTextBox.Text;
             richTextBox.Text = richText;
-
             searchResultOK = false;
 
             FindBoxAndControlsGlobalController(searchResultOK);
@@ -68,6 +67,7 @@
             {
                 EditingRichTextBoxFeaturesEnabled(true);
                 textEditingLocked = false;
+                CheckColors();
                 findButton.Text = "Highlight!";
                 richTextBox.Text = textBackup;
                 FoundCounterController(currentFindIndex, allFinds.Count, "find");
@@ -77,6 +77,7 @@
             else
             {
                 ResetFind();
+                CheckColors();
                 Search(richText, findQuery, out searchResultOK);
 
                 if (searchResultOK)
@@ -147,7 +148,7 @@
             findButton.Text = "Done";
             EditingRichTextBoxFeaturesEnabled(false);
             textEditingLocked = true;
-
+            CheckColors();
 
             for (int i = 0; i < indexes.Count; i++)
             {

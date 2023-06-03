@@ -74,9 +74,8 @@ v1.0.6.
 [x] 1 - Case sensitivity control for find feature
 [x] 2 - Move more controllers and handlers
 [x] 3 - Fix filename not showing when using quicksave
-[ ] 4 - Enhance dark mode
-	[ ] Dark mode interacting with highlighting option (change disabled textbox color?)
-[ ] 5 - Add an option to hide quicksavePanel along with search panel
+[x] 4 - Adjust dark mode behavior when in highlight mode
+[ ] 5 - Add an option to hide quicksavePanel along with search panel, rename display to view ""
 
 
 v1.0.7
