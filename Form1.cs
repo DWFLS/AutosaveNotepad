@@ -38,6 +38,9 @@ namespace AutosaveNotepad
             ResetFind();
             CheckColors();
 
+            searchPanel.Visible = true;
+            panel1.Visible = true;
+
             statusStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
             toolStripStatusLabel2.Alignment = ToolStripItemAlignment.Right;
 
@@ -60,7 +63,7 @@ namespace AutosaveNotepad
             findPrevButton.Enabled = false;
 
             debug.Enabled = false;
-            debug.Visible = true;
+            debug.Visible = false;
         }
 
         public void formMain_Load(object sender, EventArgs e)

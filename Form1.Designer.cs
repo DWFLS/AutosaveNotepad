@@ -60,6 +60,8 @@
             this.caseSensitiveSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.displaySettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkModeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.quicksavePanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.richTextBox = new System.Windows.Forms.RichTextBox();
@@ -349,19 +351,37 @@
             // displaySettingToolStripMenuItem
             // 
             this.displaySettingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.quicksavePanelToolStripMenuItem,
+            this.searchPanelToolStripMenuItem,
             this.darkModeToolStripMenuItem1});
             this.displaySettingToolStripMenuItem.Name = "displaySettingToolStripMenuItem";
-            this.displaySettingToolStripMenuItem.Size = new System.Drawing.Size(72, 24);
-            this.displaySettingToolStripMenuItem.Text = "Display";
+            this.displaySettingToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.displaySettingToolStripMenuItem.Text = "View";
             this.displaySettingToolStripMenuItem.Click += new System.EventHandler(this.displaySettingToolStripMenuItem_Click);
             // 
             // darkModeToolStripMenuItem1
             // 
             this.darkModeToolStripMenuItem1.CheckOnClick = true;
             this.darkModeToolStripMenuItem1.Name = "darkModeToolStripMenuItem1";
-            this.darkModeToolStripMenuItem1.Size = new System.Drawing.Size(166, 26);
+            this.darkModeToolStripMenuItem1.Size = new System.Drawing.Size(197, 26);
             this.darkModeToolStripMenuItem1.Text = "Dark Mode";
             this.darkModeToolStripMenuItem1.Click += new System.EventHandler(this.darkModeToolStripMenuItem1_Click);
+            // 
+            // quicksavePanelToolStripMenuItem
+            // 
+            this.quicksavePanelToolStripMenuItem.Name = "quicksavePanelToolStripMenuItem";
+            this.quicksavePanelToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.quicksavePanelToolStripMenuItem.Text = "Quicksave Panel";
+            this.quicksavePanelToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.quicksavePanelToolStripMenuItem_CheckStateChanged);
+            this.quicksavePanelToolStripMenuItem.Click += new System.EventHandler(this.quicksavePanelToolStripMenuItem_Click);
+            // 
+            // searchPanelToolStripMenuItem
+            // 
+            this.searchPanelToolStripMenuItem.Name = "searchPanelToolStripMenuItem";
+            this.searchPanelToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.searchPanelToolStripMenuItem.Text = "Search Panel";
+            this.searchPanelToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.searchPanelToolStripMenuItem_CheckStateChanged);
+            this.searchPanelToolStripMenuItem.Click += new System.EventHandler(this.searchPanelToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -745,5 +765,7 @@
         private Label foundCounter;
         private Button searchButton;
         private ToolStripMenuItem caseSensitiveSearchToolStripMenuItem;
+        private ToolStripMenuItem quicksavePanelToolStripMenuItem;
+        private ToolStripMenuItem searchPanelToolStripMenuItem;
     }
 }

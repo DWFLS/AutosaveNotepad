@@ -48,8 +48,6 @@ v1.0.4
 - [x] Autosave toggle
 - [x] Line wrapping toggle
 
-
-
 v1.0.5
 - [x] Full find feature
 	- [x] Rewriting from scratch
@@ -75,14 +73,13 @@ v1.0.6.
 [x] 2 - Move more controllers and handlers
 [x] 3 - Fix filename not showing when using quicksave
 [x] 4 - Adjust dark mode behavior when in highlight mode
-[ ] 5 - Add an option to hide quicksavePanel along with search panel, rename display to view ""
-
+[x] 5 - Add an option to hide quicksavePanel along with search panel, rename display to view ""
 
 v1.0.7
-[ ] 0 - Replace feature
+[ ] 0 -  Word count
 
 v1.0.8
-[ ] 0 -  Word count
+[ ] 0 - Replace feature
 
 v1.1.0.
 [ ] 0 - "Open with"
@@ -90,3 +87,6 @@ v1.1.0.
 [ ] 2 - Handle Settings
 [ ] 3 - Add comments for readiblity
 [ ] 4 - Release v1.1.0
+
+v1.1.1.
+[ ] 0 - "1000 steps mode"
