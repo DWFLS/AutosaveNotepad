@@ -65,7 +65,7 @@ namespace AutosaveNotepad
             wordCountLabel.Visible = false;
 
             debug.Enabled = false;
-            debug.Visible = true;
+            debug.Visible = false;
         }
 
         public void formMain_Load(object sender, EventArgs e)
@@ -103,7 +103,5 @@ namespace AutosaveNotepad
         {
 
         }
-
-
     }
 }

@@ -77,7 +77,7 @@ v1.0.6.
 
 v1.0.7
 [x] 0 - Word count
-[ ] 1 - Debug window toggle
+[x] 1 - Debug window toggle + feature
 [ ] 2 - Change richtextbox font to monospace-like.
 
 v1.0.8

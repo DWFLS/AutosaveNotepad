@@ -96,6 +96,7 @@
             this.replaceLabel = new System.Windows.Forms.Label();
             this.findTextBox = new System.Windows.Forms.TextBox();
             this.searchLabel = new System.Windows.Forms.Label();
+            this.debugConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -371,7 +372,8 @@
             this.displaySettingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.quicksavePanelToolStripMenuItem,
             this.searchPanelToolStripMenuItem,
-            this.darkModeToolStripMenuItem1});
+            this.darkModeToolStripMenuItem1,
+            this.debugConsoleToolStripMenuItem});
             this.displaySettingToolStripMenuItem.Name = "displaySettingToolStripMenuItem";
             this.displaySettingToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
             this.displaySettingToolStripMenuItem.Text = "View";
@@ -698,6 +700,13 @@
             this.searchLabel.TabIndex = 0;
             this.searchLabel.Text = "Find:";
             // 
+            // debugConsoleToolStripMenuItem
+            // 
+            this.debugConsoleToolStripMenuItem.Name = "debugConsoleToolStripMenuItem";
+            this.debugConsoleToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.debugConsoleToolStripMenuItem.Text = "Debug Console";
+            this.debugConsoleToolStripMenuItem.Click += new System.EventHandler(this.debugConsoleToolStripMenuItem_Click);
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -799,5 +808,6 @@
         private Label wordCountLabel;
         private ToolStripMenuItem wordCountToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator8;
+        private ToolStripMenuItem debugConsoleToolStripMenuItem;
     }
 }
