@@ -64,6 +64,7 @@
             this.quicksavePanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkModeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.debugConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.richTextBox = new System.Windows.Forms.RichTextBox();
@@ -96,7 +97,6 @@
             this.replaceLabel = new System.Windows.Forms.Label();
             this.findTextBox = new System.Windows.Forms.TextBox();
             this.searchLabel = new System.Windows.Forms.Label();
-            this.debugConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -382,7 +382,7 @@
             // quicksavePanelToolStripMenuItem
             // 
             this.quicksavePanelToolStripMenuItem.Name = "quicksavePanelToolStripMenuItem";
-            this.quicksavePanelToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.quicksavePanelToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.quicksavePanelToolStripMenuItem.Text = "Quicksave Panel";
             this.quicksavePanelToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.quicksavePanelToolStripMenuItem_CheckStateChanged);
             this.quicksavePanelToolStripMenuItem.Click += new System.EventHandler(this.quicksavePanelToolStripMenuItem_Click);
@@ -390,7 +390,7 @@
             // searchPanelToolStripMenuItem
             // 
             this.searchPanelToolStripMenuItem.Name = "searchPanelToolStripMenuItem";
-            this.searchPanelToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.searchPanelToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.searchPanelToolStripMenuItem.Text = "Search Panel";
             this.searchPanelToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.searchPanelToolStripMenuItem_CheckStateChanged);
             this.searchPanelToolStripMenuItem.Click += new System.EventHandler(this.searchPanelToolStripMenuItem_Click);
@@ -399,9 +399,16 @@
             // 
             this.darkModeToolStripMenuItem1.CheckOnClick = true;
             this.darkModeToolStripMenuItem1.Name = "darkModeToolStripMenuItem1";
-            this.darkModeToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.darkModeToolStripMenuItem1.Size = new System.Drawing.Size(197, 26);
             this.darkModeToolStripMenuItem1.Text = "Dark Mode";
             this.darkModeToolStripMenuItem1.Click += new System.EventHandler(this.darkModeToolStripMenuItem1_Click);
+            // 
+            // debugConsoleToolStripMenuItem
+            // 
+            this.debugConsoleToolStripMenuItem.Name = "debugConsoleToolStripMenuItem";
+            this.debugConsoleToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.debugConsoleToolStripMenuItem.Text = "Debug Console";
+            this.debugConsoleToolStripMenuItem.Click += new System.EventHandler(this.debugConsoleToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -420,6 +427,7 @@
             this.richTextBox.DetectUrls = false;
             this.richTextBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox.EnableAutoDragDrop = true;
+            this.richTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.richTextBox.Location = new System.Drawing.Point(0, 67);
             this.richTextBox.Name = "richTextBox";
             this.richTextBox.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
@@ -699,13 +707,6 @@
             this.searchLabel.Size = new System.Drawing.Size(40, 20);
             this.searchLabel.TabIndex = 0;
             this.searchLabel.Text = "Find:";
-            // 
-            // debugConsoleToolStripMenuItem
-            // 
-            this.debugConsoleToolStripMenuItem.Name = "debugConsoleToolStripMenuItem";
-            this.debugConsoleToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.debugConsoleToolStripMenuItem.Text = "Debug Console";
-            this.debugConsoleToolStripMenuItem.Click += new System.EventHandler(this.debugConsoleToolStripMenuItem_Click);
             // 
             // formMain
             // 
