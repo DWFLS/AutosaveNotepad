@@ -20,6 +20,7 @@
             if (findTextBox.Text != "")
             {
                 Search(richTextBox.Text, findTextBox.Text, out searchResultOK);
+                ReplaceController(searchResultOK);
 
                 if (searchResultOK)
                 {
@@ -83,6 +84,7 @@
                 if (searchResultOK)
                 {
                     Highlight(allFinds, findQuery.Length);
+                    ReplaceController(false);
                     FoundCounterController(currentFindIndex, allFinds.Count, "highlight");
                 }
                 else

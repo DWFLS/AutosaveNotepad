@@ -80,8 +80,13 @@ v1.0.7
 [x] 1 - Debug window toggle + feature
 [x] 2 - Change richtextbox font to monospace-like.
 
-v1.0.8
-[ ] 0 - Replace feature
+v1.0.8.X.Y
+	X	Y
+[x]	0.	0 - Replace all button conditional on "search ok" bool
+[x] 1 . 0 - Replace all function complete
+
+[ ] 1.	1 - 
+[ ]	2 .	0 - Replace one function cmplete
 
 v1.1.0.
 [ ] 0 - "Open with"
@@ -89,7 +94,7 @@ v1.1.0.
 [ ] 2 - Handle Settings
 [ ] 3 - Add comments for readiblity
 [ ] 4 - Update readme to list all noticeable features
-[ ] 5 - Release v1.1.0
+[ ] 5 - Release v1.1.X
 
 v1.1.1.
 [ ] 0 - "1000 steps mode"

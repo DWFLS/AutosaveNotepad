@@ -17,6 +17,7 @@
             CheckForUndoRedo();
             Autosave();
             WordCount();
+            ReplaceController(false);
         }
 
         private void findTextBox_TextChanged(object sender, EventArgs e)
@@ -25,6 +26,7 @@
             findNextButtonReal.Enabled = false;
             findPrevButton.Enabled = false;
             searchResultOK = false;
+            ReplaceController(false);
             findButton.Enabled = false;
             if (findTextBox.Text == "")
             {

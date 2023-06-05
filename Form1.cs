@@ -37,6 +37,7 @@ namespace AutosaveNotepad
             WordWrapActive(true);
             ResetFind();
             CheckColors();
+            ReplaceController(searchResultOK);
 
             searchPanel.Visible = true;
             panel1.Visible = true;
@@ -64,6 +65,10 @@ namespace AutosaveNotepad
 
             wordCountLabel.Visible = false;
 
+            searchPanelToolStripMenuItem.Checked = true;
+            quicksavePanelToolStripMenuItem.Checked = true;
+
+
             debug.Enabled = false;
             debug.Visible = false;
         }
@@ -78,12 +83,6 @@ namespace AutosaveNotepad
         {
 
         }
-
-        private void replaceAllButton_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
         //
         // NEW ACTIONS
@@ -103,5 +102,7 @@ namespace AutosaveNotepad
         {
 
         }
+
+
     }
 }

@@ -679,6 +679,7 @@
             this.replaceTextBox.Name = "replaceTextBox";
             this.replaceTextBox.Size = new System.Drawing.Size(143, 27);
             this.replaceTextBox.TabIndex = 3;
+            this.replaceTextBox.TextChanged += new System.EventHandler(this.replaceTextBox_TextChanged);
             // 
             // replaceLabel
             // 
