@@ -58,13 +58,16 @@
             openFileDialog.Filter = "Text Document|*.txt|All Files|*.*";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                richTextBox.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
-                var fileNameOnly = FilenameTrimmer(openFileDialog.FileName);
-                this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + openFileDialog.FileName;
-                currentFileName = openFileDialog.FileName;
-                AutosaveActive(true);
-                StripStatusConstructor("Autosave is now active, take care while editing.", "", "");
-                EnableFeatures(true);
+                if (openFileDialog.FileName != currentFileName)
+                {
+                    richTextBox.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
+                    var fileNameOnly = FilenameTrimmer(openFileDialog.FileName);
+                    this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + openFileDialog.FileName;
+                    currentFileName = openFileDialog.FileName;
+                    AutosaveActive(true);
+                    StripStatusConstructor("Autosave is now active, take care while editing.", "", "");
+                    EnableFeatures(true);
+                }
             }
         }
 
