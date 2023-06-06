@@ -21,8 +21,8 @@
 
         private void Debug(string input)
         {
-            debug.Text += input;
-            debug.Text += "\r\n";
+            debug.Text = input;
+            //debug.Text += "\r\n";
         }
     }
 }

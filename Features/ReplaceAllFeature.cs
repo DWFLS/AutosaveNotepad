@@ -4,11 +4,6 @@
     using System.Windows.Forms;
     public partial class formMain : Form
     {
-        private void replaceTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void ReplaceController(bool searchStatus)
         {
             replaceLabel.Enabled = searchStatus;

@@ -18,10 +18,14 @@ namespace AutosaveNotepad
         bool textEditingLocked = false;
         bool cutCopyAvailable = false;
         int currentFindIndex = 0;
+
         List<int> allFinds = new List<int>();
         int findLength = 0;
         string foundQuery = "";
         bool searchResultOK = false;
+
+        int currentFindIndexDisplayed = 0;
+        int totalFindResultsDisplayed = 0;
 
         public formMain() //this code block is executed after the main form is instantiated.
         {
@@ -68,18 +72,11 @@ namespace AutosaveNotepad
             searchPanelToolStripMenuItem.Checked = true;
             quicksavePanelToolStripMenuItem.Checked = true;
 
-
             debug.Enabled = false;
             debug.Visible = false;
         }
 
         public void formMain_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void replaceButton_Click(object sender, EventArgs e)
         {
 
         }
@@ -102,7 +99,5 @@ namespace AutosaveNotepad
         {
 
         }
-
-
     }
 }

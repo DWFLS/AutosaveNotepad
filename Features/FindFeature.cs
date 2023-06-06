@@ -52,7 +52,7 @@
         }
 
         /*
-         "Highlight" Button.
+         "Highlight" Button!!
          */
 
         private void findNextButton_Click(object sender, EventArgs e) // "Highlight" button
@@ -171,16 +171,27 @@
 
         private void findNextButtonReal_Click(object sender, EventArgs e)
         {
-            currentFindIndex++;
-            SelectText(allFinds[currentFindIndex], foundQuery.Length);
-            FoundCounterController(currentFindIndex, allFinds.Count, "find");
+            Next();
+        }
+
+        private void Next()
+        {
+            if (currentFindIndex < allFinds.Count - 1)
+            {
+                currentFindIndex++;
+                FoundCounterController(currentFindIndex, allFinds.Count, "find");
+                SelectText(allFinds[currentFindIndex], foundQuery.Length);
+            }
+
         }
 
         private void findPrevButton_Click(object sender, EventArgs e)
         {
             currentFindIndex--;
-            SelectText(allFinds[currentFindIndex], foundQuery.Length);
             FoundCounterController(currentFindIndex, allFinds.Count, "find");
+            SelectText(allFinds[currentFindIndex], foundQuery.Length);
+
+
         }
 
         private void findTextBox_Enter(object sender, EventArgs e)

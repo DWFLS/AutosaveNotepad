@@ -82,11 +82,10 @@ v1.0.7
 
 v1.0.8.X.Y
 	X	Y
-[x]	0.	0 - Replace all button conditional on "search ok" bool
 [x] 1 . 0 - Replace all function complete
-
-[ ] 1.	1 - 
-[ ]	2 .	0 - Replace one function cmplete
+	[x]	0 -	Replace all button conditional on "search ok" bool
+[x]	2 .	0 - Replace "one" function complete
+[ ] 2 . 1 - Hotfix a crash when opening currently opened text file
 
 v1.1.0.
 [ ] 0 - "Open with"

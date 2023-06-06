@@ -28,10 +28,12 @@
         private void FoundCounterController(int current, int total, string mode)
         {
             int index = current;
+
+            currentFindIndexDisplayed = index;
+            totalFindResultsDisplayed = total;
             if (total > 0)
             {
                 foundCounter.Visible = true;
-                //findQuerySuccess = true;
                 foundCounter.Text = (index + 1).ToString() + "/" + total.ToString();
                 if (foundCounter.Text.Count() > 11)
                 {
@@ -45,6 +47,15 @@
 
                 if (mode != "highlight")
                 {
+                    findPrevButton.Enabled = false;
+                    findNextButtonReal.Enabled = false;
+
+                    if (currentFindIndexDisplayed + 1 != 1)
+                        findPrevButton.Enabled = true;
+
+                    if (currentFindIndexDisplayed + 1 != totalFindResultsDisplayed)
+                        findNextButtonReal.Enabled = true;
+                    /*
                     findPrevButton.Enabled = true;
                     findNextButtonReal.Enabled = true;
 
@@ -64,7 +75,7 @@
                     {
 
                         findNextButtonReal.Enabled = false;
-                    }
+                    }*/
                 }
             }
             else
@@ -72,6 +83,9 @@
                 //findQuerySuccess = false;
                 foundCounter.Visible = false;
             }
+
+            //NextPrevStatusController();
         }
+
     }
 }

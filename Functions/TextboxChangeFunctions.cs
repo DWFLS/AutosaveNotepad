@@ -39,6 +39,11 @@
             }
         }
 
+        private void replaceTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void richTextBox_SelectionChanged(object sender, EventArgs e)
         {
             CheckForCutCopyPaste();
