@@ -1,33 +1,33 @@
-AutosaveNotepad v1.0.1
-
-
+# **AutosaveNotepad**
 by DWFLS
 
-
-Features:
+## Features:
 - [x] Text editing.
 - [x] Autosave per input or edit action.
+- [x] Search feature (case sensitive / not-case sensitive)
+- [x] Highlight search results
+- [x] Replace All / Replace One Feature
+- [x] Printing Dialog Box
+- [x] Quick Save Feature
+- [x] Word Count / Wrap Feature
 - [x] Display settings: Normal/Dark mode.
 - [x] Create, open, save, backup documents.
 - [x] Text editing functions (undo, redo, cut, copy, paste, select all)
 
-Version history:
+## Version history:
 
-v1.0.2
+## **v1.0.2**
 
 - [x] Rename "Save and Backup" to "Create a *Backup* Copy"
 - [x] Disable "Save as..." and "*Backup*" on app start.
 
-v1.0.1
+## **v1.0.1**
 
 - [x] Fixed a bug causing clearing of the previous file while creating another new document.
 - [x] Removed redundant code.
 - [x] Cleaner code.
 
-
-To-do:
-
-v1.0.3
+## **v1.0.3**
 
 - [x] Display file name in window title
 - [x] New readme format
@@ -40,7 +40,7 @@ v1.0.3
 - [x] Can write without autosave mode on again
 - [x] Drag and drop
 
-v1.0.4
+## **v1.0.4**
 
 - [x] Right mouse button context menu
 - [x] Added regions
@@ -48,7 +48,8 @@ v1.0.4
 - [x] Autosave toggle
 - [x] Line wrapping toggle
 
-v1.0.5
+## **v1.0.5**
+
 - [x] Full find feature
 	- [x] Rewriting from scratch
 	- [x] Fixed highlighting the last found entry
@@ -67,7 +68,8 @@ v1.0.5
 - [x] Handling pasting
 - [x] Improved roadmap
 
-v1.0.6.
+## **v1.0.6.**
+
 [x] 0.X - Split Form1.cs into file modules
 [x] 1 - Case sensitivity control for find feature
 [x] 2 - Move more controllers and handlers
@@ -75,19 +77,22 @@ v1.0.6.
 [x] 4 - Adjust dark mode behavior when in highlight mode
 [x] 5 - Add an option to hide quicksavePanel along with search panel, rename display to view ""
 
-v1.0.7
+## **v1.0.7**
+
 [x] 0 - Word count
 [x] 1 - Debug window toggle + feature
 [x] 2 - Change richtextbox font to monospace-like.
 
-v1.0.8.X.Y
+## **v1.0.8.X.Y**
+
 	X	Y
 [x] 1 . 0 - Replace all function complete
 	[x]	0 -	Replace all button conditional on "search ok" bool
 [x]	2 .	0 - Replace "one" function complete
 [x] 2 . 1 - Hotfix a crash when opening currently opened text file
+[x] 2 . 2 - Reformatted readme.md
 
-v1.1.0.
+## **v1.1.0.**
 [ ] 0 - "Open with"
 [ ] 1 - Make default txt app
 [ ] 2 - Handle Settings
@@ -95,5 +100,5 @@ v1.1.0.
 [ ] 4 - Update readme to list all noticeable features
 [ ] 5 - Release v1.1.X
 
-v1.1.1.
+## **v1.1.1.**
 [ ] 0 - "1000 steps mode"
