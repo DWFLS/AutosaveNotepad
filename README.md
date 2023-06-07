@@ -70,35 +70,36 @@ by DWFLS
 
 ## **v1.0.6.**
 
-[x] 0.X - Split Form1.cs into file modules
-[x] 1 - Case sensitivity control for find feature
-[x] 2 - Move more controllers and handlers
-[x] 3 - Fix filename not showing when using quicksave
-[x] 4 - Adjust dark mode behavior when in highlight mode
-[x] 5 - Add an option to hide quicksavePanel along with search panel, rename display to view ""
+- [x] 0.X - Split Form1.cs into file modules
+- [x] 1 - Case sensitivity control for find feature
+- [x] 2 - Move more controllers and handlers
+- [x] 3 - Fix filename not showing when using quicksave
+- [x] 4 - Adjust dark mode behavior when in highlight mode
+- [x] 5 - Add an option to hide quicksavePanel along with search panel, rename display to view ""
 
 ## **v1.0.7**
 
-[x] 0 - Word count
-[x] 1 - Debug window toggle + feature
-[x] 2 - Change richtextbox font to monospace-like.
+- [x] 0 - Word count
+- [x] 1 - Debug window toggle + feature
+- [x] 2 - Change richtextbox font to monospace-like.
 
 ## **v1.0.8.X.Y**
+	
+- [x] 1 . 0 - **Replace all function complete**
+	- [x] 0 . 0 - Replace all button conditional on "search ok" bool
+- [x] 2 . 0 - **Replace "one" function complete**
+- [x] 2 . 1 - Hotfix a crash when opening currently opened text file
+- [x] 2 . 2 - Reformatted readme.md
+- [x] 2 . 3 - Reformatted readme.md
 
-	X	Y
-[x] 1 . 0 - Replace all function complete
-	[x]	0 -	Replace all button conditional on "search ok" bool
-[x]	2 .	0 - Replace "one" function complete
-[x] 2 . 1 - Hotfix a crash when opening currently opened text file
-[x] 2 . 2 - Reformatted readme.md
 
 ## **v1.1.0.**
-[ ] 0 - "Open with"
-[ ] 1 - Make default txt app
-[ ] 2 - Handle Settings
-[ ] 3 - Add comments for readiblity
-[ ] 4 - Update readme to list all noticeable features
-[ ] 5 - Release v1.1.X
+- [ ] 0 - "Open with"
+- [ ] 1 - Make default txt app
+- [ ] 2 - Handle Settings
+- [ ] 3 - Add comments for readiblity
+- [ ] 4 - Update readme to list all noticeable features
+- [ ] 5 - Release v1.1.X
 
 ## **v1.1.1.**
-[ ] 0 - "1000 steps mode"
+- [ ] 0 - "1000 steps mode"
