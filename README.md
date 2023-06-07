@@ -83,14 +83,15 @@ by DWFLS
 - [x] 1 - Debug window toggle + feature
 - [x] 2 - Change richtextbox font to monospace-like.
 
-## **v1.0.8.X.Y**
+## **v1.0.8.**
 	
-- [x] 1 . 0 - **Replace all function complete**
-	- [x] 0 . 0 - Replace all button conditional on "search ok" bool
-- [x] 2 . 0 - **Replace "one" function complete**
-- [x] 2 . 1 - Hotfix a crash when opening currently opened text file
-- [x] 2 . 2 - Reformatted readme.md
-- [x] 2 . 3 - Reformatted readme.md
+- [x] 1.0 - **Replace all function complete**
+	- [x] 0.0 - Replace all button conditional on "search ok" bool
+- [x] 2.0 - **Replace "one" function complete**
+- [x] 2.1 - Hotfix a crash when opening currently opened text file
+- [x] 2.2 - Reformatted readme.md
+- [x] 2.3 - Reformatted readme.md
+- [x] 2.4 - Reformatted readme.md
 
 
 ## **v1.1.0.**
@@ -101,5 +102,8 @@ by DWFLS
 - [ ] 4 - Update readme to list all noticeable features
 - [ ] 5 - Release v1.1.X
 
-## **v1.1.1.**
+## **v1.2.**
 - [ ] 0 - "1000 steps mode"
+
+## **v1.3.**
+- [ ] 0 - Quick Load mode
