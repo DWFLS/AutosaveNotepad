@@ -5,6 +5,8 @@ namespace AutosaveNotepad
 
     public partial class formMain : Form
     {
+        private string openWithFilePath = "";
+
         private string currentFileName = string.Empty;
         private bool autosaveActive = false;
         string defaultFolderPath = string.Empty;
@@ -27,8 +29,9 @@ namespace AutosaveNotepad
         int currentFindIndexDisplayed = 0;
         int totalFindResultsDisplayed = 0;
 
-        public formMain() //this code block is executed after the main form is instantiated.
+        public formMain(string filePath) //this code block is executed after the main form is instantiated.
         {
+            openWithFilePath = filePath;
             InitializeComponent();
 
             //
@@ -42,6 +45,8 @@ namespace AutosaveNotepad
             ResetFind();
             CheckColors();
             ReplaceController(searchResultOK);
+
+            OpenWithHandler(); //handle "open with" event
 
             searchPanel.Visible = true;
             panel1.Visible = true;

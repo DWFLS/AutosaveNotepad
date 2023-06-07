@@ -95,7 +95,7 @@ by DWFLS
 
 
 ## **v1.1.0.**
-- [ ] 0 - "Open with"
+- [x] 0 - "Open with" complete
 - [ ] 1 - Make default txt app
 - [ ] 2 - Handle Settings
 - [ ] 3 - Add comments for readiblity

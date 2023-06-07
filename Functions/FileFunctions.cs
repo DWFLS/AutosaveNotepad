@@ -51,8 +51,9 @@
             }
         }
 
-        private void Open()
+        public void Open()
         {
+
             var openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Open...";
             openFileDialog.Filter = "Text Document|*.txt|All Files|*.*";
