@@ -97,7 +97,6 @@
             this.replaceLabel = new System.Windows.Forms.Label();
             this.findTextBox = new System.Windows.Forms.TextBox();
             this.searchLabel = new System.Windows.Forms.Label();
-            this.makeDefaultTxtAppToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -171,7 +170,6 @@
             this.saveAsCopyToolStripMenuItem,
             this.toolStripSeparator2,
             this.selectDefaultSaveDirectoryToolStripMenuItem,
-            this.makeDefaultTxtAppToolStripMenuItem,
             this.printToolStripMenuItem,
             this.toolStripSeparator7,
             this.exitToolStripMenuItem});
@@ -384,7 +382,7 @@
             // quicksavePanelToolStripMenuItem
             // 
             this.quicksavePanelToolStripMenuItem.Name = "quicksavePanelToolStripMenuItem";
-            this.quicksavePanelToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.quicksavePanelToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.quicksavePanelToolStripMenuItem.Text = "Quicksave Panel";
             this.quicksavePanelToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.quicksavePanelToolStripMenuItem_CheckStateChanged);
             this.quicksavePanelToolStripMenuItem.Click += new System.EventHandler(this.quicksavePanelToolStripMenuItem_Click);
@@ -392,7 +390,7 @@
             // searchPanelToolStripMenuItem
             // 
             this.searchPanelToolStripMenuItem.Name = "searchPanelToolStripMenuItem";
-            this.searchPanelToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.searchPanelToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.searchPanelToolStripMenuItem.Text = "Search Panel";
             this.searchPanelToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.searchPanelToolStripMenuItem_CheckStateChanged);
             this.searchPanelToolStripMenuItem.Click += new System.EventHandler(this.searchPanelToolStripMenuItem_Click);
@@ -401,14 +399,14 @@
             // 
             this.darkModeToolStripMenuItem1.CheckOnClick = true;
             this.darkModeToolStripMenuItem1.Name = "darkModeToolStripMenuItem1";
-            this.darkModeToolStripMenuItem1.Size = new System.Drawing.Size(224, 26);
+            this.darkModeToolStripMenuItem1.Size = new System.Drawing.Size(197, 26);
             this.darkModeToolStripMenuItem1.Text = "Dark Mode";
             this.darkModeToolStripMenuItem1.Click += new System.EventHandler(this.darkModeToolStripMenuItem1_Click);
             // 
             // debugConsoleToolStripMenuItem
             // 
             this.debugConsoleToolStripMenuItem.Name = "debugConsoleToolStripMenuItem";
-            this.debugConsoleToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.debugConsoleToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
             this.debugConsoleToolStripMenuItem.Text = "Debug Console";
             this.debugConsoleToolStripMenuItem.Click += new System.EventHandler(this.debugConsoleToolStripMenuItem_Click);
             // 
@@ -711,13 +709,6 @@
             this.searchLabel.TabIndex = 0;
             this.searchLabel.Text = "Find:";
             // 
-            // makeDefaultTxtAppToolStripMenuItem
-            // 
-            this.makeDefaultTxtAppToolStripMenuItem.Name = "makeDefaultTxtAppToolStripMenuItem";
-            this.makeDefaultTxtAppToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
-            this.makeDefaultTxtAppToolStripMenuItem.Text = "Make Default *.txt Application";
-            this.makeDefaultTxtAppToolStripMenuItem.Click += new System.EventHandler(this.makeDefaultTxtAppToolStripMenuItem_Click);
-            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -820,6 +811,5 @@
         private ToolStripMenuItem wordCountToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator8;
         private ToolStripMenuItem debugConsoleToolStripMenuItem;
-        private ToolStripMenuItem makeDefaultTxtAppToolStripMenuItem;
     }
 }

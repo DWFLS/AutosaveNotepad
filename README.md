@@ -2,17 +2,16 @@
 by DWFLS
 
 ## Features:
-- [x] Text editing
-- [x] Autosave per input or edit action
+- [x] Text editing.
+- [x] Autosave per input or edit action.
 - [x] Search feature (case sensitive / not-case sensitive)
 - [x] Highlight search results
 - [x] Replace All / Replace One Feature
 - [x] Printing Dialog Box
-- [x] "Open With" enabled
 - [x] Quick Save Feature
 - [x] Word Count / Wrap Feature
-- [x] Display settings: Normal/Dark mode
-- [x] Create, open, save, backup documents
+- [x] Display settings: Normal/Dark mode.
+- [x] Create, open, save, backup documents.
 - [x] Text editing functions (undo, redo, cut, copy, paste, select all)
 
 ## Version history:
@@ -95,9 +94,9 @@ by DWFLS
 - [x] 2.4 - Reformatted readme.md
 
 
-## **v1.1.1.**
+## **v1.1.0.**
 - [x] 0 - "Open with" complete
-- [x] 1 - Make default txt app
+- [ ] 1 - Make default txt app
 - [ ] 2 - Handle Settings
 - [ ] 3 - Add comments for readiblity
 - [ ] 4 - Update readme to list all noticeable features

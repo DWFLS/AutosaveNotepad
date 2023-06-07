@@ -11,7 +11,6 @@ namespace AutosaveNotepad
         private bool autosaveActive = false;
         string defaultFolderPath = string.Empty;
         string defaultFolderLogFilePath = string.Empty;
-        string appPath = AppDomain.CurrentDomain.BaseDirectory + "AutosaveNotepad.exe";
         string rootFolder = AppDomain.CurrentDomain.BaseDirectory;
         string autosaveStatus = "";
         string miscInfo = "";
@@ -38,7 +37,7 @@ namespace AutosaveNotepad
             //
             // AutosaveNotepad initial settings:
             //
-            Debug(appPath);
+
             EnableFeatures(true);
             CheckForDefaultFolder();
             StripStatusConstructor("Autosave is NOT active - Create or open a document.", "", "");
@@ -88,10 +87,9 @@ namespace AutosaveNotepad
         }
 
         //
-        // NOT IMPLEMENTED OR OBSOLETE
+        // NEW ACTIONS
         //
 
-        #region NOT IMPLEMENTED OR OBSOLETE
         private void quicksaveLabel_Click(object sender, EventArgs e)
         {
 
@@ -106,12 +104,5 @@ namespace AutosaveNotepad
         {
 
         }
-        #endregion
-
-        //
-        // NEW ACTIONS LAND BELOW:
-        //
-
-
     }
 }
