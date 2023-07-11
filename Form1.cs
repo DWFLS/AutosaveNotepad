@@ -72,6 +72,9 @@ namespace AutosaveNotepad
             searchPanel.Visible = false;
             panel1.Visible = false;
 
+            // Save on "x"
+            this.FormClosing += formMain_FormClosing;
+
             // Default and user Settings handler
             SetupSettings();
         }
@@ -79,6 +82,14 @@ namespace AutosaveNotepad
         public void formMain_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void formMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                SaveSettings();
+            }
         }
 
         //

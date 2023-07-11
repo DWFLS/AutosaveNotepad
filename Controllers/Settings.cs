@@ -41,9 +41,9 @@ an.cfg
             config[0] = desktopPath;
             config[1] = "false"; //Case Sensitive Search
             config[2] = "true"; //Word Wrap
-            config[3] = "false"; //Word Count
+            config[3] = "true"; //Word Count
             config[4] = "true"; //Quicksave Panel
-            config[5] = "false"; //Search Panel
+            config[5] = "true"; //Search Panel
             config[6] = "false"; //Dark Mode
             config[7] = "false"; //Debug Console
 
