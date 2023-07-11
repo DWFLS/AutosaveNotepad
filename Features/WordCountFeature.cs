@@ -6,6 +6,16 @@
         private void wordCountToolStripMenuItem_Click(object sender, EventArgs e)
         {
             wordCountToolStripMenuItem.Checked = !wordCountToolStripMenuItem.Checked;
+            WordCountCheck();
+        }
+
+        private void wordCountToolStripMenuItem_CheckStateChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WordCountCheck()
+        {
             if (wordCountToolStripMenuItem.Checked)
             {
                 WordCount();
@@ -15,11 +25,6 @@
             {
                 wordCountLabel.Visible = false;
             }
-        }
-
-        private void wordCountToolStripMenuItem_CheckStateChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void WordCount()

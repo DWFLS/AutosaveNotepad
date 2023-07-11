@@ -34,6 +34,7 @@
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SaveSettings();
             Application.Exit();
         }
 

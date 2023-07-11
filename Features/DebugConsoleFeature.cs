@@ -7,6 +7,11 @@
         private void debugConsoleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             debugConsoleToolStripMenuItem.Checked = !debugConsoleToolStripMenuItem.Checked;
+            CheckDebugConsole();
+        }
+
+        private void CheckDebugConsole()
+        {
             if (debugConsoleToolStripMenuItem.Checked)
             {
                 debug.Visible = true;
@@ -16,7 +21,6 @@
             {
                 debug.Visible = false;
             }
-
         }
 
         private void Debug(string input)

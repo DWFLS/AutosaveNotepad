@@ -97,7 +97,7 @@
         private void Search(string aTextbox, string aQuery, out bool result)
         {
             string text = aTextbox;
-            if (caseSensitiveSearchToolStripMenuItem.Checked != true)
+            if (caseSensitiveSearchToolStripMenuItem.Checked == false)
             {
                 text = text.ToLower();
                 aQuery.ToLower();

@@ -96,8 +96,8 @@ by DWFLS
 
 ## **v1.1.0.**
 - [x] 0 - "Open with" complete
-- [ ] 1 - Make default txt app
-- [ ] 2 - Handle Settings
+- [x] - - Make default txt app - to be handled by installer or else
+- [x] 2 - Handle Settings
 - [ ] 3 - Add comments for readiblity
 - [ ] 4 - Update readme to list all noticeable features
 - [ ] 5 - Release v1.1.X
