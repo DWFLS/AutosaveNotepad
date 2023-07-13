@@ -99,7 +99,7 @@ by DWFLS
 - [x] - - Make default txt app - to be handled by installer or else
 - [x] 2 - Handle Settings
 	- .1 [x] - fix not saving on "X" button.
-	- .2 [ ] - fix case sensitivity
+	- .2 [x] - fix case sensitivity
 - [ ] 3 - Add comments for readiblity
 - [ ] 4 - Update readme to list all noticeable features
 - [ ] 5 - Release v1.1.X

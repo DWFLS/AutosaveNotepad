@@ -34,7 +34,7 @@
                     findButton.Enabled = false;
                     findNextButtonReal.Enabled = false;
                     findPrevButton.Enabled = false;
-                    debug.Text = ":(";
+                    //debug.Text = ":(";
                 }
 
             }
@@ -49,6 +49,59 @@
                 textEditingLocked = false;
             }
             FoundCounterController(currentFindIndex, allFinds.Count, "find");
+        }
+
+        private void Search(string aTextbox, string aQuery, out bool result)
+        {
+            string text = aTextbox;
+            string query = aQuery;
+            if (caseSensitiveSearchToolStripMenuItem.Checked == false)
+            {
+                text = text.ToLower();
+                query = query.ToLower();
+            }
+
+            List<int> foundIndexes = new List<int>();
+            bool found = false;
+
+            for (int i = 0; i < text.Length; i++)
+            {
+                int occurrenceStreak = 0;
+
+                if (text[i] == query[0]
+                    && text.Length >= query.Length + i)
+                {
+                    for (int j = 0; j < query.Length; j++)
+                    {
+                        if (text[i + j] == query[j])
+                        {
+                            occurrenceStreak++;
+                        }
+                    }
+
+                    if (occurrenceStreak == query.Length)
+                    {
+                        foundIndexes.Add(i);
+                        found = true;
+                    }
+                }
+            }
+
+            if (found)
+            {
+                result = found;
+                allFinds = foundIndexes;
+                currentFindIndex = 0;
+                findLength = query.Length;
+                richTextBox.Enabled = true;
+                foundQuery = query;
+            }
+
+            else
+            {
+                result = false;
+                foundQuery = "";
+            }
         }
 
         /*
@@ -94,55 +147,7 @@
             }
         }
 
-        private void Search(string aTextbox, string aQuery, out bool result)
-        {
-            string text = aTextbox;
-            if (caseSensitiveSearchToolStripMenuItem.Checked != true)
-            {
-                text = text.ToLower();
-                aQuery.ToLower();
-            }
-            List<int> foundIndexes = new List<int>();
-            bool found = false;
 
-            for (int i = 0; i < text.Length; i++)
-            {
-                int occurrenceStreak = 0;
-
-                if (text[i] == aQuery[0]
-                    && text.Length >= aQuery.Length + i)
-                {
-                    for (int j = 0; j < aQuery.Length; j++)
-                    {
-                        if (text[i + j] == aQuery[j])
-                        {
-                            occurrenceStreak++;
-                        }
-                    }
-
-                    if (occurrenceStreak == aQuery.Length)
-                    {
-                        foundIndexes.Add(i);
-                        found = true;
-                    }
-                }
-            }
-            if (found)
-            {
-                result = found;
-                allFinds = foundIndexes;
-                currentFindIndex = 0;
-                findLength = aQuery.Length;
-                richTextBox.Enabled = true;
-                foundQuery = aQuery;
-            }
-
-            else
-            {
-                result = false;
-                foundQuery = "";
-            }
-        }
 
         private void Highlight(List<int> indexes, int queryLength)
         {
