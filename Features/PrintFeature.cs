@@ -38,7 +38,7 @@
             string content = richTextBox.Text;
 
             // Set up the font and other formatting for the printed content
-            Font font = new Font("Arial", 12);
+            Font font = new Font("Microsoft Sans Serif", 12);
             Brush brush = Brushes.Black;
 
             // Set up the printing area

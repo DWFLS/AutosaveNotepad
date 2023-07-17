@@ -1,7 +1,6 @@
 ﻿namespace AutosaveNotepad
 {
     using System;
-    using System.Drawing;
     using System.Windows.Forms;
     public partial class formMain : Form
     {
@@ -20,7 +19,7 @@
             if (findTextBox.Text != "")
             {
                 Search(richTextBox.Text, findTextBox.Text, out searchResultOK);
-                ReplaceController(searchResultOK);
+                ReplaceController(searchResultOK); //this enables a possibility to replace text
 
                 if (searchResultOK)
                 {
@@ -34,9 +33,7 @@
                     findButton.Enabled = false;
                     findNextButtonReal.Enabled = false;
                     findPrevButton.Enabled = false;
-                    //debug.Text = ":(";
                 }
-
             }
 
             else
@@ -48,13 +45,23 @@
                 richTextBox.Text = textBackup;
                 textEditingLocked = false;
             }
+
             FoundCounterController(currentFindIndex, allFinds.Count, "find");
+        }
+
+        private void ResetFind()
+        {
+            allFinds.Clear();
+            findLength = 0;
+            searchResultOK = false;
         }
 
         private void Search(string aTextbox, string aQuery, out bool result)
         {
             string text = aTextbox;
             string query = aQuery;
+
+            // this controls Case Sensitive search by lowercasing text and query
             if (caseSensitiveSearchToolStripMenuItem.Checked == false)
             {
                 text = text.ToLower();
@@ -63,6 +70,9 @@
 
             List<int> foundIndexes = new List<int>();
             bool found = false;
+
+            // double loop: first for scanning, and second for comparing query to text starting at the [i] index,
+            // occurrency streak tests if the query is the same in length, if it's the same then the index at which it's found is added to the foundIndexes list
 
             for (int i = 0; i < text.Length; i++)
             {
@@ -77,6 +87,11 @@
                         {
                             occurrenceStreak++;
                         }
+
+                        else
+                        {
+                            break;
+                        }
                     }
 
                     if (occurrenceStreak == query.Length)
@@ -87,7 +102,7 @@
                 }
             }
 
-            if (found)
+            if (found) // this replaces global variables with results from this local method for use in any other methods
             {
                 result = found;
                 allFinds = foundIndexes;
@@ -104,68 +119,7 @@
             }
         }
 
-        /*
-         "Highlight" Button!!
-         */
-
-        private void findNextButton_Click(object sender, EventArgs e) // "Highlight" button
-        {
-            string findQuery = findTextBox.Text;
-            string richText = richTextBox.Text;
-            richTextBox.Text = richText;
-            searchResultOK = false;
-
-            FindBoxAndControlsGlobalController(searchResultOK);
-
-            if (textEditingLocked)
-            {
-                EditingRichTextBoxFeaturesEnabled(true);
-                textEditingLocked = false;
-                CheckColors();
-                findButton.Text = "Highlight!";
-                richTextBox.Text = textBackup;
-                FoundCounterController(currentFindIndex, allFinds.Count, "find");
-                SearchInRichTextBox();
-            }
-
-            else
-            {
-                ResetFind();
-                CheckColors();
-                Search(richText, findQuery, out searchResultOK);
-
-                if (searchResultOK)
-                {
-                    Highlight(allFinds, findQuery.Length);
-                    ReplaceController(false);
-                    FoundCounterController(currentFindIndex, allFinds.Count, "highlight");
-                }
-                else
-                {
-                    FoundCounterController(currentFindIndex, allFinds.Count, "find");
-                }
-            }
-        }
-
-
-
-        private void Highlight(List<int> indexes, int queryLength)
-        {
-            textBackup = richTextBox.Text;
-            findButton.Text = "Done";
-            EditingRichTextBoxFeaturesEnabled(false);
-            textEditingLocked = true;
-            CheckColors();
-
-            for (int i = 0; i < indexes.Count; i++)
-            {
-                richTextBox.Select(indexes[i], queryLength);
-                richTextBox.SelectionBackColor = Color.Yellow;
-            }
-
-            FindBoxAndControlsGlobalController(searchResultOK);
-        }
-
+        //this takes positive results from Search method and selects find at an index
         private void SelectText(int selectedIndex, int selectionLength)
         {
             richTextBox.SelectionStart = selectedIndex;
@@ -173,6 +127,12 @@
             richTextBox.Focus();
             richTextBox.Refresh();
         }
+
+        /*
+         
+        Going back and forth in the search results and handling constraints via found counter controller
+
+         */
 
         private void findNextButtonReal_Click(object sender, EventArgs e)
         {
@@ -195,8 +155,6 @@
             currentFindIndex--;
             FoundCounterController(currentFindIndex, allFinds.Count, "find");
             SelectText(allFinds[currentFindIndex], foundQuery.Length);
-
-
         }
 
         private void findTextBox_Enter(object sender, EventArgs e)

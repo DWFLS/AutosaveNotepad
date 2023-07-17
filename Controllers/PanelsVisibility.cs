@@ -2,6 +2,8 @@
 {
     public partial class formMain
     {
+        // Quicksave Panel
+
         private void quicksavePanelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             quicksavePanelToolStripMenuItem.Checked = !quicksavePanelToolStripMenuItem.Checked;
@@ -11,6 +13,8 @@
         {
             panel1.Visible = quicksavePanelToolStripMenuItem.Checked;
         }
+
+        // Search Panel
 
         private void searchPanelToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -17,13 +17,7 @@
             findPrevButton.Enabled = !status;
         }
 
-        private void ResetFind()
-        {
-            //currentFindIndex = 0;
-            allFinds.Clear();
-            findLength = 0;
-            searchResultOK = false;
-        }
+        // method to decide if buttons are available and to display counter
 
         private void FoundCounterController(int current, int total, string mode)
         {
@@ -31,6 +25,7 @@
 
             currentFindIndexDisplayed = index;
             totalFindResultsDisplayed = total;
+
             if (total > 0)
             {
                 foundCounter.Visible = true;
@@ -55,37 +50,13 @@
 
                     if (currentFindIndexDisplayed + 1 != totalFindResultsDisplayed)
                         findNextButtonReal.Enabled = true;
-                    /*
-                    findPrevButton.Enabled = true;
-                    findNextButtonReal.Enabled = true;
-
-                    if (index == allFinds[0] && allFinds.Count == 1)
-                    {
-                        findPrevButton.Enabled = false;
-                        findNextButtonReal.Enabled = false;
-                    }
-
-                    else if (index == allFinds[0]) // when index it at a start
-                    {
-                        findPrevButton.Enabled = false;
-                    }
-
-
-                    else if (index + 1 == total)
-                    {
-
-                        findNextButtonReal.Enabled = false;
-                    }*/
                 }
             }
+
             else
             {
-                //findQuerySuccess = false;
                 foundCounter.Visible = false;
             }
-
-            //NextPrevStatusController();
         }
-
     }
 }

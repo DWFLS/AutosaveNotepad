@@ -10,9 +10,9 @@
             int forwards = currentFindIndexDisplayed;
             richTextBox.SelectedText = replaceTextBox.Text;
 
-            SearchInRichTextBox();
+            SearchInRichTextBox(); //search needs to called after every singular replace
 
-            for (int i = 0; i < forwards; i++)
+            for (int i = 0; i < forwards; i++) // and the loop forwards to next possible search, so it's not restarting at the first one
             {
                 Next();
             }

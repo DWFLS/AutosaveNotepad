@@ -49,7 +49,7 @@
             CheckForCutCopyPaste();
         }
 
-        private void quicksaveTextBox_TextChanged(object sender, EventArgs e)
+        private void quicksaveTextBox_TextChanged(object sender, EventArgs e) //if there's at least one error then quickbutton cannot be active
         {
             int error1Count = 0;
             int error2Count = 0;
@@ -95,7 +95,7 @@
                 }
             }
 
-            if (error1Count + error2Count + error3Count > 0)
+            if (error1Count + error2Count + error3Count > 0) //check if button can be enabled
             {
                 quicksaveButton.Enabled = false;
             }

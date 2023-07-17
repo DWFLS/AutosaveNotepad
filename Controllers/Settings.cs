@@ -90,6 +90,8 @@ an.cfg
 
         private void LoadSettings()
         {
+            // Reading settings from the config file
+
             for (int i = 0; i < config.Length; i++)
             {
                 config[i] = File.ReadLines(configFileNamePath).ElementAtOrDefault(i);

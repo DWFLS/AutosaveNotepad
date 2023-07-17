@@ -8,7 +8,7 @@
         private void quicksaveButton_Click_1(object sender, EventArgs e)
         {
             bool validFolderCheck = CheckForDefaultFolder();
-            if (validFolderCheck)
+            if (validFolderCheck) // if the test is positive, then save current file
             {
                 currentFileName = defaultFolderPath + "\\" + quicksaveTextBox.Text + ".txt";
                 richTextBox.SaveFile(currentFileName, RichTextBoxStreamType.PlainText);
@@ -25,6 +25,14 @@
                 AutosaveActive(false);
             }
         }
+
+        /*
+         
+         Checks
+
+         */
+
+
         private void QuickSaveBarControl(bool validDefPath)
         {
             quicksaveLabel.Enabled = validDefPath;

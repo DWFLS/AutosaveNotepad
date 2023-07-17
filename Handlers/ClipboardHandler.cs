@@ -2,7 +2,7 @@
 {
     public partial class formMain
     {
-        private void ProcessPaste()
+        private void ProcessPaste() //handle clipboard to be just plain text, no tables, different fonts and so on.
         {
             if (Clipboard.ContainsText())
             {
@@ -21,56 +21,6 @@
         {
             string plainText = clipboardText.Replace("\r\n", " ").Replace("\r", " ").Replace("\n", " ");
             return plainText;
-        }
-
-        private void CheckForCutCopyPaste()
-        {
-            if (!string.IsNullOrEmpty(richTextBox.SelectedText))
-            {
-                cutCopyAvailable = true;
-            }
-            else
-            {
-                cutCopyAvailable = false;
-            }
-
-            if (cutCopyAvailable)
-            {
-                cutToolStripMenuItem.Enabled = true;
-                cutToolStripMenuItem1.Enabled = true;
-                copyToolStripMenuItem.Enabled = true;
-                copyToolStripMenuItem1.Enabled = true;
-            }
-
-            else
-            {
-                cutToolStripMenuItem.Enabled = false;
-                cutToolStripMenuItem1.Enabled = false;
-                copyToolStripMenuItem.Enabled = false;
-                copyToolStripMenuItem1.Enabled = false;
-            }
-
-            if (Clipboard.ContainsText())
-            {
-                if (Clipboard.GetText() != "")
-                {
-                    pasteToolStripMenuItem.Enabled = true;
-                    pasteToolStripMenuItem1.Enabled = true;
-                }
-
-                else
-                {
-                    pasteToolStripMenuItem.Enabled = false;
-                    pasteToolStripMenuItem1.Enabled = false;
-                }
-            }
-
-            else
-            {
-                pasteToolStripMenuItem.Enabled = false;
-                pasteToolStripMenuItem1.Enabled = false;
-            }
-
         }
     }
 }

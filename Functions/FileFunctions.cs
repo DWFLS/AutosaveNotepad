@@ -59,7 +59,7 @@
             openFileDialog.Filter = "Text Document|*.txt|All Files|*.*";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (openFileDialog.FileName != currentFileName)
+                if (openFileDialog.FileName != currentFileName) //this check is a safe guard against opening same file that is currently opened
                 {
                     richTextBox.LoadFile(openFileDialog.FileName, RichTextBoxStreamType.PlainText);
                     var fileNameOnly = FilenameTrimmer(openFileDialog.FileName);
@@ -82,14 +82,14 @@
                 richTextBox.SaveFile(saveFileDialog.FileName, RichTextBoxStreamType.PlainText);
                 var fileNameOnly = FilenameTrimmer(saveFileDialog.FileName);
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + saveFileDialog.FileName;
-                currentFileName = saveFileDialog.FileName;
+                currentFileName = saveFileDialog.FileName; //this line is ommited when using save as copy option
                 AutosaveActive(true);
                 StripStatusConstructor("Autosave is now active, take care while editing.", "", "");
                 EnableFeatures(true);
             }
         }
 
-        private void SaveAsCopy()
+        private void SaveAsCopy() //this creates a copy that will not be currently edited
         {
             var saveFileDialog = new SaveFileDialog();
             saveFileDialog.Title = "Save a backup copy...";
@@ -114,9 +114,5 @@
         {
 
         }
-
-
-
-
     }
 }

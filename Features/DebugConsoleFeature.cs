@@ -15,18 +15,20 @@
             if (debugConsoleToolStripMenuItem.Checked)
             {
                 debug.Visible = true;
+                debug.Enabled = true;
             }
 
             else
             {
                 debug.Visible = false;
+                debug.Enabled = false;
             }
         }
 
         private void Debug(string input)
         {
-            debug.Text = input;
-            //debug.Text += "\r\n";
+            debug.Text += input;
+            debug.Text += "\r\n";
         }
     }
 }

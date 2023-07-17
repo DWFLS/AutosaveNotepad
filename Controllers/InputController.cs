@@ -5,9 +5,10 @@
     {
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+            // Disable all key input and editing actions to prevent ctrl c/v etc
+
             if (textEditingLocked && findTextBox.Focused != true)
             {
-                // Disable all key input and editing actions
                 return true;
             }
 

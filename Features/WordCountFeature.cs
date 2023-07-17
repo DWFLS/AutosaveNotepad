@@ -9,11 +9,6 @@
             WordCountCheck();
         }
 
-        private void wordCountToolStripMenuItem_CheckStateChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void WordCountCheck()
         {
             if (wordCountToolStripMenuItem.Checked)
@@ -27,7 +22,7 @@
             }
         }
 
-        private void WordCount()
+        private void WordCount() //updating the count every time the function is called
         {
             if (richTextBox.Text != "")
             {
@@ -50,6 +45,15 @@
             {
                 wordCountLabel.Visible = false;
             }
+        }
+
+        /*
+         Not in use
+         */
+
+        private void wordCountToolStripMenuItem_CheckStateChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

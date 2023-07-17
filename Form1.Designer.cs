@@ -581,7 +581,8 @@
             this.debug.Location = new System.Drawing.Point(0, 282);
             this.debug.Multiline = true;
             this.debug.Name = "debug";
-            this.debug.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.debug.ReadOnly = true;
+            this.debug.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.debug.Size = new System.Drawing.Size(982, 112);
             this.debug.TabIndex = 7;
             // 

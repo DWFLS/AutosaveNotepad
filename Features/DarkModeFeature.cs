@@ -9,6 +9,7 @@
             {
                 richTextBox.BackColor = Color.FromArgb(8, 17, 19);
                 richTextBox.ForeColor = Color.White;
+
                 if (textEditingLocked)
                 {
                     richTextBox.ForeColor = Color.Black;
@@ -19,6 +20,7 @@
                     richTextBox.ForeColor = Color.White;
                 }
             }
+
             else
             {
                 richTextBox.BackColor = Color.White;

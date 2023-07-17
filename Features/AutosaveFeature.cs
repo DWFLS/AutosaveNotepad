@@ -12,8 +12,7 @@
                 StripStatusConstructor("Autosave is active.", "", "");
             }
 
-            else
-                StripStatusConstructor("Autosave is NOT active.", "", "");
+            else StripStatusConstructor("Autosave is NOT active.", "", "");
         }
         private bool AutosaveActive(bool status)
         {
