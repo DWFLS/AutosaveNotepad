@@ -13,6 +13,8 @@ by DWFLS
 - [x] Display settings: Normal/Dark mode.
 - [x] Create, open, save, backup documents.
 - [x] Text editing functions (undo, redo, cut, copy, paste, select all)
+- [x] Dark Mode
+- [x] "Open with" functionality.
 
 ## Version history:
 
@@ -101,11 +103,8 @@ by DWFLS
 	- [x] .1 - fix not saving on "X" button.
 	- [x] .2 - fix case sensitivity
 - [x] 3 - Add comments for readiblity, separated "highlight" feature from "Find" module, separated few controllers and improved debug console.
-- [ ] 4 - Update readme to list all noticeable features
-- [ ] 5 - Release v1.1.X
+	- [ ] .1 - Update readme to list all noticeable features
+- [x] 4 - Release v1.1.4 (Portable)
 
 ## **v1.2.**
-- [ ] 0 - "1000 steps mode"
-
-## **v1.3.**
 - [ ] 0 - Quick Load mode
