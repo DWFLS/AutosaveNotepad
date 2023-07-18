@@ -18,6 +18,7 @@ namespace AutosaveNotepad
         string wordCountStatus = "";
         string quickSaveInput = "";
         string textBackup = "";
+        string wordCount = "";
         bool textEditingLocked = false;
         bool cutCopyAvailable = false;
         int currentFindIndex = 0;
@@ -67,7 +68,6 @@ namespace AutosaveNotepad
             searchButton.Enabled = false;
             findNextButtonReal.Enabled = false;
             findPrevButton.Enabled = false;
-            wordCountLabel.Visible = false;
             debug.Enabled = false;
             debug.Visible = false;
             searchPanel.Visible = false;

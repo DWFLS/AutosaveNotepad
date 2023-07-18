@@ -108,6 +108,7 @@ by DWFLS
 
 ## **v1.2.** Quick Load mode
 - [x] 0 - moved word count to toolstrip
+	- [x] 0.1 - fixed error caused by deleted word count label and tweaked status strip constructor to work better with word count.
 - [ ] 1 - convert autosave checkbox to clickable menustrip item
 - [ ] 2 - refresh default folder check on formwindow focus regain, file menu item click and file actions (after dialogue and successful action)
 - [ ] 3 - add ctrl+f shortcut for search

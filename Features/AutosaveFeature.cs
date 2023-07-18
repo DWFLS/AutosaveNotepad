@@ -16,11 +16,11 @@
         }
         private bool AutosaveActive(bool status)
         {
-            autosaveCheckBox.Enabled = true;
+            autosaveCheckBox.Enabled = true; //mod this
             if (status == false)
             {
                 autosaveActive = false;
-                autosaveCheckBox.Checked = false;
+                autosaveCheckBox.Checked = false; //mod this
                 StripStatusConstructor("Autosave is deactivated.", "", "", "");
                 return false;
             }
@@ -28,7 +28,7 @@
             else
             {
                 autosaveActive = true;
-                autosaveCheckBox.Checked = true;
+                autosaveCheckBox.Checked = true; //mod this
                 return true;
             }
 
@@ -36,15 +36,15 @@
 
         private void autosaveCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if (autosaveCheckBox.Checked == true)
+            if (autosaveCheckBox.Checked == true) //mod this
             {
-                StripStatusConstructor("Autosave is active.", " ", "", "");
+                StripStatusConstructor("Autosave is active.", "", "", "");
                 AutosaveActive(true);
             }
 
             else
             {
-                StripStatusConstructor("Autosave is deactivated.", " ", "", "");
+                StripStatusConstructor("Autosave is deactivated.", "", "", "");
                 AutosaveActive(false);
             }
         }

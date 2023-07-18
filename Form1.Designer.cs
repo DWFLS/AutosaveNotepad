@@ -416,6 +416,7 @@
             this.autosaveToolStripMenuItem.Checked = true;
             this.autosaveToolStripMenuItem.CheckOnClick = true;
             this.autosaveToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autosaveToolStripMenuItem.Enabled = false;
             this.autosaveToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
             this.autosaveToolStripMenuItem.Name = "autosaveToolStripMenuItem";
             this.autosaveToolStripMenuItem.Size = new System.Drawing.Size(84, 24);

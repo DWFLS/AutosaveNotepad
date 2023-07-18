@@ -13,7 +13,7 @@
 
         private void richTextBox_TextChanged(object sender, EventArgs e)
         {
-            StripStatusConstructor("", " ", "", "");
+            StripStatusConstructor("", "", "", "");
             CheckForUndoRedo();
             Autosave();
             WordCount();

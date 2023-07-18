@@ -3,7 +3,6 @@
     using System;
     public partial class formMain
     {
-        string wordCount = "";
 
         private void wordCountToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -35,7 +34,7 @@
                     debug.Text = "Word Count should work";
                     string text = richTextBox.Text;
                     string[] words = text.Split(new char[] { ' ', '.', ',', ';', ':', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
-                    wordCount = "Word Count: " + words.Length.ToString();
+                    wordCount = "- Word Count: " + words.Length.ToString();
                     StripStatusConstructor("", "", "", wordCount);
                 }
 
