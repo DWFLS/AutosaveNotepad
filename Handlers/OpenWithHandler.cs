@@ -16,7 +16,7 @@
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + openWithFilePath;
                 currentFileName = openWithFilePath;
                 AutosaveActive(true);
-                StripStatusConstructor("Autosave is now active, take care while editing.", "", "");
+                StripStatusConstructor("Autosave is now active, take care while editing.", "", "", "");
                 EnableFeatures(true);
             }
         }

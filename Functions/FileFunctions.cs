@@ -46,7 +46,7 @@
                 var fileNameOnly = FilenameTrimmer(saveFileDialog.FileName);
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + saveFileDialog.FileName;
                 AutosaveActive(true);
-                StripStatusConstructor("Autosave is now active, take care while editing.", "", "");
+                StripStatusConstructor("Autosave is now active, take care while editing.", "", "", "");
                 EnableFeatures(true);
             }
         }
@@ -66,7 +66,7 @@
                     this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + openFileDialog.FileName;
                     currentFileName = openFileDialog.FileName;
                     AutosaveActive(true);
-                    StripStatusConstructor("Autosave is now active, take care while editing.", "", "");
+                    StripStatusConstructor("Autosave is now active, take care while editing.", "", "", "");
                     EnableFeatures(true);
                 }
             }
@@ -84,7 +84,7 @@
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + saveFileDialog.FileName;
                 currentFileName = saveFileDialog.FileName; //this line is ommited when using save as copy option
                 AutosaveActive(true);
-                StripStatusConstructor("Autosave is now active, take care while editing.", "", "");
+                StripStatusConstructor("Autosave is now active, take care while editing.", "", "", "");
                 EnableFeatures(true);
             }
         }
@@ -100,7 +100,7 @@
                 var fileNameOnly = FilenameTrimmer(saveFileDialog.FileName);
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + currentFileName;
                 AutosaveActive(true);
-                StripStatusConstructor("Created a backup copy. Autosave is active on the original file", "", "");
+                StripStatusConstructor("Created a backup copy. Autosave is active on the original file", "", "", "");
                 EnableFeatures(true);
             }
         }

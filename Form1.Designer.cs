@@ -65,6 +65,7 @@
             this.searchPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkModeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.debugConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.autosaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.richTextBox = new System.Windows.Forms.RichTextBox();
@@ -82,7 +83,6 @@
             this.quicksaveTextBox = new System.Windows.Forms.TextBox();
             this.quicksaveButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.wordCountLabel = new System.Windows.Forms.Label();
             this.autosaveCheckBox = new System.Windows.Forms.CheckBox();
             this.debug = new System.Windows.Forms.TextBox();
             this.searchPanel = new System.Windows.Forms.Panel();
@@ -151,7 +151,8 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
-            this.displaySettingToolStripMenuItem});
+            this.displaySettingToolStripMenuItem,
+            this.autosaveToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
@@ -410,6 +411,16 @@
             this.debugConsoleToolStripMenuItem.Text = "Debug Console";
             this.debugConsoleToolStripMenuItem.Click += new System.EventHandler(this.debugConsoleToolStripMenuItem_Click);
             // 
+            // autosaveToolStripMenuItem
+            // 
+            this.autosaveToolStripMenuItem.Checked = true;
+            this.autosaveToolStripMenuItem.CheckOnClick = true;
+            this.autosaveToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.autosaveToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
+            this.autosaveToolStripMenuItem.Name = "autosaveToolStripMenuItem";
+            this.autosaveToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
+            this.autosaveToolStripMenuItem.Text = "Autosave";
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -543,7 +554,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.wordCountLabel);
             this.panel1.Controls.Add(this.autosaveCheckBox);
             this.panel1.Controls.Add(this.quicksaveLabel);
             this.panel1.Controls.Add(this.quicksaveButton);
@@ -553,15 +563,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(982, 37);
             this.panel1.TabIndex = 6;
-            // 
-            // wordCountLabel
-            // 
-            this.wordCountLabel.AutoSize = true;
-            this.wordCountLabel.Location = new System.Drawing.Point(786, 8);
-            this.wordCountLabel.Name = "wordCountLabel";
-            this.wordCountLabel.Size = new System.Drawing.Size(127, 20);
-            this.wordCountLabel.TabIndex = 9;
-            this.wordCountLabel.Text = "Word Count: 1000";
             // 
             // autosaveCheckBox
             // 
@@ -808,9 +809,9 @@
         private ToolStripMenuItem caseSensitiveSearchToolStripMenuItem;
         private ToolStripMenuItem quicksavePanelToolStripMenuItem;
         private ToolStripMenuItem searchPanelToolStripMenuItem;
-        private Label wordCountLabel;
         private ToolStripMenuItem wordCountToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator8;
         private ToolStripMenuItem debugConsoleToolStripMenuItem;
+        private ToolStripMenuItem autosaveToolStripMenuItem;
     }
 }

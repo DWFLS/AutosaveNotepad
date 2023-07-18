@@ -9,14 +9,14 @@
             {
                 wordWrapToolStripMenuItem.Checked = false;
                 richTextBox.WordWrap = false;
-                StripStatusConstructor("", "Word Wrap disabled.", "");
+                StripStatusConstructor("", "Word Wrap disabled.", "", "");
             }
 
             else
             {
                 wordWrapToolStripMenuItem.Checked = true;
                 richTextBox.WordWrap = true;
-                StripStatusConstructor("", "Word Wrap enabled.", "");
+                StripStatusConstructor("", "Word Wrap enabled.", "", "");
             }
         }
     }

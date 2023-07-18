@@ -3,13 +3,14 @@
     using System.Windows.Forms;
     public partial class formMain : Form
     {
-        private void StripStatusConstructor(string a, string b, string c)
+        private void StripStatusConstructor(string a, string b, string c, string d)
         {
             if (a != "") autosaveStatus = a + " ";
             if (b != "") miscInfo = b + " ";
-            if (c != "") defaultFolderStatus = c;
+            if (c != "") defaultFolderStatus = c + " ";
+            if (d != "") wordCountStatus = d;
 
-            toolStripStatusLabel1.Text = autosaveStatus + miscInfo + defaultFolderStatus;
+            toolStripStatusLabel1.Text = autosaveStatus + miscInfo + defaultFolderStatus + wordCountStatus;
         }
     }
 }

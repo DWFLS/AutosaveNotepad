@@ -3,6 +3,8 @@
     using System;
     public partial class formMain
     {
+        string wordCount = "";
+
         private void wordCountToolStripMenuItem_Click(object sender, EventArgs e)
         {
             wordCountToolStripMenuItem.Checked = !wordCountToolStripMenuItem.Checked;
@@ -18,7 +20,8 @@
 
             else
             {
-                wordCountLabel.Visible = false;
+                StripStatusConstructor("", "", "", " ");
+                //wordCountLabel.Visible = false;
             }
         }
 
@@ -28,22 +31,25 @@
             {
                 if (wordCountToolStripMenuItem.Checked)
                 {
-                    wordCountLabel.Visible = true;
+                    //wordCountLabel.Visible = true;
                     debug.Text = "Word Count should work";
                     string text = richTextBox.Text;
                     string[] words = text.Split(new char[] { ' ', '.', ',', ';', ':', '!', '?' }, StringSplitOptions.RemoveEmptyEntries);
-                    wordCountLabel.Text = "Word Count: " + words.Length.ToString();
+                    wordCount = "Word Count: " + words.Length.ToString();
+                    StripStatusConstructor("", "", "", wordCount);
                 }
 
                 else
                 {
-                    wordCountLabel.Visible = false;
+                    StripStatusConstructor("", "", "", " ");
+                    //wordCountLabel.Visible = false;
                 }
             }
 
             else
             {
-                wordCountLabel.Visible = false;
+                StripStatusConstructor("", "", "", " ");
+                //wordCountLabel.Visible = false;
             }
         }
 

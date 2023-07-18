@@ -13,7 +13,7 @@
 
         private void richTextBox_TextChanged(object sender, EventArgs e)
         {
-            StripStatusConstructor("", " ", "");
+            StripStatusConstructor("", " ", "", "");
             CheckForUndoRedo();
             Autosave();
             WordCount();
@@ -60,7 +60,7 @@
             if (quickSaveInput.Length == 0 || quickSaveInput == "")
             {
                 error1Count++;
-                StripStatusConstructor("", "File name cannot be empty", "");
+                StripStatusConstructor("", "File name cannot be empty", "", "");
 
             }
             else
@@ -72,7 +72,7 @@
             if (Regex.IsMatch(quickSaveInput, "[<>:\"/|?*]") || Regex.IsMatch(quickSaveInput, @"[\\]"))
             {
                 error2Count++;
-                StripStatusConstructor("", "Remove the following characters:" + @"<>:""/\|?*", "");
+                StripStatusConstructor("", "Remove the following characters:" + @"<>:""/\|?*", "", "");
             }
             else
             {
@@ -105,12 +105,12 @@
                 quicksaveButton.Enabled = true;
                 if (!warning)
                 {
-                    StripStatusConstructor("", "Quicksave filename valid.", "");
+                    StripStatusConstructor("", "Quicksave filename valid.", "", "");
                 }
 
                 else
                 {
-                    StripStatusConstructor("", "File already exists. Quicksave at own discretion.", "");
+                    StripStatusConstructor("", "File already exists. Quicksave at own discretion.", "", "");
                     SystemSounds.Exclamation.Play();
                 }
 

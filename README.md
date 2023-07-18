@@ -18,18 +18,18 @@ by DWFLS
 
 ## Version history:
 
-## **v1.0.2**
-
-- [x] Rename "Save and Backup" to "Create a *Backup* Copy"
-- [x] Disable "Save as..." and "*Backup*" on app start.
-
-## **v1.0.1**
+## **v1.0.1** - Fixes
 
 - [x] Fixed a bug causing clearing of the previous file while creating another new document.
 - [x] Removed redundant code.
 - [x] Cleaner code.
 
-## **v1.0.3**
+## **v1.0.2** - Tweaks
+
+- [x] Rename "Save and Backup" to "Create a *Backup* Copy"
+- [x] Disable "Save as..." and "*Backup*" on app start.
+
+## **v1.0.3** - More Functionalities
 
 - [x] Display file name in window title
 - [x] New readme format
@@ -42,7 +42,7 @@ by DWFLS
 - [x] Can write without autosave mode on again
 - [x] Drag and drop
 
-## **v1.0.4**
+## **v1.0.4** - Context menu, Autosave toggle and word wrap.
 
 - [x] Right mouse button context menu
 - [x] Added regions
@@ -50,7 +50,7 @@ by DWFLS
 - [x] Autosave toggle
 - [x] Line wrapping toggle
 
-## **v1.0.5**
+## **v1.0.5** Find Feautre, Print and handling copy/paste/cut
 
 - [x] Full find feature
 	- [x] Rewriting from scratch
@@ -70,7 +70,7 @@ by DWFLS
 - [x] Handling pasting
 - [x] Improved roadmap
 
-## **v1.0.6.**
+## **v1.0.6.** Modular Programming, fixes and some functionalities 
 
 - [x] 0.X - Split Form1.cs into file modules
 - [x] 1 - Case sensitivity control for find feature
@@ -79,13 +79,13 @@ by DWFLS
 - [x] 4 - Adjust dark mode behavior when in highlight mode
 - [x] 5 - Add an option to hide quicksavePanel along with search panel, rename display to view ""
 
-## **v1.0.7**
+## **v1.0.7** Word Count and functionalities
 
 - [x] 0 - Word count
 - [x] 1 - Debug window toggle + feature
 - [x] 2 - Change richtextbox font to monospace-like.
 
-## **v1.0.8.**
+## **v1.0.8.** Replace all/one feature
 	
 - [x] 1.0 - **Replace all function complete**
 	- [x] 0.0 - Replace all button conditional on "search ok" bool
@@ -96,7 +96,7 @@ by DWFLS
 - [x] 2.4 - Reformatted readme.md
 
 
-## **v1.1.0.**
+## **v1.1.0.** "Open with" feature and settings
 - [x] 0 - "Open with" complete
 - [x] - - Make default txt app - to be handled by installer or else
 - [x] 2 - Handle Settings
@@ -106,5 +106,12 @@ by DWFLS
 	- [ ] .1 - Update readme to list all noticeable features
 - [x] 4 - Release v1.1.4 (Portable)
 
-## **v1.2.**
-- [ ] 0 - Quick Load mode
+## **v1.2.** Quick Load mode
+- [x] 0 - moved word count to toolstrip
+- [ ] 1 - convert autosave checkbox to clickable menustrip item
+- [ ] 2 - refresh default folder check on formwindow focus regain, file menu item click and file actions (after dialogue and successful action)
+- [ ] 3 - add ctrl+f shortcut for search
+	- [ ] 4.0 - rename panel to quicksave/load
+	- [ ] 4.1 - create a dropdown menu that reads all text files in def folder and opens them when clicked
+	- [ ] 4.2 - add actions triggfor the dropdown menu
+- [ ] 5 - update readme and release v1.2.5

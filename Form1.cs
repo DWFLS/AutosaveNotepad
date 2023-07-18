@@ -15,6 +15,7 @@ namespace AutosaveNotepad
         string autosaveStatus = "";
         string miscInfo = "";
         string defaultFolderStatus = "";
+        string wordCountStatus = "";
         string quickSaveInput = "";
         string textBackup = "";
         bool textEditingLocked = false;
@@ -38,7 +39,7 @@ namespace AutosaveNotepad
 
             EnableFeatures(true);
             CheckForDefaultFolder();
-            StripStatusConstructor("Autosave is NOT active - Create or open a document.", "", "");
+            StripStatusConstructor("Autosave is NOT active - Create or open a document.", "", "", "");
             WordWrapActive(true);
             ResetFind();
             ReplaceController(searchResultOK);

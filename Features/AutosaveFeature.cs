@@ -9,10 +9,10 @@
             if (autosaveActive)
             {
                 richTextBox.SaveFile(currentFileName, RichTextBoxStreamType.PlainText);
-                StripStatusConstructor("Autosave is active.", "", "");
+                StripStatusConstructor("Autosave is active.", "", "", "");
             }
 
-            else StripStatusConstructor("Autosave is NOT active.", "", "");
+            else StripStatusConstructor("Autosave is NOT active.", "", "", "");
         }
         private bool AutosaveActive(bool status)
         {
@@ -21,7 +21,7 @@
             {
                 autosaveActive = false;
                 autosaveCheckBox.Checked = false;
-                StripStatusConstructor("Autosave is deactivated.", "", "");
+                StripStatusConstructor("Autosave is deactivated.", "", "", "");
                 return false;
             }
 
@@ -38,13 +38,13 @@
         {
             if (autosaveCheckBox.Checked == true)
             {
-                StripStatusConstructor("Autosave is active.", " ", "");
+                StripStatusConstructor("Autosave is active.", " ", "", "");
                 AutosaveActive(true);
             }
 
             else
             {
-                StripStatusConstructor("Autosave is deactivated.", " ", "");
+                StripStatusConstructor("Autosave is deactivated.", " ", "", "");
                 AutosaveActive(false);
             }
         }

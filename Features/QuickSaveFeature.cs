@@ -15,13 +15,13 @@
                 var fileNameOnly = FilenameTrimmer(currentFileName);
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + currentFileName;
                 AutosaveActive(true);
-                StripStatusConstructor("Autosave is now active.", "Quicksave successful.", "");
+                StripStatusConstructor("Autosave is now active.", "Quicksave successful.", "", "");
             }
 
             else
             {
                 QuickSaveBarControl(false);
-                StripStatusConstructor("", "Quicksave failed", "Please check if default save folder exists.");
+                StripStatusConstructor("", "Quicksave failed", "Please check if default save folder exists.", "");
                 AutosaveActive(false);
             }
         }
@@ -50,13 +50,13 @@
                     {
                         defaultFolderPath = File.ReadLines(defaultFolderLogFilePath).ElementAtOrDefault(0);
                         QuickSaveBarControl(true);
-                        StripStatusConstructor("", "", "Saving files in: " + defaultFolderPath);
+                        StripStatusConstructor("", "", "Saving files in: " + defaultFolderPath, "");
                         return true;
                     }
 
                     else
                     {
-                        StripStatusConstructor("", "", "Default save folder not found.");
+                        StripStatusConstructor("", "", "Default save folder not found.", "");
                         QuickSaveBarControl(false);
                         return false;
                     }
@@ -64,7 +64,7 @@
             }
             else
             {
-                StripStatusConstructor("", "", "Default folder not selected.");
+                StripStatusConstructor("", "", "Default folder not selected.", "");
                 QuickSaveBarControl(false);
                 return false;
             }
