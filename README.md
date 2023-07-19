@@ -106,13 +106,21 @@ by DWFLS
 	- [ ] .1 - Update readme to list all noticeable features
 - [x] 4 - Release v1.1.4 (Portable)
 
-## **v1.2.** Quick Load mode
-- [x] 0 - moved word count to toolstrip
-	- [x] 0.1 - fixed error caused by deleted word count label and tweaked status strip constructor to work better with word count.
-- [ ] 1 - convert autosave checkbox to clickable menustrip item
-- [ ] 2 - refresh default folder check on formwindow focus regain, file menu item click and file actions (after dialogue and successful action)
-- [ ] 3 - add ctrl+f shortcut for search
-	- [ ] 4.0 - rename panel to quicksave/load
-	- [ ] 4.1 - create a dropdown menu that reads all text files in def folder and opens them when clicked
-	- [ ] 4.2 - add actions triggfor the dropdown menu
-- [ ] 5 - update readme and release v1.2.5
+## **v1.2** Quick Load mode
+- [x] .0 - moved word count to toolstrip
+	- [x] .1 - fixed error caused by deleted word count label and tweaked status strip constructor to work better with word count.
+- [ ] .1 - quick load create a dropdown menu that reads all text files in def folder and opens them when clicked
+	- [x] rearranged the quickload/save panel
+	- [x] rename panel to quicksave/load
+	- [x] circumstantial enable and disable
+	- [ ] deal with interference from AutosaveActive() method
+	- [ ] rename menustrip item
+- [ ] .2 - refresh default folder check and rescan for textfiles for the dropdown menu
+	- [ ] on formwindow focus regain
+	- [ ] file menu item click
+	- [ ] file actions (before dialogue and after successful action)	
+	- [ ] when clicking the dropdown menu
+- [ ] .3 - add ctrl+f shortcut for search	
+- [ ] .4 - change font color if file already exists when quicksaving
+- [ ] .5 - mod an.cfg file content so it's understandable without knowing the array key (convert from "true" to "setting = true")
+- [ ] .6 - update readme and release v1.2.5

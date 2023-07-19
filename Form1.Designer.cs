@@ -65,7 +65,6 @@
             this.searchPanelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.darkModeToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.debugConsoleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.autosaveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.richTextBox = new System.Windows.Forms.RichTextBox();
@@ -83,7 +82,9 @@
             this.quicksaveTextBox = new System.Windows.Forms.TextBox();
             this.quicksaveButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.quickLoadComboBox = new System.Windows.Forms.ComboBox();
             this.autosaveCheckBox = new System.Windows.Forms.CheckBox();
+            this.quickLoadLabel = new System.Windows.Forms.Label();
             this.debug = new System.Windows.Forms.TextBox();
             this.searchPanel = new System.Windows.Forms.Panel();
             this.searchButton = new System.Windows.Forms.Button();
@@ -151,8 +152,7 @@
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
-            this.displaySettingToolStripMenuItem,
-            this.autosaveToolStripMenuItem});
+            this.displaySettingToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
@@ -411,17 +411,6 @@
             this.debugConsoleToolStripMenuItem.Text = "Debug Console";
             this.debugConsoleToolStripMenuItem.Click += new System.EventHandler(this.debugConsoleToolStripMenuItem_Click);
             // 
-            // autosaveToolStripMenuItem
-            // 
-            this.autosaveToolStripMenuItem.Checked = true;
-            this.autosaveToolStripMenuItem.CheckOnClick = true;
-            this.autosaveToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.autosaveToolStripMenuItem.Enabled = false;
-            this.autosaveToolStripMenuItem.ForeColor = System.Drawing.Color.Red;
-            this.autosaveToolStripMenuItem.Name = "autosaveToolStripMenuItem";
-            this.autosaveToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
-            this.autosaveToolStripMenuItem.Text = "Autosave";
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -528,16 +517,16 @@
             // 
             this.quicksaveLabel.AutoSize = true;
             this.quicksaveLabel.Enabled = false;
-            this.quicksaveLabel.Location = new System.Drawing.Point(12, 7);
+            this.quicksaveLabel.Location = new System.Drawing.Point(339, 7);
             this.quicksaveLabel.Name = "quicksaveLabel";
-            this.quicksaveLabel.Size = new System.Drawing.Size(317, 20);
+            this.quicksaveLabel.Size = new System.Drawing.Size(189, 20);
             this.quicksaveLabel.TabIndex = 3;
-            this.quicksaveLabel.Text = "Enter a filename to quicksave in default folder:";
+            this.quicksaveLabel.Text = "Quicksave in default folder:";
             this.quicksaveLabel.Click += new System.EventHandler(this.quicksaveLabel_Click);
             // 
             // quicksaveTextBox
             // 
-            this.quicksaveTextBox.Location = new System.Drawing.Point(335, 4);
+            this.quicksaveTextBox.Location = new System.Drawing.Point(534, 4);
             this.quicksaveTextBox.Name = "quicksaveTextBox";
             this.quicksaveTextBox.Size = new System.Drawing.Size(247, 27);
             this.quicksaveTextBox.TabIndex = 4;
@@ -545,7 +534,7 @@
             // 
             // quicksaveButton
             // 
-            this.quicksaveButton.Location = new System.Drawing.Point(588, 3);
+            this.quicksaveButton.Location = new System.Drawing.Point(787, 3);
             this.quicksaveButton.Name = "quicksaveButton";
             this.quicksaveButton.Size = new System.Drawing.Size(94, 29);
             this.quicksaveButton.TabIndex = 5;
@@ -555,7 +544,9 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.quickLoadComboBox);
             this.panel1.Controls.Add(this.autosaveCheckBox);
+            this.panel1.Controls.Add(this.quickLoadLabel);
             this.panel1.Controls.Add(this.quicksaveLabel);
             this.panel1.Controls.Add(this.quicksaveButton);
             this.panel1.Controls.Add(this.quicksaveTextBox);
@@ -565,16 +556,36 @@
             this.panel1.Size = new System.Drawing.Size(982, 37);
             this.panel1.TabIndex = 6;
             // 
+            // quickLoadComboBox
+            // 
+            this.quickLoadComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.quickLoadComboBox.FormattingEnabled = true;
+            this.quickLoadComboBox.Location = new System.Drawing.Point(86, 4);
+            this.quickLoadComboBox.Name = "quickLoadComboBox";
+            this.quickLoadComboBox.Size = new System.Drawing.Size(247, 28);
+            this.quickLoadComboBox.TabIndex = 8;
+            this.quickLoadComboBox.SelectedIndexChanged += new System.EventHandler(this.quickLoadComboBox_SelectedIndexChanged);
+            this.quickLoadComboBox.Click += new System.EventHandler(this.quickLoadComboBox_Click);
+            // 
             // autosaveCheckBox
             // 
             this.autosaveCheckBox.AutoSize = true;
-            this.autosaveCheckBox.Location = new System.Drawing.Point(688, 7);
+            this.autosaveCheckBox.Location = new System.Drawing.Point(887, 6);
             this.autosaveCheckBox.Name = "autosaveCheckBox";
             this.autosaveCheckBox.Size = new System.Drawing.Size(92, 24);
             this.autosaveCheckBox.TabIndex = 7;
             this.autosaveCheckBox.Text = "Autosave";
             this.autosaveCheckBox.UseVisualStyleBackColor = true;
             this.autosaveCheckBox.CheckedChanged += new System.EventHandler(this.autosaveCheckBox_CheckedChanged);
+            // 
+            // quickLoadLabel
+            // 
+            this.quickLoadLabel.AutoSize = true;
+            this.quickLoadLabel.Location = new System.Drawing.Point(3, 7);
+            this.quickLoadLabel.Name = "quickLoadLabel";
+            this.quickLoadLabel.Size = new System.Drawing.Size(79, 20);
+            this.quickLoadLabel.TabIndex = 9;
+            this.quickLoadLabel.Text = "Quickload:";
             // 
             // debug
             // 
@@ -813,6 +824,7 @@
         private ToolStripMenuItem wordCountToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator8;
         private ToolStripMenuItem debugConsoleToolStripMenuItem;
-        private ToolStripMenuItem autosaveToolStripMenuItem;
+        private ComboBox quickLoadComboBox;
+        private Label quickLoadLabel;
     }
 }

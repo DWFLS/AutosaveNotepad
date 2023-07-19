@@ -10,6 +10,7 @@ namespace AutosaveNotepad
         private string currentFileName = string.Empty;
         private bool autosaveActive = false;
         string defaultFolderPath = string.Empty;
+        string[] defaultFolderTxtFiles = new string[0];
         string defaultFolderLogFilePath = string.Empty;
         string rootFolder = AppDomain.CurrentDomain.BaseDirectory;
         string autosaveStatus = "";
@@ -111,5 +112,7 @@ namespace AutosaveNotepad
         {
 
         }
+
+
     }
 }

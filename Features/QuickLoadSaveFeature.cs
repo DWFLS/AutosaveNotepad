@@ -20,7 +20,7 @@
 
             else
             {
-                QuickSaveBarControl(false);
+                QuickLoadSaveBarControl(false);
                 StripStatusConstructor("", "Quicksave failed", "Please check if default save folder exists.", "");
                 AutosaveActive(false);
             }
@@ -32,9 +32,55 @@
 
          */
 
-
-        private void QuickSaveBarControl(bool validDefPath)
+        private void QuickLoadFileScan() //populating the combobox by rescanning everytime method loads
         {
+            defaultFolderTxtFiles = Directory.GetFiles(defaultFolderPath, "*.txt");
+            quickLoadComboBox.Items.Clear();
+            foreach (string file in defaultFolderTxtFiles)
+            {
+                string fileName = Path.GetFileName(file);
+                quickLoadComboBox.Items.Add(fileName);
+            }
+        }
+
+        private void quickLoadComboBox_Click(object sender, EventArgs e) //rescan when clicked on combobox
+        {
+
+        }
+
+        private void quickLoadComboBox_SelectedIndexChanged(object sender, EventArgs e) //action when selection changed in combobox (clicked on item)
+        {
+            string selectedFileName = quickLoadComboBox.SelectedItem.ToString();
+
+            bool validFolderCheck = CheckForDefaultFolder();
+            if (validFolderCheck) // if the test is positive, then load current file
+            {
+                currentFileName = defaultFolderPath + "\\" + selectedFileName;
+                richTextBox.LoadFile(currentFileName, RichTextBoxStreamType.PlainText);
+                var fileNameOnly = FilenameTrimmer(currentFileName);
+                this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + currentFileName;
+                AutosaveActive(true);
+                StripStatusConstructor("Autosave is now active, take care while editing.", "", "", "");
+                EnableFeatures(true);
+            }
+
+            else
+            {
+                QuickLoadSaveBarControl(false);
+                StripStatusConstructor("", "Quickload failed", "Please check if default save folder exists.", "");
+            }
+
+            QuickLoadFileScan();
+        }
+
+
+        private void QuickLoadSaveBarControl(bool validDefPath)
+        {
+            // quickload items
+            quickLoadLabel.Enabled = validDefPath;
+            quickLoadComboBox.Enabled = validDefPath;
+
+            // quicksave items
             quicksaveLabel.Enabled = validDefPath;
             quicksaveTextBox.Enabled = validDefPath;
             quicksaveButton.Enabled = validDefPath;
@@ -49,15 +95,17 @@
                     if (Directory.Exists(File.ReadLines(defaultFolderLogFilePath).ElementAtOrDefault(0)))
                     {
                         defaultFolderPath = File.ReadLines(defaultFolderLogFilePath).ElementAtOrDefault(0);
-                        QuickSaveBarControl(true);
+                        QuickLoadSaveBarControl(true);
                         StripStatusConstructor("", "", "Saving files in: " + defaultFolderPath, "");
+                        QuickLoadFileScan();
                         return true;
                     }
 
                     else
                     {
                         StripStatusConstructor("", "", "Default save folder not found.", "");
-                        QuickSaveBarControl(false);
+                        QuickLoadSaveBarControl(false);
+                        QuickLoadFileScan();
                         return false;
                     }
                 }
@@ -65,7 +113,8 @@
             else
             {
                 StripStatusConstructor("", "", "Default folder not selected.", "");
-                QuickSaveBarControl(false);
+                QuickLoadSaveBarControl(false);
+                QuickLoadFileScan();
                 return false;
             }
         }
