@@ -7,7 +7,8 @@ namespace AutosaveNotepad
     {
         //variables
         private string openWithFilePath = "";
-        private string currentFileName = string.Empty;
+        private string currentFileName = "";
+        string fileNameOnly = "";
         private bool autosaveActive = false;
         string defaultFolderPath = string.Empty;
         string[] defaultFolderTxtFiles = new string[0];
@@ -45,6 +46,7 @@ namespace AutosaveNotepad
             WordWrapActive(true);
             ResetFind();
             ReplaceController(searchResultOK);
+            SaveButtonCheck();
             OpenWithHandler(); //handle "open with" event
 
             statusStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
@@ -112,7 +114,5 @@ namespace AutosaveNotepad
         {
 
         }
-
-
     }
 }

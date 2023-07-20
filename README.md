@@ -109,17 +109,17 @@ by DWFLS
 ## **v1.2** Quick Load mode
 - [x] .0 - moved word count to toolstrip
 	- [x] .1 - fixed error caused by deleted word count label and tweaked status strip constructor to work better with word count.
-- [ ] .1 - quick load create a dropdown menu that reads all text files in def folder and opens them when clicked
+- [x] .1 - quick load create a dropdown menu that reads all text files in def folder and opens them when clicked
 	- [x] rearranged the quickload/save panel
 	- [x] rename panel to quicksave/load
 	- [x] circumstantial enable and disable
-	- [ ] deal with interference from AutosaveActive() method
-	- [ ] rename menustrip item
+	- [x] deal with interference from AutosaveActive() method
+	- [x] add manual Save button (use case: autosave is disabled by user)
+	- [x] rename menustrip item
+	- [x] refresh dropdown menu when clicking it
 - [ ] .2 - refresh default folder check and rescan for textfiles for the dropdown menu
 	- [ ] on formwindow focus regain
 	- [ ] file menu item click
-	- [ ] file actions (before dialogue and after successful action)	
-	- [ ] when clicking the dropdown menu
 - [ ] .3 - add ctrl+f shortcut for search	
 - [ ] .4 - change font color if file already exists when quicksaving
 - [ ] .5 - mod an.cfg file content so it's understandable without knowing the array key (convert from "true" to "setting = true")

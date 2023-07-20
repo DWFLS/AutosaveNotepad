@@ -98,6 +98,7 @@
             this.replaceLabel = new System.Windows.Forms.Label();
             this.findTextBox = new System.Windows.Forms.TextBox();
             this.searchLabel = new System.Windows.Forms.Label();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip.SuspendLayout();
             this.menuStrip.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -167,6 +168,7 @@
             this.newToolStripMenuItem,
             this.openToolStripMenuItem,
             this.toolStripSeparator1,
+            this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
             this.saveAsCopyToolStripMenuItem,
             this.toolStripSeparator2,
@@ -383,15 +385,15 @@
             // quicksavePanelToolStripMenuItem
             // 
             this.quicksavePanelToolStripMenuItem.Name = "quicksavePanelToolStripMenuItem";
-            this.quicksavePanelToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
-            this.quicksavePanelToolStripMenuItem.Text = "Quicksave Panel";
+            this.quicksavePanelToolStripMenuItem.Size = new System.Drawing.Size(270, 26);
+            this.quicksavePanelToolStripMenuItem.Text = "Quickload/Quicksave Panel";
             this.quicksavePanelToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.quicksavePanelToolStripMenuItem_CheckStateChanged);
             this.quicksavePanelToolStripMenuItem.Click += new System.EventHandler(this.quicksavePanelToolStripMenuItem_Click);
             // 
             // searchPanelToolStripMenuItem
             // 
             this.searchPanelToolStripMenuItem.Name = "searchPanelToolStripMenuItem";
-            this.searchPanelToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.searchPanelToolStripMenuItem.Size = new System.Drawing.Size(270, 26);
             this.searchPanelToolStripMenuItem.Text = "Search Panel";
             this.searchPanelToolStripMenuItem.CheckStateChanged += new System.EventHandler(this.searchPanelToolStripMenuItem_CheckStateChanged);
             this.searchPanelToolStripMenuItem.Click += new System.EventHandler(this.searchPanelToolStripMenuItem_Click);
@@ -400,14 +402,14 @@
             // 
             this.darkModeToolStripMenuItem1.CheckOnClick = true;
             this.darkModeToolStripMenuItem1.Name = "darkModeToolStripMenuItem1";
-            this.darkModeToolStripMenuItem1.Size = new System.Drawing.Size(197, 26);
+            this.darkModeToolStripMenuItem1.Size = new System.Drawing.Size(270, 26);
             this.darkModeToolStripMenuItem1.Text = "Dark Mode";
             this.darkModeToolStripMenuItem1.Click += new System.EventHandler(this.darkModeToolStripMenuItem1_Click);
             // 
             // debugConsoleToolStripMenuItem
             // 
             this.debugConsoleToolStripMenuItem.Name = "debugConsoleToolStripMenuItem";
-            this.debugConsoleToolStripMenuItem.Size = new System.Drawing.Size(197, 26);
+            this.debugConsoleToolStripMenuItem.Size = new System.Drawing.Size(270, 26);
             this.debugConsoleToolStripMenuItem.Text = "Debug Console";
             this.debugConsoleToolStripMenuItem.Click += new System.EventHandler(this.debugConsoleToolStripMenuItem_Click);
             // 
@@ -565,6 +567,7 @@
             this.quickLoadComboBox.Size = new System.Drawing.Size(247, 28);
             this.quickLoadComboBox.TabIndex = 8;
             this.quickLoadComboBox.SelectedIndexChanged += new System.EventHandler(this.quickLoadComboBox_SelectedIndexChanged);
+            this.quickLoadComboBox.SelectionChangeCommitted += new System.EventHandler(this.quickLoadComboBox_SelectionChangeCommitted);
             this.quickLoadComboBox.Click += new System.EventHandler(this.quickLoadComboBox_Click);
             // 
             // autosaveCheckBox
@@ -723,6 +726,13 @@
             this.searchLabel.TabIndex = 0;
             this.searchLabel.Text = "Find:";
             // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(311, 26);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
             // formMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -826,5 +836,6 @@
         private ToolStripMenuItem debugConsoleToolStripMenuItem;
         private ComboBox quickLoadComboBox;
         private Label quickLoadLabel;
+        private ToolStripMenuItem saveToolStripMenuItem;
     }
 }

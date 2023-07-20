@@ -23,6 +23,11 @@
             SaveAs();
         }
 
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+
         private void saveAsCopyToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(currentFileName))

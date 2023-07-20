@@ -12,7 +12,7 @@
                 richTextBox.Text = openWithFilePath;
 
                 richTextBox.LoadFile(openWithFilePath, RichTextBoxStreamType.PlainText);
-                var fileNameOnly = FilenameTrimmer(openWithFilePath);
+                fileNameOnly = FilenameTrimmer(openWithFilePath);
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + openWithFilePath;
                 currentFileName = openWithFilePath;
                 AutosaveActive(true);

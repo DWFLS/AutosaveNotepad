@@ -5,6 +5,8 @@
     using System.Windows.Forms;
     public partial class formMain : Form
     {
+        string selectedFileName = "";
+
         private void quicksaveButton_Click_1(object sender, EventArgs e)
         {
             bool validFolderCheck = CheckForDefaultFolder();
@@ -12,7 +14,7 @@
             {
                 currentFileName = defaultFolderPath + "\\" + quicksaveTextBox.Text + ".txt";
                 richTextBox.SaveFile(currentFileName, RichTextBoxStreamType.PlainText);
-                var fileNameOnly = FilenameTrimmer(currentFileName);
+                fileNameOnly = FilenameTrimmer(currentFileName);
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + currentFileName;
                 AutosaveActive(true);
                 StripStatusConstructor("Autosave is now active.", "Quicksave successful.", "", "");
@@ -45,19 +47,25 @@
 
         private void quickLoadComboBox_Click(object sender, EventArgs e) //rescan when clicked on combobox
         {
-
+            QuickLoadFileScan();
         }
 
         private void quickLoadComboBox_SelectedIndexChanged(object sender, EventArgs e) //action when selection changed in combobox (clicked on item)
         {
-            string selectedFileName = quickLoadComboBox.SelectedItem.ToString();
+
+        }
+
+        private void quickLoadComboBox_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            selectedFileName = quickLoadComboBox.SelectedItem.ToString();
+            AutosaveActive(false); // disable autosave temporarily to prevent crashing caused by double loading
 
             bool validFolderCheck = CheckForDefaultFolder();
-            if (validFolderCheck) // if the test is positive, then load current file
+            if (validFolderCheck && selectedFileName != "") // if the test is positive, then load current file
             {
                 currentFileName = defaultFolderPath + "\\" + selectedFileName;
                 richTextBox.LoadFile(currentFileName, RichTextBoxStreamType.PlainText);
-                var fileNameOnly = FilenameTrimmer(currentFileName);
+                fileNameOnly = FilenameTrimmer(currentFileName);
                 this.Text = "AutosaveNotepad - " + fileNameOnly + " - " + currentFileName;
                 AutosaveActive(true);
                 StripStatusConstructor("Autosave is now active, take care while editing.", "", "", "");
@@ -69,8 +77,7 @@
                 QuickLoadSaveBarControl(false);
                 StripStatusConstructor("", "Quickload failed", "Please check if default save folder exists.", "");
             }
-
-            QuickLoadFileScan();
+            SaveButtonCheck();
         }
 
 
