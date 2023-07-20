@@ -121,7 +121,7 @@ by DWFLS
 	- [x] on formwindow focus regain
 	- [x] file menu item click post any method call
 	- [x] handle save, autosave and default folder on focus regain after deleting files
-- [ ] .3 - add ctrl+f shortcut for search	
+- [x] .3 - add ctrl+f shortcut for search, ctr+p for print and ctrl+q for quickload/save panel	
 - [ ] .4 - change font color if file already exists when quicksaving
 - [ ] .5 - mod an.cfg file content so it's understandable without knowing the array key (convert from "true" to "setting = true")
 - [ ] .6 - update readme and release v1.2.5
