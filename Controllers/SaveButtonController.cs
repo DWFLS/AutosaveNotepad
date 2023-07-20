@@ -5,14 +5,16 @@
     {
         private void SaveButtonCheck()
         {
-            if (currentFileName == "")
+            if (currentFileName != "" && File.Exists(currentFileName))
             {
-                saveToolStripMenuItem.Enabled = false;
+                saveToolStripMenuItem.Enabled = true;
             }
 
             else
             {
-                saveToolStripMenuItem.Enabled = true;
+                AutosaveActive(false);
+                autosaveCheckBox.Enabled = false;
+                saveToolStripMenuItem.Enabled = false;
             }
         }
     }

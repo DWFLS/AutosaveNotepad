@@ -28,33 +28,6 @@
             }
         }
 
-        /*
-         
-         Checks
-
-         */
-
-        private void QuickLoadFileScan() //populating the combobox by rescanning everytime method loads
-        {
-            defaultFolderTxtFiles = Directory.GetFiles(defaultFolderPath, "*.txt");
-            quickLoadComboBox.Items.Clear();
-            foreach (string file in defaultFolderTxtFiles)
-            {
-                string fileName = Path.GetFileName(file);
-                quickLoadComboBox.Items.Add(fileName);
-            }
-        }
-
-        private void quickLoadComboBox_Click(object sender, EventArgs e) //rescan when clicked on combobox
-        {
-            QuickLoadFileScan();
-        }
-
-        private void quickLoadComboBox_SelectedIndexChanged(object sender, EventArgs e) //action when selection changed in combobox (clicked on item)
-        {
-
-        }
-
         private void quickLoadComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             selectedFileName = quickLoadComboBox.SelectedItem.ToString();
@@ -80,6 +53,32 @@
             SaveButtonCheck();
         }
 
+        private void quickLoadComboBox_Click(object sender, EventArgs e) //rescan when clicked on combobox
+        {
+            QuickLoadFileScan();
+        }
+
+        private void quickLoadComboBox_SelectedIndexChanged(object sender, EventArgs e) //action when selection changed in combobox (clicked on item)
+        {
+
+        }
+
+        /*
+         
+         Checks
+
+         */
+
+        private void QuickLoadFileScan() //populating the combobox by rescanning everytime method loads
+        {
+            defaultFolderTxtFiles = Directory.GetFiles(defaultFolderPath, "*.txt");
+            quickLoadComboBox.Items.Clear();
+            foreach (string file in defaultFolderTxtFiles)
+            {
+                string fileName = Path.GetFileName(file);
+                quickLoadComboBox.Items.Add(fileName);
+            }
+        }
 
         private void QuickLoadSaveBarControl(bool validDefPath)
         {
@@ -112,7 +111,6 @@
                     {
                         StripStatusConstructor("", "", "Default save folder not found.", "");
                         QuickLoadSaveBarControl(false);
-                        QuickLoadFileScan();
                         return false;
                     }
                 }
@@ -121,7 +119,6 @@
             {
                 StripStatusConstructor("", "", "Default folder not selected.", "");
                 QuickLoadSaveBarControl(false);
-                QuickLoadFileScan();
                 return false;
             }
         }

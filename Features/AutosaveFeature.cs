@@ -8,8 +8,18 @@
         {
             if (autosaveActive)
             {
-                richTextBox.SaveFile(currentFileName, RichTextBoxStreamType.PlainText);
-                StripStatusConstructor("Autosave is active.", "", "", "");
+                if (File.Exists(currentFileName))
+                {
+                    richTextBox.SaveFile(currentFileName, RichTextBoxStreamType.PlainText);
+                    StripStatusConstructor("Autosave is active.", "", "", "");
+                }
+
+                else
+                {
+                    AutosaveActive(false);
+                    StripStatusConstructor("Current file is missing. Autosave deactivated.", "", "", "");
+                }
+                SaveButtonCheck();
             }
 
             else StripStatusConstructor("Autosave is NOT active.", "", "", "");

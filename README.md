@@ -117,9 +117,10 @@ by DWFLS
 	- [x] add manual Save button (use case: autosave is disabled by user)
 	- [x] rename menustrip item
 	- [x] refresh dropdown menu when clicking it
-- [ ] .2 - refresh default folder check and rescan for textfiles for the dropdown menu
-	- [ ] on formwindow focus regain
-	- [ ] file menu item click
+- [x] .2 - refresh default folder check and rescan for textfiles for the dropdown menu
+	- [x] on formwindow focus regain
+	- [x] file menu item click post any method call
+	- [x] handle save, autosave and default folder on focus regain after deleting files
 - [ ] .3 - add ctrl+f shortcut for search	
 - [ ] .4 - change font color if file already exists when quicksaving
 - [ ] .5 - mod an.cfg file content so it's understandable without knowing the array key (convert from "true" to "setting = true")

@@ -56,6 +56,7 @@
                 EnableFeatures(true);
             }
             SaveButtonCheck();
+            CheckForDefaultFolder();
         }
 
         public void Open()
@@ -78,6 +79,7 @@
                 }
             }
             SaveButtonCheck();
+            CheckForDefaultFolder();
         }
 
         private void SaveAs()
@@ -96,6 +98,7 @@
                 EnableFeatures(true);
             }
             SaveButtonCheck();
+            CheckForDefaultFolder();
         }
 
         private void SaveAsCopy() //this creates a copy that will not be currently edited
@@ -113,6 +116,7 @@
                 EnableFeatures(true);
             }
             SaveButtonCheck();
+            CheckForDefaultFolder();
         }
 
         private void openFileDialog1_FileOk(object sender, System.ComponentModel.CancelEventArgs e)

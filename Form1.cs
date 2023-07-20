@@ -79,6 +79,9 @@ namespace AutosaveNotepad
             // Save on "x"
             this.FormClosing += formMain_FormClosing;
 
+            //regain focus
+            this.Activated += Form1_Activated;
+
             // Default and user Settings handler
             SetupSettings();
         }
@@ -94,6 +97,13 @@ namespace AutosaveNotepad
             {
                 SaveSettings();
             }
+        }
+
+        private void Form1_Activated(object sender, EventArgs e)
+        {
+            // Call the method you want to execute when the form regains focus.
+            CheckForDefaultFolder();
+            SaveButtonCheck();
         }
 
         //
