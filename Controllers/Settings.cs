@@ -39,13 +39,13 @@ an.cfg
         {
             GetDesktopPath();
             config[0] = desktopPath;
-            config[1] = "false"; //Case Sensitive Search
-            config[2] = "true"; //Word Wrap
-            config[3] = "true"; //Word Count
-            config[4] = "true"; //Quicksave Panel
-            config[5] = "true"; //Search Panel
-            config[6] = "false"; //Dark Mode
-            config[7] = "false"; //Debug Console
+            config[1] = "Case Sensitive Search = false"; //Case Sensitive Search
+            config[2] = "Word Wrap = true"; //Word Wrap
+            config[3] = "Word Count = true"; //Word Count
+            config[4] = "Quicksave Panel = true"; //Quicksave Panel
+            config[5] = "Search Panel = true"; //Search Panel
+            config[6] = "Dark Mode = false"; //Dark Mode
+            config[7] = "Debug Console = false"; //Debug Console
 
             File.WriteAllLines(configFileNamePath, config);
         }
@@ -112,7 +112,7 @@ an.cfg
             //
             // --- Case Sensitive Search ---
             // 
-            if (config[1] == "true")
+            if (config[1] == "Case Sensitive Search = true")
             {
                 caseSensitiveSearchToolStripMenuItem.Checked = true;
                 CaseSenstiveSearch();
@@ -127,7 +127,7 @@ an.cfg
             // --- Word Wrap ---
             // 
 
-            if (config[2] == "true")
+            if (config[2] == "Word Wrap = true")
             {
                 wordWrapToolStripMenuItem.Checked = true;
                 WordWrapActive(true);
@@ -142,7 +142,7 @@ an.cfg
             // --- Word Count ---
             //
 
-            if (config[3] == "true")
+            if (config[3] == "Word Count = true")
             {
                 wordCountToolStripMenuItem.Checked = true;
                 WordCountCheck();
@@ -157,7 +157,7 @@ an.cfg
             // --- Quicksave Panel ---
             // 
 
-            if (config[4] == "true")
+            if (config[4] == "Quicksave Panel = true")
             {
                 quicksavePanelToolStripMenuItem.Checked = true;
             }
@@ -170,7 +170,7 @@ an.cfg
             // --- Search Panel ---
             // 
 
-            if (config[5] == "true")
+            if (config[5] == "Search Panel = true")
             {
                 searchPanelToolStripMenuItem.Checked = true;
             }
@@ -183,7 +183,7 @@ an.cfg
             // --- Dark Mode ---
             // 
 
-            if (config[6] == "true")
+            if (config[6] == "Dark Mode = true")
             {
                 darkModeToolStripMenuItem1.Checked = true;
                 CheckColors();
@@ -199,7 +199,7 @@ an.cfg
             // --- Debug Console ---
             //
 
-            if (config[7] == "true")
+            if (config[7] == "Debug Console = true")
             {
                 debugConsoleToolStripMenuItem.Checked = true;
                 CheckDebugConsole();
@@ -229,11 +229,11 @@ an.cfg
 
             if (caseSensitiveSearchToolStripMenuItem.Checked == true)
             {
-                config[1] = "true";
+                config[1] = "Case Sensitive Search = true";
             }
             else
             {
-                config[1] = "false";
+                config[1] = "Case Sensitive Search = false";
             }
 
 
@@ -243,11 +243,11 @@ an.cfg
 
             if (wordWrapToolStripMenuItem.Checked == true)
             {
-                config[2] = "true";
+                config[2] = "Word Wrap = true";
             }
             else
             {
-                config[2] = "false";
+                config[2] = "Word Wrap = false";
             }
 
             //
@@ -256,11 +256,11 @@ an.cfg
 
             if (wordCountToolStripMenuItem.Checked == true)
             {
-                config[3] = "true";
+                config[3] = "Word Count = true";
             }
             else
             {
-                config[3] = "false";
+                config[3] = "Word Count = false";
             }
 
             //
@@ -269,11 +269,11 @@ an.cfg
 
             if (quicksavePanelToolStripMenuItem.Checked == true)
             {
-                config[4] = "true";
+                config[4] = "Quicksave Panel = true";
             }
             else
             {
-                config[4] = "false";
+                config[4] = "Quicksave Panel = false";
             }
 
             //
@@ -282,11 +282,11 @@ an.cfg
 
             if (searchPanelToolStripMenuItem.Checked == true)
             {
-                config[5] = "true";
+                config[5] = "Search Panel = true";
             }
             else
             {
-                config[5] = "false";
+                config[5] = "Search Panel = false";
             }
 
             //
@@ -295,11 +295,11 @@ an.cfg
 
             if (darkModeToolStripMenuItem1.Checked == true)
             {
-                config[6] = "true";
+                config[6] = "Dark Mode = true";
             }
             else
             {
-                config[6] = "false";
+                config[6] = "Dark Mode = false";
             }
 
             //
@@ -308,11 +308,11 @@ an.cfg
 
             if (debugConsoleToolStripMenuItem.Checked == true)
             {
-                config[7] = "true";
+                config[7] = "Debug Console = true";
             }
             else
             {
-                config[7] = "false";
+                config[7] = "Debug Console = false";
             }
 
             File.WriteAllLines(configFileNamePath, config);

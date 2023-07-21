@@ -123,5 +123,5 @@ by DWFLS
 	- [x] handle save, autosave and default folder on focus regain after deleting files
 - [x] .3 - add ctrl+f shortcut for search, ctr+p for print and ctrl+q for quickload/save panel	
 - [x] .4 - change quicksave button text to "overwrite" when file already exists, as well as the color of the the quicksaveTextBox.
-- [ ] .5 - mod an.cfg file content so it's understandable without knowing the array key (convert from "true" to "setting = true")
+- [x] .5 - mod an.cfg file content so it's understandable without knowing the array key (convert from "true" to "setting = true")
 - [ ] .6 - update readme and release v1.2.5
