@@ -106,12 +106,16 @@
                 if (!warning)
                 {
                     StripStatusConstructor("", "Quicksave filename valid.", "", "");
+                    quicksaveButton.Text = "Quicksave";
+                    quicksaveTextBox.ForeColor = Color.Black;
                 }
 
                 else
                 {
                     StripStatusConstructor("", "File already exists. Quicksave at own discretion.", "", "");
                     SystemSounds.Exclamation.Play();
+                    quicksaveButton.Text = "Overwrite";
+                    quicksaveTextBox.ForeColor = Color.Crimson;
                 }
 
             }
