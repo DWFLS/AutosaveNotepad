@@ -8,12 +8,13 @@ by DWFLS
 - [x] Highlight search results
 - [x] Replace All / Replace One Feature
 - [x] Printing Dialog Box
+- [x] Quick Load Feature
 - [x] Quick Save Feature
+- [x] User Settings Saved On Exit
 - [x] Word Count / Wrap Feature
 - [x] Display settings: Normal/Dark mode.
 - [x] Create, open, save, backup documents.
 - [x] Text editing functions (undo, redo, cut, copy, paste, select all)
-- [x] Dark Mode
 - [x] "Open with" functionality.
 
 ## Version history:
@@ -129,4 +130,4 @@ by DWFLS
 		- moved initial elements settings to settings controller module.
 	- [X] .2 minor tweaks to strip status text linked to quicksave and word wrap
 		- [x] .1 amend stripstatusconstructor change linked to panel1 visibility.
-- [ ] .6 - update readme and release v1.2.5
+- [x] .6 - update readme and release v1.2.6
