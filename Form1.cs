@@ -40,50 +40,23 @@ namespace AutosaveNotepad
             // AutosaveNotepad initial settings:
             //
 
+            statusStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
+            toolStripStatusLabel2.Alignment = ToolStripItemAlignment.Right;
+
             EnableFeatures(true);
             CheckForDefaultFolder();
             StripStatusConstructor("Autosave is NOT active - Create or open a document.", "", "", "");
-            WordWrapActive(true);
             ResetFind();
             ReplaceController(searchResultOK);
             SaveButtonCheck();
             OpenWithHandler(); //handle "open with" event
-
-            statusStrip.LayoutStyle = ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            toolStripStatusLabel2.Alignment = ToolStripItemAlignment.Right;
-
-            // initial settings
-            // --- menu items
-            undoToolStripMenuItem.Enabled = false;
-            undoToolStripMenuItem1.Enabled = false;
-            redoToolStripMenuItem.Enabled = false;
-            redoToolStripMenuItem1.Enabled = false;
-            cutToolStripMenuItem.Enabled = false;
-            cutToolStripMenuItem1.Enabled = false;
-            copyToolStripMenuItem.Enabled = false;
-            copyToolStripMenuItem1.Enabled = false;
-
-            // --- buttons
-            quicksaveButton.Enabled = false;
-            autosaveCheckBox.Enabled = false;
-            foundCounter.Visible = false;
-            findButton.Enabled = false;
-            searchButton.Enabled = false;
-            findNextButtonReal.Enabled = false;
-            findPrevButton.Enabled = false;
-            debug.Enabled = false;
-            debug.Visible = false;
-            searchPanel.Visible = false;
-            panel1.Visible = false;
+            SetupSettings(); // Initial, default and user Settings handler
 
             // Save on "x"
             this.FormClosing += formMain_FormClosing;
 
             //regain focus
             this.Activated += Form1_Activated;
-
-            // Default and user Settings handler
-            SetupSettings();
         }
 
         public void formMain_Load(object sender, EventArgs e)

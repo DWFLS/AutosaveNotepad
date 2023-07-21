@@ -124,4 +124,7 @@ by DWFLS
 - [x] .3 - add ctrl+f shortcut for search, ctr+p for print and ctrl+q for quickload/save panel	
 - [x] .4 - change quicksave button text to "overwrite" when file already exists, as well as the color of the the quicksaveTextBox.
 - [x] .5 - mod an.cfg file content so it's understandable without knowing the array key (convert from "true" to "setting = true")
+	- [x] .1 fixes and tweaks
+		- fixed not loading default settings after generating them.
+		- moved initial elements settings to settings controller module.
 - [ ] .6 - update readme and release v1.2.5

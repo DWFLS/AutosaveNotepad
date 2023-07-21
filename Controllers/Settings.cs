@@ -57,6 +57,7 @@ an.cfg
 
         private void SetupSettings()
         {
+            InitalElementsState();
             CombinePath();
 
             if (File.Exists(configFileNamePath))
@@ -68,8 +69,36 @@ an.cfg
 
             {
                 GenerateDefaultSettings();
+                LoadSettings();
             }
 
+        }
+
+        private void InitalElementsState()
+        {
+            // initial settings
+            // --- menu items
+            undoToolStripMenuItem.Enabled = false;
+            undoToolStripMenuItem1.Enabled = false;
+            redoToolStripMenuItem.Enabled = false;
+            redoToolStripMenuItem1.Enabled = false;
+            cutToolStripMenuItem.Enabled = false;
+            cutToolStripMenuItem1.Enabled = false;
+            copyToolStripMenuItem.Enabled = false;
+            copyToolStripMenuItem1.Enabled = false;
+
+            // --- buttons
+            quicksaveButton.Enabled = false;
+            autosaveCheckBox.Enabled = false;
+            foundCounter.Visible = false;
+            findButton.Enabled = false;
+            searchButton.Enabled = false;
+            findNextButtonReal.Enabled = false;
+            findPrevButton.Enabled = false;
+            debug.Enabled = false;
+            debug.Visible = false;
+            searchPanel.Visible = false;
+            panel1.Visible = false;
         }
 
         private void VerifySettings()
@@ -85,6 +114,7 @@ an.cfg
             {
                 File.Delete(configFileNamePath);
                 GenerateDefaultSettings();
+                LoadSettings();
             }
         }
 
