@@ -12,15 +12,6 @@
         private void quicksavePanelToolStripMenuItem_CheckStateChanged(object sender, EventArgs e)
         {
             panel1.Visible = quicksavePanelToolStripMenuItem.Checked;
-            if (panel1.Visible == false)
-            {
-                StripStatusConstructor("", "", " ", "");
-            }
-
-            else
-            {
-                StripStatusConstructor("", "", "", "");
-            }
         }
 
         // Search Panel
