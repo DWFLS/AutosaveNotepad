@@ -127,4 +127,5 @@ by DWFLS
 	- [x] .1 fixes and tweaks
 		- fixed not loading default settings after generating them.
 		- moved initial elements settings to settings controller module.
+	- [X] .2 minor tweaks to strip status text linked to quicksave and word wrap
 - [ ] .6 - update readme and release v1.2.5

@@ -102,14 +102,14 @@
                     {
                         defaultFolderPath = File.ReadLines(defaultFolderLogFilePath).ElementAtOrDefault(0);
                         QuickLoadSaveBarControl(true);
-                        StripStatusConstructor("", "", "Saving files in: " + defaultFolderPath, "");
+                        StripStatusConstructor("", "", "Quicksaving files in: " + defaultFolderPath, "");
                         QuickLoadFileScan();
                         return true;
                     }
 
                     else
                     {
-                        StripStatusConstructor("", "", "Default save folder not found.", "");
+                        StripStatusConstructor("", "", "Default quicksave folder not selected or found.", "");
                         QuickLoadSaveBarControl(false);
                         return false;
                     }
@@ -117,7 +117,7 @@
             }
             else
             {
-                StripStatusConstructor("", "", "Default folder not selected.", "");
+                StripStatusConstructor("", "", "Default quicksave folder not selected.", "");
                 QuickLoadSaveBarControl(false);
                 return false;
             }
