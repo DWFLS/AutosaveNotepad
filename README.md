@@ -145,3 +145,6 @@ by DWFLS
 	- [ ] auto listing (1., 2., 3. etc)
 	- [ ] emoticons support
 	- [ ] clickable to-do-like elements
+- [ ] Installer
+	- [ ] "Open with" appointed by installer
+	- [ ] Icon for documents handled by the app
