@@ -19,95 +19,7 @@ by DWFLS
 
 ## Version history:
 
-## **v1.0.1** - Fixes
-
-- [x] Fixed a bug causing clearing of the previous file while creating another new document.
-- [x] Removed redundant code.
-- [x] Cleaner code.
-
-## **v1.0.2** - Tweaks
-
-- [x] Rename "Save and Backup" to "Create a *Backup* Copy"
-- [x] Disable "Save as..." and "*Backup*" on app start.
-
-## **v1.0.3** - More Functionalities
-
-- [x] Display file name in window title
-- [x] New readme format
-- [x] Default save location
-- [x] Stip Status constructor
-- [x] Path in status strip
-- [x] Quicksave bar ui (avoiding popup dialog and clicking through menus to quickly create a file; type in the name of the file, press enter and file is ready to edit)
-- [x] Working quicksave
-- [x] Path in status strip
-- [x] Can write without autosave mode on again
-- [x] Drag and drop
-
-## **v1.0.4** - Context menu, Autosave toggle and word wrap.
-
-- [x] Right mouse button context menu
-- [x] Added regions
-- [x] Toggle editing functions availability on context (undo only if action made etc)
-- [x] Autosave toggle
-- [x] Line wrapping toggle
-
-## **v1.0.5** Find Feautre, Print and handling copy/paste/cut
-
-- [x] Full find feature
-	- [x] Rewriting from scratch
-	- [x] Fixed highlighting the last found entry
-	- [x] Unmark when typing again
-		- [x] resolve by enabling or reenabling upon pressing highlighting
-		- [x] disable all edit keys when highlighting
-	- [x] Fix issue when searched for string is inside of another, example: f in fff, issue with repeating chars (maybe skip past i's in the for loop? of split in two loops...)')
-	- [x] Separate Find from highlight button function
-	- [x] Find single previous or next		
-		- [x] Program the prev and next buttons
-		- [x] Limit character in the label that displays number of finds
-		- [x] URL the github status bar link
-- [x] Add icons (toolbar/app)
-- [x] Print function
-- [x] Check if can cut/copy/paste
-- [x] Handling pasting
-- [x] Improved roadmap
-
-## **v1.0.6.** Modular Programming, fixes and some functionalities 
-
-- [x] 0.X - Split Form1.cs into file modules
-- [x] 1 - Case sensitivity control for find feature
-- [x] 2 - Move more controllers and handlers
-- [x] 3 - Fix filename not showing when using quicksave
-- [x] 4 - Adjust dark mode behavior when in highlight mode
-- [x] 5 - Add an option to hide quicksavePanel along with search panel, rename display to view ""
-
-## **v1.0.7** Word Count and functionalities
-
-- [x] 0 - Word count
-- [x] 1 - Debug window toggle + feature
-- [x] 2 - Change richtextbox font to monospace-like.
-
-## **v1.0.8.** Replace all/one feature
-	
-- [x] 1.0 - **Replace all function complete**
-	- [x] 0.0 - Replace all button conditional on "search ok" bool
-- [x] 2.0 - **Replace "one" function complete**
-- [x] 2.1 - Hotfix a crash when opening currently opened text file
-- [x] 2.2 - Reformatted readme.md
-- [x] 2.3 - Reformatted readme.md
-- [x] 2.4 - Reformatted readme.md
-
-
-## **v1.1.0.** "Open with" feature and settings
-- [x] 0 - "Open with" complete
-- [x] - - Make default txt app - to be handled by installer or else
-- [x] 2 - Handle Settings
-	- [x] .1 - fix not saving on "X" button.
-	- [x] .2 - fix case sensitivity
-- [x] 3 - Add comments for readiblity, separated "highlight" feature from "Find" module, separated few controllers and improved debug console.
-	- [ ] .1 - Update readme to list all noticeable features
-- [x] 4 - Release v1.1.4 (Portable)
-
-## **v1.2** Quick Load mode
+### **v1.2** Quick Load mode
 - [x] .0 - moved word count to toolstrip
 	- [x] .1 - fixed error caused by deleted word count label and tweaked status strip constructor to work better with word count.
 - [x] .1 - quick load create a dropdown menu that reads all text files in def folder and opens them when clicked
@@ -131,3 +43,105 @@ by DWFLS
 	- [X] .2 minor tweaks to strip status text linked to quicksave and word wrap
 		- [x] .1 amend stripstatusconstructor change linked to panel1 visibility.
 - [x] .6 - update readme and release v1.2.6
+
+### **v1.1.0.** "Open with" feature and settings
+- [x] 0 - "Open with" complete
+- [x] - - Make default txt app - to be handled by installer or else
+- [x] 2 - Handle Settings
+	- [x] .1 - fix not saving on "X" button.
+	- [x] .2 - fix case sensitivity
+- [x] 3 - Add comments for readiblity, separated "highlight" feature from "Find" module, separated few controllers and improved debug console.
+	- [ ] .1 - Update readme to list all noticeable features
+- [x] 4 - Release v1.1.4 (Portable)
+
+### **v1.0.8.** Replace all/one feature
+	
+- [x] 1.0 - **Replace all function complete**
+	- [x] 0.0 - Replace all button conditional on "search ok" bool
+- [x] 2.0 - **Replace "one" function complete**
+- [x] 2.1 - Hotfix a crash when opening currently opened text file
+- [x] 2.2 - Reformatted readme.md
+- [x] 2.3 - Reformatted readme.md
+- [x] 2.4 - Reformatted readme.md
+
+### **v1.0.7** Word Count and functionalities
+
+- [x] 0 - Word count
+- [x] 1 - Debug window toggle + feature
+- [x] 2 - Change richtextbox font to monospace-like.
+
+### **v1.0.6.** Modular Programming, fixes and some functionalities 
+
+- [x] 0.X - Split Form1.cs into file modules
+- [x] 1 - Case sensitivity control for find feature
+- [x] 2 - Move more controllers and handlers
+- [x] 3 - Fix filename not showing when using quicksave
+- [x] 4 - Adjust dark mode behavior when in highlight mode
+- [x] 5 - Add an option to hide quicksavePanel along with search panel, rename display to view ""
+
+### **v1.0.5** Find Feautre, Print and handling copy/paste/cut
+
+- [x] Full find feature
+	- [x] Rewriting from scratch
+	- [x] Fixed highlighting the last found entry
+	- [x] Unmark when typing again
+		- [x] resolve by enabling or reenabling upon pressing highlighting
+		- [x] disable all edit keys when highlighting
+	- [x] Fix issue when searched for string is inside of another, example: f in fff, issue with repeating chars (maybe skip past i's in the for loop? of split in two loops...)')
+	- [x] Separate Find from highlight button function
+	- [x] Find single previous or next		
+		- [x] Program the prev and next buttons
+		- [x] Limit character in the label that displays number of finds
+		- [x] URL the github status bar link
+- [x] Add icons (toolbar/app)
+- [x] Print function
+- [x] Check if can cut/copy/paste
+- [x] Handling pasting
+- [x] Improved roadmap
+
+### **v1.0.4** - Context menu, Autosave toggle and word wrap.
+
+- [x] Right mouse button context menu
+- [x] Added regions
+- [x] Toggle editing functions availability on context (undo only if action made etc)
+- [x] Autosave toggle
+- [x] Line wrapping toggle
+
+### **v1.0.3** - More Functionalities
+
+- [x] Display file name in window title
+- [x] New readme format
+- [x] Default save location
+- [x] Stip Status constructor
+- [x] Path in status strip
+- [x] Quicksave bar ui (avoiding popup dialog and clicking through menus to quickly create a file; type in the name of the file, press enter and file is ready to edit)
+- [x] Working quicksave
+- [x] Path in status strip
+- [x] Can write without autosave mode on again
+- [x] Drag and drop
+
+### **v1.0.2** - Tweaks
+
+- [x] Rename "Save and Backup" to "Create a *Backup* Copy"
+- [x] Disable "Save as..." and "*Backup*" on app start.
+
+### **v1.0.1** - Fixes
+
+- [x] Fixed a bug causing clearing of the previous file while creating another new document.
+- [x] Removed redundant code.
+- [x] Cleaner code.
+
+## Ideas for future features:
+- [] Design choices
+	- [] Search on the go and "query+enter" button
+	- [] responsive design adjusting to window size
+	- [] add case senstivive check box
+- [] Multitab
+	- [] Tab drag and drop
+	- [] Tab separate like in browser
+- [] Format of the textbox
+	- [] interpreting text into elements
+	- [] switch view from plain text to advanced
+	- [] auto listing (1., 2., 3. etc)
+	- [] emoticons support
+	- [] clickable to-do-like elements
