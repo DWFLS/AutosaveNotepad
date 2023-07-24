@@ -136,6 +136,8 @@ by DWFLS
 	- [ ] Search on the go and "query+enter" button
 	- [ ] responsive design adjusting to window size
 	- [ ] add case senstivive check box
+	- [ ] global font setting for the app
+	- [ ] buttons for text scale (functionality of ctrl+scrollup/scrolldown)
 - [ ] Multitab
 	- [ ] Tab drag and drop
 	- [ ] Tab separate like in browser
