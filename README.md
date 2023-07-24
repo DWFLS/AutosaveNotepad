@@ -132,16 +132,16 @@ by DWFLS
 - [x] Cleaner code.
 
 ## Ideas for future features:
-- [] Design choices
-	- [] Search on the go and "query+enter" button
-	- [] responsive design adjusting to window size
-	- [] add case senstivive check box
-- [] Multitab
-	- [] Tab drag and drop
-	- [] Tab separate like in browser
-- [] Format of the textbox
-	- [] interpreting text into elements
-	- [] switch view from plain text to advanced
-	- [] auto listing (1., 2., 3. etc)
-	- [] emoticons support
-	- [] clickable to-do-like elements
+- [ ] Design choices
+	- [ ] Search on the go and "query+enter" button
+	- [ ] responsive design adjusting to window size
+	- [ ] add case senstivive check box
+- [ ] Multitab
+	- [ ] Tab drag and drop
+	- [ ] Tab separate like in browser
+- [ ] Format of the textbox
+	- [ ] interpreting text into elements
+	- [ ] switch view from plain text to advanced
+	- [ ] auto listing (1., 2., 3. etc)
+	- [ ] emoticons support
+	- [ ] clickable to-do-like elements
