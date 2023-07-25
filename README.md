@@ -1,5 +1,6 @@
 # **AutosaveNotepad**
 by DWFLS
+Latest release: **v1.2.6**
 
 ## Features:
 - [x] Text editing.
@@ -19,7 +20,7 @@ by DWFLS
 
 ## Version history:
 
-### **v1.2** Quick Load mode
+### **v1.2+** Quick Load mode
 - [x] .0 - moved word count to toolstrip
 	- [x] .1 - fixed error caused by deleted word count label and tweaked status strip constructor to work better with word count.
 - [x] .1 - quick load create a dropdown menu that reads all text files in def folder and opens them when clicked
@@ -138,11 +139,13 @@ by DWFLS
 	- [ ] add case senstivive check box
 	- [ ] global font setting for the app
 	- [ ] buttons for text scale (functionality of ctrl+scrollup/scrolldown)
+	- [ ] customize font panel
+	- [ ] enhanced dark mode (all elements colored)
 - [ ] Multitab
 	- [ ] Tab drag and drop
 	- [ ] Tab separate like in browser
 - [ ] Format of the textbox
-	- [ ] interpreting text into elements
+	- [ ] interpreting text into elements and saving into plain text
 	- [ ] switch view from plain text to advanced
 	- [ ] auto listing (1., 2., 3. etc)
 	- [ ] emoticons support
