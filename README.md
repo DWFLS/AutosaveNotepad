@@ -133,6 +133,10 @@ Latest release: **v1.2.6**
 - [x] Cleaner code.
 
 ## Ideas for future features:
+- [ ] Improvements
+	- [ ] Save Settings on right click -> close in the taskbar
+	- [ ] Add more autosave settings points in case of a crash
+	- [ ] Change default font
 - [ ] Design choices
 	- [ ] Search on the go and "query+enter" button
 	- [ ] responsive design adjusting to window size
